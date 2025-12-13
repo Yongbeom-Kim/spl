@@ -19,7 +19,7 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
 export const PageWithHeroLayout = ({ children }: PageLayoutProps) => {
   return (
     <div>
-      <div className='grid grid-rows-[auto_1fr] h-svh'>
+      <div className='grid grid-rows-[auto_1fr] min-h-svh'>
         <Header />
         <HeroSection />
       </div>

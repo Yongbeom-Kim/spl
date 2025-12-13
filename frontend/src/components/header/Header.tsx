@@ -6,7 +6,7 @@ import { headerNavRoutes } from '@/util/const'
 export function MobileHeader() {
   return (
     <>
-    <header className="sticky lg:hidden bg-neutral-0 w-full px-4 py-2 h-16 z-50 flex flex-row justify-between items-center">
+    <header className="sticky top-0 z-50 lg:hidden bg-neutral-0/80 w-full px-4 py-2 h-16 flex flex-row justify-between items-center backdrop-blur-md shadow-sm">
       <div className="flex items-center justify-center h-12 aspect-square -translate-x-1">
         <img
           src="/logo.png"
@@ -27,9 +27,9 @@ export function MobileHeader() {
 
 export function DesktopHeader() {
   return (
-    <header className="hidden lg:flex justify-between items-center w-full h-28 relative bg-neutral-0 px-4 py-2">
-      <div className="flex flex-row items-center gap-6">
-        <div className="flex items-center justify-center h-22 aspect-square translate-y-1">
+    <header className="sticky top-0 z-50 hidden lg:flex justify-between items-center w-full h-20 bg-neutral-0/80 px-4 py-2 backdrop-blur-md shadow-sm">
+      <div className="flex flex-row items-center gap-2">
+        <div className="flex items-center justify-center h-16 aspect-square translate-y-1">
           <img
             src="/logo.png"
             alt="Logo"

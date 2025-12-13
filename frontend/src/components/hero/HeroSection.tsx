@@ -8,7 +8,7 @@ const HeroBackgroundImage = () => {
       <img
         src={heroSectionImage}
         alt="Hero section"
-        className="object-cover h-screen w-screen"
+        className="object-cover h-full w-full"
       />
       <div className="absolute inset-0 bg-black/60" />
     </>
