@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+
 @theme {
   /* Accent Red Colors */
   --color-accent-red-200: #F79A92;

@@ -6,7 +6,7 @@ import { headerNavRoutes } from '@/util/const'
 export function MobileHeader() {
   return (
     <>
-    <header className="block sticky lg:hidden bg-neutral-0 w-full px-4 py-2 h-16 z-50">
+    <header className="sticky lg:hidden bg-neutral-0 w-full px-4 py-2 h-16 z-50 flex flex-row justify-between items-center">
       <div className="flex items-center justify-center h-12 aspect-square -translate-x-1">
         <img
           src="/logo.png"
@@ -15,7 +15,7 @@ export function MobileHeader() {
         />
       </div>
 
-      <h1 className="text-3xl font-bold uppercase tracking-[0.9px] text-neutral-900 font-brush absolute left-1/2 -translate-x-1/2 -translate-y-1.5 top-0 whitespace-nowrap">
+      <h1 className="text-3xl font-bold uppercase tracking-[0.9px] text-neutral-900 font-brush top-0 whitespace-nowrap">
         SENPAI LEARN
       </h1>
       <MobileHeaderHamburgerButton />

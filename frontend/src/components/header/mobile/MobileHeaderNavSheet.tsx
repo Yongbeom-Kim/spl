@@ -10,7 +10,7 @@ export const MobileHeaderNavSheet = () => {
   return (
     <div
       className={classNames(
-        'fixed h-full w-full bg-neutral-0 grid place-items-center transition-opacity ease-in',
+        'fixed h-full w-full bg-neutral-0 grid place-items-center transition-opacity ease-in z-40',
         {
           'opacity-0 pointer-events-none': !isOpen,
           'opacity-100': isOpen,

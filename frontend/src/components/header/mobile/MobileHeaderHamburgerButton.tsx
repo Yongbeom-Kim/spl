@@ -18,7 +18,7 @@ export const MobileHeaderHamburgerButton = () => {
 
   return (
     <button
-      className="absolute right-2 top-2 h-12 w-12 flex flex-col gap-1.5 items-center justify-center"
+      className="h-12 w-12 flex flex-col gap-1.5 items-center justify-center"
       aria-label={isOpen ? "Open navigation menu" : "Close navigation menu"}
       onClick={() => (console.log(isOpen), setIsOpen((open) => !open))}
     >
