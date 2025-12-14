@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "staging": "senpailearn-global"
+  },
+  "targets": {
+    "senpailearn-global": {
+      "hosting": {
+        "staging": [
+          "senpailearn-staging-b29e5"
+        ],
+        "prod": [
+          "senpailearn-prod-b29e5"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
