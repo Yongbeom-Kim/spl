@@ -34,7 +34,7 @@ const MobileLandingPageContents = () => (
       <img
         src="/img_2206.png"
         alt="test"
-        className="aspect-video object-cover outline translate-x-1/8"
+        className="aspect-video object-cover outline my-6 translate-x-1/12 scale-[1.166]"
       />
       <div
         className="
