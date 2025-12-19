@@ -1,5 +1,5 @@
-import { DesktopLandingPage } from "@/pages/home/components/LandingPage"
+import { LandingPage } from "./components/LandingPage"
 
 export const HomePage = () => {
-	return <DesktopLandingPage />
+	return <LandingPage />
 }
