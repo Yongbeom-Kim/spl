@@ -1,12 +1,3 @@
-export const headerNavRoutes = [
-	{ name: 'About', path: '/about' },
-	{ name: 'Publications', path: '/publications' },
-	{ name: 'Projects', path: '/projects' },
-	{ name: 'News', path: '/news' },
-	{ name: 'Our People', path: '/people' },
-	{ name: 'Partners', path: '/partners' },
-]
-
 export const footerLinks = [
   { name: 'About', path: '/about' },
   { name: 'Projects', path: '/projects' },

@@ -1,15 +1,5 @@
-import { PageWithHeroLayout } from "@/components/page-layout/PageLayout"
-import { AboutUsSection } from "@/pages/home/components/sections/AboutUsSection"
-import { ProjectSection } from "@/pages/home/components/sections/ProjectSection"
-import { NewsSection } from "@/pages/home/components/sections/NewsSection"
-
+import { DesktopLandingPage } from "@/pages/home/components/LandingPage"
 
 export const HomePage = () => {
-	return (
-		<PageWithHeroLayout>
-			<AboutUsSection />
-			<ProjectSection />
-			<NewsSection />
-		</PageWithHeroLayout>
-	)
+	return <DesktopLandingPage />
 }
