@@ -21,7 +21,7 @@ export const DesktopLandingPage = (props: DesktopLandingPageProps) => {
       className={`
         w-screen h-svh overflow-y-auto overflow-x-hidden p-10
         bg-neutral-50
-        grid grid-cols-[1fr_1.2fr] grid-rows-[130px_1fr_1fr_auto] gap-4
+        grid grid-cols-[1fr_1.2fr] grid-rows-[150px_1fr_1fr_auto] gap-4
         ${props.className}`}
       style={{
         scrollbarGutter: 'stable',
