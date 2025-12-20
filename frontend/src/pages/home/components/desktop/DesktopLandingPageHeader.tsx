@@ -8,7 +8,7 @@ export const DesktopLandingPageHeader = (props: DivWithoutChildren) => (
     className={`flex flex-row items-center gap-4 h-full
       ${props.className}`}
   >
-    <div className="font-main font-bold text-9xl capitalize">SENPAI LEARN</div>
+    <div className="font-main font-bold text-[115px] capitalize">SENPAI LEARN</div>
     <img src="/logo.png" alt="TODO" className="h-full p-1 pl-4" />
   </div>
 )
