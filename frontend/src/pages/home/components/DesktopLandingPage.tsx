@@ -1,52 +1,72 @@
+import { DesktopHeader } from '@/components/desktop-header/DesktopHeader'
 import { Link } from '@tanstack/react-router'
+
+type DesktopHeroProps = Omit<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+  'children'
+>
+const DesktopHero = (props: DesktopHeroProps) => {
+  return (
+    <div
+      {...props}
+      className={`${props.className} grid grid-cols-1 grid-rows-[auto_1fr]`}
+    >
+      <DesktopHeader />
+      <div
+        className="
+          row-[2/3]
+          h-full max-h-full min-h-0 w-full relative
+          after:absolute after:inset-0 after:bg-neutral-100/80"
+      >
+        <img
+          src="/img_2206.png"
+          alt=""
+          className="
+            w-full object-cover
+            h-full min-h-0
+          "
+        />
+      </div>
+
+      <div
+        className="
+          absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2
+          flex flex-col items-left justify-center gap-6
+          p-10
+          bg-red-200/80
+          "
+      >
+        <h1 className="font-bold text-5xl">Welcome to Senpai Learn!</h1>
+        <div className="text-2xl font-semibold">
+          We are a team of enablers who support projects related to enhanced
+          learning via novel approaches.
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const DesktopLandingPageContentsBackground = () => (
   <>
-    <div className="relative z-10 col-[2/3] row-[1/4] bg-red-100 mix-blend-multiply" />
-    <div className="col-span-full row-[3/5] bg-orange-100" />
+
+<div className="col-[2/3] row-[2/3] bg-red-100 h-100"></div>
+    {/* <div className="relative z-10 col-[2/3] row-[1/4] bg-red-100 mix-blend-multiply" />
+    <div className="col-span-full row-[3/5] bg-orange-100" /> */}
   </>
-)
-
-const DesktopLandingPageHeaderBackground = () => (
-  <div className="relative min-h-0 h-full col-span-full row-[1/2] bg-neutral-400" />
-)
-
-const DesktopLandingPageHeader = () => (
-  <div className="min-h-0 h-full col-span-full row-[1/1] grid grid-cols-subgrid grid-rows-1 bg-transparent relative">
-    <div className="h-full w-full p-2 pl-4">
-      <Link to="/">
-        <img
-          src="/logo.png"
-          className="h-full max-h-full object-contain block"
-        />
-      </Link>
-    </div>
-    <Link
-      to="/"
-      className="uppercase col-start-2 col-end-2 flex my-auto mr-auto p-4 py-0 font-navbar"
-    >
-      Senpai Learn
-    </Link>
-  </div>
 )
 
 const DesktopLandingPageContents = () => (
   <>
     <div className="col-[2/2] row-[2/2] p-4 pt-10 pr-20 flex flex-col gap-12">
-      <h1 className="font-bold text-5xl">Welcome to Senpai Learn!</h1>
-      <div className="text-2xl font-semibold">
-        We are a team of enablers who support projects related to enhanced
-        learning via novel approaches.
-      </div>
       <div className="text-2xl font-semibold">
         Check out some of our links (TODO copywriting):
       </div>
     </div>
-    <div className="col-[3/3] row-[2/2] grid place-content-center p-10">
+    <div className="col-[3/3] row-[2/2] grid place-content-center p-10 h-full max-h-full">
       <img
         src="/img_2206.png"
         alt="test"
-        className="w-full aspect-video object-cover outline"
+        className="aspect-video object-cover outline"
       />
     </div>
     <div
@@ -87,11 +107,12 @@ export const DesktopLandingPage = (props: DesktopLandingPageProps) => {
     <div
       {...props}
       className={`
-        w-full min-h-svh 
+        w-full
         bg-neutral-50
-        grid grid-cols-[100px_1fr_1fr] grid-rows-[64px_auto_auto_minmax(40px,1fr)_auto]
+        grid grid-cols-[100px_1fr_1fr] grid-rows-[80vh_auto_auto_minmax(40px,1fr)_auto]
         ${props.className}`}
     >
+      <DesktopHero className="row-[1/2] col-span-full" />
       {/* background */}
       <div
         className="
@@ -99,20 +120,19 @@ export const DesktopLandingPage = (props: DesktopLandingPageProps) => {
         grid-cols-subgrid grid-rows-subgrid
         pointer-events-none z-10"
       >
-        <DesktopLandingPageHeaderBackground />
+        {/* <DesktopLandingPageHeaderBackground /> */}
         <DesktopLandingPageContentsBackground />
       </div>
       {/* content */}
-      <div
+      {/* <div
         className="
         grid col-span-full row-span-full 
         grid-cols-subgrid grid-rows-subgrid 
         z-20"
       >
-        <DesktopLandingPageHeader />
         <DesktopLandingPageContents />
         <DesktopLandingPageFooter />
-      </div>
+      </div> */}
     </div>
   )
 }
