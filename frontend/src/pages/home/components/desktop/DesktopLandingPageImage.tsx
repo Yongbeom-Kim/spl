@@ -109,7 +109,7 @@ export const DesktopLandingPageImage = ({
         'relative transition-all ease-in-out',
         {
           'opacity-0': !isVisible,
-          'opacity-80 blur-none': isVisible && !isHover,
+          'opacity-85 blur-none': isVisible && !isHover,
           'opacity-100 blur-none scale-105': isVisible && isHover,
         },
         divProps.className,
