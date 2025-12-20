@@ -2,6 +2,8 @@ import { MobileFooter } from '@/components/mobile-footer/MobileFooter'
 import { MobileHeader } from '@/components/mobile-header/MobileHeader'
 import { Link } from '@tanstack/react-router'
 
+
+
 const MobileLandingPageContentsBackground = () => (
   <>
     <div className="row-[2/5] col-[2/3] bg-red-100 mix-blend-multiply"></div>

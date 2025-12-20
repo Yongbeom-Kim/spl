@@ -52,7 +52,7 @@ body {
 
   /* Font Families */
   --font-family-main: 'Roboto', sans-serif;
-  --font-family-brush: 'Nanum Brush Script', cursive;
+  --font-family-brush: '2', cursive;
 
   --font-main: var(--font-family-main);
   --font-brush: var(--font-family-brush);
@@ -70,14 +70,6 @@ body {
     font-size: var(--text-4xl);
     font-weight: bold;
   }
-
-  .font-navbar {
-    font-family: var(--font-family-brush);
-    font-size: var(--text-4xl);
-    font-weight: var(--font-weight-extrabold);
-  };
-
-
 }
 
 body {

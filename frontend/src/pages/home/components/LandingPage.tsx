@@ -1,4 +1,4 @@
-import { DesktopLandingPage } from './DesktopLandingPage'
+import { DesktopLandingPage } from './desktop/DesktopLandingPage'
 import { MobileLandingPage } from './MobileLandingPage'
 
 export const LandingPage = () => (
