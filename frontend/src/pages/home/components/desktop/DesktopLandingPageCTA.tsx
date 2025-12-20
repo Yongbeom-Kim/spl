@@ -59,7 +59,7 @@ export const DesktopLandingPageCTAButton = (
 
         hover:bg-left 
         transition-all duration-300 ease-in-out
-        hover:scale-105 hover:translate-x-[10px]
+        hover:scale-105
   ${buttonProps.className}`}
     >
       Explore Our Work
