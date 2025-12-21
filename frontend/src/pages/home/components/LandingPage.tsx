@@ -4,6 +4,6 @@ import { DesktopLandingPage } from './desktop/DesktopLandingPage'
 export const LandingPage = () => (
   <>
     {/* <MobileLandingPage className="grid lg:hidden" /> */}
-    <DesktopLandingPage className="hidden lg:grid" />
+    <DesktopLandingPage />
   </>
 )

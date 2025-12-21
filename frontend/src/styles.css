@@ -51,6 +51,7 @@ body {
   --color-neutral-900: #26211f;
 
   /* Font Families */
+  --font-family-sans-header: 'Inter', 'Roboto', sans-serif;
   --font-family-main: 'Roboto', sans-serif;
   --font-family-brush: '2', cursive;
 

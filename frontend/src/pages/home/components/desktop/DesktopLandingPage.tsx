@@ -1,14 +1,3 @@
-import {
-  DesktopLandingPageCTAButton,
-  DesktopLandingPageCTASection,
-} from './DesktopLandingPageCTA'
-import {
-  DesktopLandingPageHeader,
-  DesktopLandingPageHeaderSecondary,
-} from './DesktopLandingPageHeader'
-import { DesktopLandingPageImage } from './DesktopLandingPageImage'
-import { DesktopLandingPageFooter } from './DesktopLandingPageFooter'
-
 type DesktopLandingPageProps = Omit<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
   'children'
@@ -19,31 +8,62 @@ export const DesktopLandingPage = (props: DesktopLandingPageProps) => {
     <div
       {...props}
       className={`
-        w-screen h-svh overflow-y-auto overflow-x-hidden p-10
-        bg-neutral-50
-        grid grid-cols-[1fr_1.2fr] grid-rows-[150px_1fr_1fr_auto] gap-4
+        w-screen h-fit min-h-svh fixed top-0 left-0 overflow-auto
+        flex flex-col justify-start items-center
+        bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_10%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent),color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_90%),url('/landing-hero-cropped.png')] bg-cover bg-center
+        overflow-hidden
         ${props.className}`}
-      style={{
-        scrollbarGutter: 'stable',
-      }}
     >
-      <div className="absolute h-2/3 w-2/3 top-1/3 left-2/3 -translate-x-1/2 -translate-y-1/2 bg-orange-100 rounded-full pointer-events-none mix-blend-multiply blur-[200px]"></div>
+      {/* <img src="/landing-hero.png" alt="" className="
+        w-full h-svh object-cover
+      " /> */}
 
-      <DesktopLandingPageHeader className="row-[1/2] col-[1/3] -mx-[3px]" />
-      <DesktopLandingPageHeaderSecondary className="row-[2/3] col-[1/2] max-w-[70%]" />
-      <div className='row-[2/3] col-span-full grid grid-cols-subgrid'>
-
-        <DesktopLandingPageImage
-          className="col-[2/3] -translate-x-[max(15%,50px)]"
-          timeUntilVisibleMs={0}
-          imageChangeDurationMs={10000}
-          imageSrcList={['/landing-1.png', '/landing-2.png', '/landing-3.png']}
-          crossFadeDuationMs={1500}
-        />
-        <DesktopLandingPageCTAButton className="col-span-full ml-auto mr-[8%] mt-12 mb-4" />
+      <div
+        className="
+        w-full h-[128px] bg-linear-to-b from-neutral-900 to-neutral-900/0 relative
+      "
+      >
+        <div
+          className="
+          w-full h-2/3 mb-auto
+          flex flex-row items-center justify-between
+          px-[5%] lg:px[10%]
+        "
+        >
+          <div className="text-neutral-0 font-family-sans-header font-semibold capitalize text-2xl lg:text-4xl">
+            SENPAI LEARN
+          </div>
+          <div
+            className="
+            flex flex-row items-center gap-4 lg:gap-6 h-full
+          "
+          >
+            <div
+              className="
+            flex flex-col gap-[6px] h-fit
+            *:h-[3px] *:w-[26px] *:bg-neutral-0 *:rounded-full
+            hover:scale-115 transition-all ease-in-out
+          "
+            >
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <img
+              src="/logo_rounded_rectangle.png"
+              alt=""
+              className="h-[30px] aspect-auto object-contain hover:scale-115 transition-all ease-in-out"
+            />
+          </div>
+        </div>
       </div>
-      <DesktopLandingPageCTASection className="row-[3/4] col-span-full -mx-10 p-10 *:ml-auto *:mr-[8%]" />
-      <DesktopLandingPageFooter className="row-[4/5] col-span-full -mx-10 -mb-10 px-10" />
+
+      <div className="absolute h-[40%] bottom-0 w-full bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_0%,transparent),color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_80%)]"></div>
+
+      <div className="absolute bottom-4 lg:bottom-20 w-full px-[5%] lg:px[10%] text-neutral-0 font-family-sans-header font-bold text-3xl lg:text-6xl">
+        We are really cool people. Please help me think of a tagline.
+      </div>
+
     </div>
   )
 }
