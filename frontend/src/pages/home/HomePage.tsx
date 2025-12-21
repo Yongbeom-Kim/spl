@@ -1,5 +1,10 @@
-import { LandingPageFullscreenHeroSection } from "./components/LandingPage"
+import { LandingPageFullscreenHeroSection } from "./components/LandingPageFullscreenHeroSection"
+import './styles.css'
 
 export const HomePage = () => {
-	return <LandingPageFullscreenHeroSection />
+  return (
+    <div>
+      <LandingPageFullscreenHeroSection />
+    </div>
+  )
 }

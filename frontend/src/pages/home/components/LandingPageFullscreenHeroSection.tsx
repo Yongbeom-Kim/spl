@@ -3,18 +3,19 @@ type LandingPageFullscreenHeroSectionProps = Omit<
   'children'
 >
 
-export const LandingPageFullscreenHeroSection = (props: LandingPageFullscreenHeroSectionProps) => {
+export const LandingPageFullscreenHeroSection = (
+  props: LandingPageFullscreenHeroSectionProps,
+) => {
   return (
     <div
       {...props}
       className={`
-        w-screen h-fit min-h-svh
+        w-screen h-svh
         flex flex-col justify-start items-center
-        bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_5%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_25%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_60%,color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_90%),url('/landing-hero-cropped.png')] bg-cover bg-center
+        bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_5%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_25%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_60%,color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_90%),url('/landing-hero-cropped.webp')] bg-cover bg-center
         overflow-hidden
         ${props.className}`}
     >
-
       <div
         className="
         w-full h-[128px] bg-linear-to-b from-neutral-900 to-neutral-900/0 relative
@@ -47,7 +48,7 @@ export const LandingPageFullscreenHeroSection = (props: LandingPageFullscreenHer
               <div></div>
             </div>
             <img
-              src="/logo_rounded_rectangle.png"
+              src="/logo_rounded_rectangle.webp"
               alt=""
               className="h-[30px] aspect-auto object-contain hover:scale-115 transition-all ease-in-out"
             />
@@ -60,7 +61,6 @@ export const LandingPageFullscreenHeroSection = (props: LandingPageFullscreenHer
       <div className="absolute bottom-4 lg:bottom-16 w-full px-[5%] lg:px[10%] text-neutral-0 font-family-sans-header font-bold text-3xl lg:text-6xl">
         We are really cool people. We need a tagline here.
       </div>
-
     </div>
   )
 }

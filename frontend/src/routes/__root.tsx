@@ -28,7 +28,7 @@ export const Route = createRootRoute({
       {
         rel: 'icon',
         type: 'image/png',
-        href: '/logo.png',
+        href: '/logo_rounded_rectangle.webp',
       },
       {
         rel: 'preconnect',
