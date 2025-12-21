@@ -1,22 +1,19 @@
-type DesktopLandingPageProps = Omit<
+type LandingPageFullscreenHeroSectionProps = Omit<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
   'children'
 >
 
-export const DesktopLandingPage = (props: DesktopLandingPageProps) => {
+export const LandingPageFullscreenHeroSection = (props: LandingPageFullscreenHeroSectionProps) => {
   return (
     <div
       {...props}
       className={`
-        w-screen h-fit min-h-svh fixed top-0 left-0 overflow-auto
+        w-screen h-fit min-h-svh
         flex flex-col justify-start items-center
-        bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_10%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent),color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_90%),url('/landing-hero-cropped.png')] bg-cover bg-center
+        bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_5%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_25%,color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_60%,color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_90%),url('/landing-hero-cropped.png')] bg-cover bg-center
         overflow-hidden
         ${props.className}`}
     >
-      {/* <img src="/landing-hero.png" alt="" className="
-        w-full h-svh object-cover
-      " /> */}
 
       <div
         className="
@@ -58,10 +55,10 @@ export const DesktopLandingPage = (props: DesktopLandingPageProps) => {
         </div>
       </div>
 
-      <div className="absolute h-[40%] bottom-0 w-full bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_0%,transparent),color-mix(in_srgb,var(--color-neutral-900)_70%,transparent)_80%)]"></div>
+      <div className="absolute h-[25%] bottom-0 w-full bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_10%,color-mix(in_srgb,var(--color-neutral-900)_70%,transparent))]"></div>
 
-      <div className="absolute bottom-4 lg:bottom-20 w-full px-[5%] lg:px[10%] text-neutral-0 font-family-sans-header font-bold text-3xl lg:text-6xl">
-        We are really cool people. Please help me think of a tagline.
+      <div className="absolute bottom-4 lg:bottom-16 w-full px-[5%] lg:px[10%] text-neutral-0 font-family-sans-header font-bold text-3xl lg:text-6xl">
+        We are really cool people. We need a tagline here.
       </div>
 
     </div>

@@ -1,9 +1,10 @@
-import { DesktopLandingPage } from './desktop/DesktopLandingPage'
+import { LandingPageFullscreenHeroSection } from './desktop/DesktopLandingPage'
 // import { MobileLandingPage } from './MobileLandingPage'
 
 export const LandingPage = () => (
-  <>
-    {/* <MobileLandingPage className="grid lg:hidden" /> */}
-    <DesktopLandingPage />
-  </>
+  <div>
+    <LandingPageFullscreenHeroSection />
+  </div>
 )
+export { LandingPageFullscreenHeroSection }
+

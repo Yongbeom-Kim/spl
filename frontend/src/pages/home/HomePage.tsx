@@ -1,5 +1,5 @@
-import { LandingPage } from "./components/LandingPage"
+import { LandingPageFullscreenHeroSection } from "./components/LandingPage"
 
 export const HomePage = () => {
-	return <LandingPage />
+	return <LandingPageFullscreenHeroSection />
 }
