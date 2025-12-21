@@ -10,6 +10,8 @@ body {
   margin: 0;
 }
 
+@tailwind utilities;
+
 @theme {
   /* Accent Red */
   --color-accent-red-0: #fff5f4;
@@ -51,8 +53,7 @@ body {
   --color-neutral-900: #26211f;
 
   /* Font Families */
-  --font-family-sans-header: 'Inter', 'Roboto', sans-serif;
-  --font-family-main: 'Roboto', sans-serif;
+  --font-family-main: 'Inter', 'Roboto', sans-serif;
   --font-family-brush: '2', cursive;
 
   --font-main: var(--font-family-main);
@@ -71,6 +72,21 @@ body {
     font-size: var(--text-4xl);
     font-weight: bold;
   }
+}
+
+@utility scale-clickable-hover {
+  scale: 115%
+}
+
+@utility scale-clickable-active {
+  scale: 85%;
+  @media (width >= 64rem /* lg */) {
+    scale: 95%
+  }
+}
+
+@utility scale-clickable-focus {
+  scale: 95%
 }
 
 body {
