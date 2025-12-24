@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import { useAtom, useAtomValue } from 'jotai'
-import { LandingPageHeader } from '../../pages/home/components/LandingPageHeader'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { PageHeader } from '../../page-header/PageHeader'
 import { WarmCenteredGlowBg } from '../background/WarmCenteredGlowBg'
 import { Link } from '@tanstack/react-router'
 import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
@@ -13,6 +13,7 @@ type NavigationOverlayLinksProps = {
 }
 
 const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
+  const setNavVisible = useSetAtom(isNavOverlayVisibleAtom)
   return (
     <nav
       className={`
@@ -23,11 +24,11 @@ const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
       *:transition-all *:ease-in-out
       ${className}`}
     >
-      <Link to="/aboutus">About Us</Link>
-      <Link to="/people">People</Link>
-      <Link to="/projects">Projects</Link>
-      <Link to="/news">News</Link>
-      <Link to="/opportunities">Join Us!</Link>
+      <Link onClick={() => setNavVisible(false)} to="/aboutus">About Us</Link>
+      <Link onClick={() => setNavVisible(false)} to="/people">People</Link>
+      <Link onClick={() => setNavVisible(false)} to="/projects">Projects</Link>
+      <Link onClick={() => setNavVisible(false)} to="/news">News</Link>
+      <Link onClick={() => setNavVisible(false)} to="/opportunities">Join Us!</Link>
     </nav>
   )
 }
@@ -66,7 +67,7 @@ export const NavigationOverlay = () => {
       ref={overlayRef}
     >
       <WarmCenteredGlowBg />
-      <LandingPageHeader
+      <PageHeader
         bg="none"
         header={isLargeScreen ? 'none' : 'dark'}
         hamburger="dark"

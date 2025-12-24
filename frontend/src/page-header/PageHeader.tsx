@@ -1,17 +1,17 @@
-import { HamburgerButton } from '../../../components/hamburger-nav/HamburgerButton'
+import { HamburgerButton } from '../components/hamburger-nav/HamburgerButton'
 import classNames from 'classnames'
 
-type LandingPageHeaderProps = {
+type PageHeaderProps = {
   bg: 'dark-gradient' | 'none'
   header: 'light' | 'dark' | 'none'
   hamburger: 'light' | 'dark'
 }
 
-export const LandingPageHeader = ({
+export const PageHeader = ({
   bg,
   header,
   hamburger,
-}: LandingPageHeaderProps) => {
+}: PageHeaderProps) => {
   return (
     <div
       className={classNames(

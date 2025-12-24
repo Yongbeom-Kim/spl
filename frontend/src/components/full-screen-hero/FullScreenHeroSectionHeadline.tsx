@@ -1,15 +1,17 @@
 import { DivPropsWithoutChild } from "@/types/props"
 
-type LandingPageHeroTaglineProps = DivPropsWithoutChild
+type FullScreenHeroSectionHeadlineProps = {
+  headlineContent: string
+} & DivPropsWithoutChild
 
-export const LandingPageHeroTagline = (props: LandingPageHeroTaglineProps) => {
+export const FullScreenHeroSectionHeadline = ({headlineContent, ...divProps}: FullScreenHeroSectionHeadlineProps) => {
   return (
     <div
-      {...props}
+      {...divProps}
       className={`
       bg-[linear-gradient(color-mix(in_srgb,var(--color-neutral-900)_0%,transparent)_10%,color-mix(in_srgb,var(--color-neutral-900)_70%,transparent))]
       flex
-      ${props.className}`}
+      ${divProps.className}`}
     >
       <div
         className="
@@ -18,7 +20,7 @@ export const LandingPageHeroTagline = (props: LandingPageHeroTaglineProps) => {
         // TODO: disable after we settle on a tagline
         contentEditable={true}
       >
-        We are a group empowering learning for everyone.
+        {headlineContent}
       </div>
     </div>
   )
