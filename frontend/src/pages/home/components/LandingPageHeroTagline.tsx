@@ -15,8 +15,10 @@ export const LandingPageHeroTagline = (props: LandingPageHeroTaglineProps) => {
         className="
         mt-auto mb-4 lg:mb-20 w-full px-[5%] lg:px[10%]
         text-neutral-0 font-family-main font-bold text-3xl lg:text-6xl"
+        // TODO: disable after we settle on a tagline
+        contentEditable={true}
       >
-        We are really cool people. We need a tagline here.
+        We are a group empowering learning for everyone.
       </div>
     </div>
   )

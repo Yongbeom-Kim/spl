@@ -62,10 +62,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             position: 'bottom-right',
           }}
           plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
+            // {
+            //   name: 'Tanstack Router',
+            //   render: <TanStackRouterDevtoolsPanel />,
+            // },
           ]}
         />
         <Scripts />

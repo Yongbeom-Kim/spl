@@ -31,6 +31,9 @@ export const HamburgerButton = ({ variant }: HamburgerButtonProps) => {
           '*:bg-neutral-900': variant === 'dark',
         },
       )}
+      aria-label={isNavOpen ? 'Close navigation menu' : 'Open navigation menu'}
+      aria-expanded={isNavOpen}
+      aria-controls='nav-overlay'
     >
       <div
         className={classNames('transition-all ease-in-out', {
