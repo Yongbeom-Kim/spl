@@ -1,11 +1,11 @@
-import Masonry from 'masonry-layout'
+import type Masonry from 'masonry-layout'
 
 // Import all headshot images
 import benjaminYap from '../../assets/headshots/benjamin_yap.png'
 import charlesWindle from '../../assets/headshots/charles_windle.png'
 import chooWeiXin from '../../assets/headshots/choo_wei_xin.png'
 import funman2 from '../../assets/headshots/funman_2.png'
-import funman from '../../assets/headshots/funman.png'
+// import funman from '../../assets/headshots/funman.png'
 import gunRui from '../../assets/headshots/gun_rui.png'
 import hanJiayi from '../../assets/headshots/han_jiayi.png'
 import jonathanOng from '../../assets/headshots/jonathan_ong.png'
@@ -25,6 +25,7 @@ import tangShiyu from '../../assets/headshots/tang_shiyu.png'
 import yeoZhien from '../../assets/headshots/yeo_zhien.png'
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
+import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
 
 // Array of all headshot images
 const allHeadshots = [
@@ -32,7 +33,7 @@ const allHeadshots = [
   charlesWindle,
   chooWeiXin,
   funman2,
-  // funman,1
+  // funman,
   gunRui,
   hanJiayi,
   jonathanOng,
@@ -61,41 +62,48 @@ function shuffle<T>(array: T[]): T[] {
   return shuffled
 }
 
-
 export const PeoplePageHeroBackground = () => {
-	const [headshots, setHeadshots] = useState(allHeadshots)
+  const [headshots, setHeadshots] = useState(allHeadshots)
+  const [visible, setVisible] = useState(false)
   const gridRef = useRef<HTMLDivElement | null>(null)
   const masonryRef = useRef<Masonry | null>(null)
-	const imageLoadedCountRef = useRef<number>(0);
-	const [visible, setVisible] = useState(false);
-	
+
   useEffect(() => {
+    const makeVisible = () => setVisible(true)
+
     if (!gridRef.current) return
-    masonryRef.current = new Masonry(gridRef.current, {
-      itemSelector: '.masonry-item',
-      columnWidth: 140,
+    setHeadshots(shuffle(headshots))
+    import('masonry-layout').then((masonryLayoutImport) => {
+      const Masonry = masonryLayoutImport.default
+      masonryRef.current = new Masonry(gridRef.current as HTMLElement, {
+        itemSelector: '.masonry-item',
+        columnWidth: '.masonry-sizer',
+      })
+      masonryRef.current.on?.('layoutComplete', makeVisible)
+      masonryRef.current.layout?.()
     })
+
+    return () => {
+      masonryRef.current?.off?.('layoutComplete', makeVisible)
+    }
   }, [])
 
   const handleImageLoad = () => {
-		imageLoadedCountRef.current += 1
-		if (imageLoadedCountRef.current === headshots.length) {
-			setHeadshots(shuffle(headshots))
-			setVisible(true)
-		}
-    if (masonryRef.current) {
-      masonryRef.current?.layout?.()
-    }
+    masonryRef.current?.layout?.()
   }
 
   return (
-    <div className={classNames("masonry-grid", {
-			'opacity-0': !visible
-		})} ref={gridRef}>
+    <div
+      className={classNames('masonry-grid', {
+        'opacity-0': !visible,
+      })}
+      ref={gridRef}
+    >
+      <div className="masonry-sizer w-1/4 lg:w-1/5" />
       {headshots.map((headshot, idx) => (
         <img
           key={idx}
-          className="masonry-item float-left"
+          className="masonry-item float-left w-1/4 lg:w-1/5"
           src={headshot}
           alt={`headshot ${idx}`}
           onLoad={handleImageLoad}
