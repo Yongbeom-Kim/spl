@@ -1,9 +1,8 @@
 import classNames from 'classnames'
-import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 import { PageHeader } from '../../page-header/PageHeader'
 import { WarmCenteredGlowBg } from '../background/WarmCenteredGlowBg'
 import { Link } from '@tanstack/react-router'
-import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
 import { isNavOverlayVisibleAtom } from './is-nav-overlay-visible-atom'
 import { useTrapModalFocusForceOrder } from '@/hooks/use-trap-modal-focus'
 import { useRef } from 'react'
@@ -27,15 +26,16 @@ const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
       <Link onClick={() => setNavVisible(false)} to="/aboutus">About Us</Link>
       <Link onClick={() => setNavVisible(false)} to="/people">People</Link>
       <Link onClick={() => setNavVisible(false)} to="/projects">Projects</Link>
+      <Link onClick={() => setNavVisible(false)} to="/publications">Publications</Link>
+      <Link onClick={() => setNavVisible(false)} to="/partners">Partners</Link>
       <Link onClick={() => setNavVisible(false)} to="/news">News</Link>
-      <Link onClick={() => setNavVisible(false)} to="/opportunities">Join Us!</Link>
+      <Link onClick={() => setNavVisible(false)} to="/contactus">Contact Us</Link>
     </nav>
   )
 }
 
 export const NavigationOverlay = () => {
   const [isNavOpen, setNavOpen] = useAtom(isNavOverlayVisibleAtom)
-  const isLargeScreen = useIsLargeScreen()
   const overlayRef = useRef<HTMLDivElement | null>(null)
   useTrapModalFocusForceOrder({
     modalRef: overlayRef,
@@ -69,10 +69,10 @@ export const NavigationOverlay = () => {
       <WarmCenteredGlowBg />
       <PageHeader
         bg="none"
-        header={isLargeScreen ? 'none' : 'dark'}
+        header='dark'
         hamburger="dark"
       />
-      <NavigationOverlayLinks className="absolute top-1/2 lg:top-3/7 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <NavigationOverlayLinks className="absolute top-1/2 lg:top-5/11 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     </div>
   )
 }

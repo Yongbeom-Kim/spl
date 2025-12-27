@@ -77,7 +77,6 @@ export const PeoplePageHeroBackground = () => {
       const Masonry = masonryLayoutImport.default
       masonryRef.current = new Masonry(gridRef.current as HTMLElement, {
         itemSelector: '.masonry-item',
-        columnWidth: '.masonry-sizer',
       })
       masonryRef.current.on?.('layoutComplete', makeVisible)
       masonryRef.current.layout?.()
@@ -93,22 +92,23 @@ export const PeoplePageHeroBackground = () => {
   }
 
   return (
-    <div
-      className={classNames('masonry-grid', {
-        'opacity-0': !visible,
-      })}
-      ref={gridRef}
-    >
-      <div className="masonry-sizer w-1/4 lg:w-1/5" />
-      {headshots.map((headshot, idx) => (
-        <img
-          key={idx}
-          className="masonry-item float-left w-1/4 lg:w-1/5"
-          src={headshot}
-          alt={`headshot ${idx}`}
-          onLoad={handleImageLoad}
-        />
-      ))}
+    <div className='relative h-full bg-neutral-300'>
+      <div
+        className={classNames('masonry-grid', 'absolute top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2', {
+          'opacity-0': !visible,
+        })}
+        ref={gridRef}
+      >
+        {headshots.map((headshot, idx) => (
+          <img
+            key={idx}
+            className="masonry-item float-left w-1/4 lg:w-1/6"
+            src={headshot}
+            alt={`headshot ${idx}`}
+            onLoad={handleImageLoad}
+          />
+        ))}
+      </div>
     </div>
   )
 }

@@ -10,13 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PublicationsIndexRouteImport } from './routes/publications/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
 import { Route as PeopleIndexRouteImport } from './routes/people/index'
+import { Route as PartnersIndexRouteImport } from './routes/partners/index'
+import { Route as NewsIndexRouteImport } from './routes/news/index'
+import { Route as ContactusIndexRouteImport } from './routes/contactus/index'
 import { Route as AboutusIndexRouteImport } from './routes/aboutus/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicationsIndexRoute = PublicationsIndexRouteImport.update({
+  id: '/publications/',
+  path: '/publications/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
@@ -29,6 +38,21 @@ const PeopleIndexRoute = PeopleIndexRouteImport.update({
   path: '/people/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartnersIndexRoute = PartnersIndexRouteImport.update({
+  id: '/partners/',
+  path: '/partners/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactusIndexRoute = ContactusIndexRouteImport.update({
+  id: '/contactus/',
+  path: '/contactus/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutusIndexRoute = AboutusIndexRouteImport.update({
   id: '/aboutus/',
   path: '/aboutus/',
@@ -38,35 +62,76 @@ const AboutusIndexRoute = AboutusIndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aboutus': typeof AboutusIndexRoute
+  '/contactus': typeof ContactusIndexRoute
+  '/news': typeof NewsIndexRoute
+  '/partners': typeof PartnersIndexRoute
   '/people': typeof PeopleIndexRoute
   '/projects': typeof ProjectsIndexRoute
+  '/publications': typeof PublicationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aboutus': typeof AboutusIndexRoute
+  '/contactus': typeof ContactusIndexRoute
+  '/news': typeof NewsIndexRoute
+  '/partners': typeof PartnersIndexRoute
   '/people': typeof PeopleIndexRoute
   '/projects': typeof ProjectsIndexRoute
+  '/publications': typeof PublicationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/aboutus/': typeof AboutusIndexRoute
+  '/contactus/': typeof ContactusIndexRoute
+  '/news/': typeof NewsIndexRoute
+  '/partners/': typeof PartnersIndexRoute
   '/people/': typeof PeopleIndexRoute
   '/projects/': typeof ProjectsIndexRoute
+  '/publications/': typeof PublicationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/aboutus' | '/people' | '/projects'
+  fullPaths:
+    | '/'
+    | '/aboutus'
+    | '/contactus'
+    | '/news'
+    | '/partners'
+    | '/people'
+    | '/projects'
+    | '/publications'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/aboutus' | '/people' | '/projects'
-  id: '__root__' | '/' | '/aboutus/' | '/people/' | '/projects/'
+  to:
+    | '/'
+    | '/aboutus'
+    | '/contactus'
+    | '/news'
+    | '/partners'
+    | '/people'
+    | '/projects'
+    | '/publications'
+  id:
+    | '__root__'
+    | '/'
+    | '/aboutus/'
+    | '/contactus/'
+    | '/news/'
+    | '/partners/'
+    | '/people/'
+    | '/projects/'
+    | '/publications/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutusIndexRoute: typeof AboutusIndexRoute
+  ContactusIndexRoute: typeof ContactusIndexRoute
+  NewsIndexRoute: typeof NewsIndexRoute
+  PartnersIndexRoute: typeof PartnersIndexRoute
   PeopleIndexRoute: typeof PeopleIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
+  PublicationsIndexRoute: typeof PublicationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -76,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publications/': {
+      id: '/publications/'
+      path: '/publications'
+      fullPath: '/publications'
+      preLoaderRoute: typeof PublicationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects/': {
@@ -92,6 +164,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PeopleIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partners/': {
+      id: '/partners/'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contactus/': {
+      id: '/contactus/'
+      path: '/contactus'
+      fullPath: '/contactus'
+      preLoaderRoute: typeof ContactusIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/aboutus/': {
       id: '/aboutus/'
       path: '/aboutus'
@@ -105,8 +198,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutusIndexRoute: AboutusIndexRoute,
+  ContactusIndexRoute: ContactusIndexRoute,
+  NewsIndexRoute: NewsIndexRoute,
+  PartnersIndexRoute: PartnersIndexRoute,
   PeopleIndexRoute: PeopleIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
+  PublicationsIndexRoute: PublicationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

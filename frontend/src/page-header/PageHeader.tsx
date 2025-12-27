@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 type PageHeaderProps = {
   bg: 'dark-gradient' | 'none'
-  header: 'light' | 'dark' | 'none'
+  header: 'light' | 'dark'
   hamburger: 'light' | 'dark'
 }
 
@@ -32,12 +32,10 @@ export const PageHeader = ({
           className={classNames(
             ' font-family-main font-semibold capitalize text-2xl lg:text-4xl',
             {
-              'invisible pointer-events-none': header === 'none',
               'text-neutral-0': header === 'light',
               'text-neutral-900': header === 'dark',
             },
           )}
-          inert={header === 'none'}
         >
           SENPAI LEARN
         </div>

@@ -1,24 +1,21 @@
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
-import hero from './assets/hero_upscaled.webp'
+import heroImage from './assets/hero.jpeg'
 
-export const ProjectPage = () => {
+export const NewsPage = () => {
   return (
     <PageLayout>
       <FullScreenHeroSection 
         backgroundElement={
           <img 
-            src={hero} 
+            src={heroImage} 
             alt="" 
-            className="w-full h-full object-cover"
-            style={{ 
-              objectPosition: '40% 50%',
-              filter: 'brightness(1.08) contrast(1.15)'
-            }}
+            className="w-full h-full object-cover object-center"
           />
         } 
-        headlineContent={'Our Projects'} 
+        headlineContent={'News'} 
       />
     </PageLayout>
   )
 }
+
