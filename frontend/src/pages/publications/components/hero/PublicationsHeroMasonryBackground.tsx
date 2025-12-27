@@ -1,5 +1,5 @@
 import type Masonry from 'masonry-layout'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
 
 // Import publication images
@@ -32,6 +32,23 @@ function shuffle<T>(array: T[]): T[] {
   return shuffled
 }
 
+function debounce(
+  f: (...args: any[]) => void,
+  delay: number,
+): (...args: any[]) => void {
+  let t: ReturnType<typeof setTimeout> | undefined = undefined
+  return (...args: any[]) => {
+    if (t !== undefined) {
+      clearTimeout(t)
+      t = undefined
+    }
+    t = setTimeout(() => {
+      f(...args)
+      t = undefined
+    }, delay)
+  }
+}
+
 const allPublicationImages: string[] = [
   image1,
   image2,
@@ -60,7 +77,9 @@ export const PublicationsHeroMasonryBackground = ({
   averageImagesPerColumn = 3.2,
 }: PublicationsHeroMasonryBackgroundProps) => {
   const isLargeScreen = useIsLargeScreen()
-  const numColumns = Math.ceil(allPublicationImages.length / averageImagesPerColumn)
+  const numColumns = Math.ceil(
+    allPublicationImages.length / averageImagesPerColumn,
+  )
   const itemWidth = isLargeScreen ? 256 : 128
   const [totalWidth, setTotalWidth] = useState(512)
 
@@ -93,10 +112,13 @@ const MasonryBackground = () => {
   const masonryRef = useRef<Masonry | null>(null)
   const [images, setImages] = useState(allPublicationImages)
 
-  const debouncedSetVisible = () => {
-    const style = contRef?.current?.style
-    if (style) style.opacity = '100'
-  }
+  const debouncedSetVisible = useCallback(
+    debounce(() => {
+      const el = contRef.current
+      if (el) el.style.opacity = '1'
+    }, 100),
+    [],
+  )
 
   useEffect(() => {
     setImages((images) => shuffle(images))
@@ -129,7 +151,7 @@ const MasonryBackground = () => {
   return (
     <div
       ref={contRef}
-      className="w-[50%] pt-20 transition-opacity ease-in duration-300"
+      className="w-[50%] pt-20 lg:pt-30 transition-opacity ease-in duration-300"
       style={{
         opacity: 0,
       }}
