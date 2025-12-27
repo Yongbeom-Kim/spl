@@ -1,5 +1,6 @@
 import type Masonry from 'masonry-layout'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
 
 // Import publication images
 import image1 from '../../assets/image.png'
@@ -21,8 +22,6 @@ import image16 from '../../assets/image copy 15.png'
 import image17 from '../../assets/image copy 16.png'
 import image18 from '../../assets/image copy 17.png'
 import image19 from '../../assets/image copy 18.png'
-import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
-
 
 function shuffle<T>(array: T[]): T[] {
   const shuffled = [...array]
@@ -31,22 +30,6 @@ function shuffle<T>(array: T[]): T[] {
     ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
   }
   return shuffled
-}
-
-function debounce<T extends any[]>(
-  callback: (...args: T) => void,
-  debounceTime: number,
-) {
-  let t: ReturnType<typeof setTimeout> | undefined = undefined
-
-  return (...args: T) => {
-    if (t !== undefined) {
-      clearTimeout(t)
-    }
-    t = setTimeout(() => {
-      callback(...args)
-    }, debounceTime)
-  }
 }
 
 const allPublicationImages: string[] = [
@@ -70,20 +53,31 @@ const allPublicationImages: string[] = [
   image18,
   image19,
 ]
+type PublicationsHeroMasonryBackgroundProps = {
+  averageImagesPerColumn: number
+}
+export const PublicationsHeroMasonryBackground = ({
+  averageImagesPerColumn = 3.2,
+}: PublicationsHeroMasonryBackgroundProps) => {
+  const isLargeScreen = useIsLargeScreen()
+  const numColumns = Math.ceil(allPublicationImages.length / averageImagesPerColumn)
+  const itemWidth = isLargeScreen ? 256 : 128
+  const [totalWidth, setTotalWidth] = useState(512)
 
-export const PublicationsHeroMasonryBackground = () => {
-  const [width, setWidth] = useState(512)
-  const incrWidth = (px: number) => setWidth(w => Math.ceil((w + px) / 128) * 128)
+  useEffect(() => {
+    setTotalWidth(numColumns * itemWidth * 2)
+  }, [])
+
   return (
     <div
       className="flex flex-row animate-publications-hero-loop"
       style={{
         animation: 'loop 60s linear infinite',
-        width: `${width}px`,
+        width: `${totalWidth}px`,
       }}
     >
-      <MasonryBackground incrWidth={incrWidth} controlWidth={true} />
-      <MasonryBackground incrWidth={incrWidth} controlWidth={false} />
+      <MasonryBackground />
+      <MasonryBackground />
       <style>
         {`@keyframes loop {
             from { transform: translateX(0); }
@@ -94,40 +88,23 @@ export const PublicationsHeroMasonryBackground = () => {
   )
 }
 
-const MasonryBackground = ({
-  incrWidth,
-  controlWidth,
-}: {
-  incrWidth: (px: number) => void
-  controlWidth: boolean
-}) => {
+const MasonryBackground = () => {
   const contRef = useRef<HTMLDivElement | null>(null)
   const masonryRef = useRef<Masonry | null>(null)
-	const isLargeScreen = useIsLargeScreen()
-	const [images, setImages] = useState(allPublicationImages)
+  const [images, setImages] = useState(allPublicationImages)
 
-  const debouncedSetVisible = useCallback(debounce(() => {
+  const debouncedSetVisible = () => {
     const style = contRef?.current?.style
     if (style) style.opacity = '100'
-  }, 100), [])
+  }
 
-	useEffect(() => {
-		setImages((images) => shuffle(images))
-	}, [])
+  useEffect(() => {
+    setImages((images) => shuffle(images))
+  }, [])
 
   useEffect(() => {
     const cont = contRef.current
     if (!cont) return
-
-
-    const incrWidthIfVerticalOverflow = () => {
-      if ((contRef?.current?.scrollHeight ?? 0) > window.innerHeight) {
-        if (controlWidth) incrWidth(isLargeScreen ? 512 : 256)
-        setTimeout(() => {
-          masonryRef.current?.layout?.()
-        }, 0)
-      }
-    }
 
     import('masonry-layout').then((masonryLayoutImport) => {
       const Masonry = masonryLayoutImport.default
@@ -135,14 +112,12 @@ const MasonryBackground = ({
         itemSelector: '.masonry-item',
         transitionDuration: 0,
       })
-      masonryRef.current?.on?.('layoutComplete', incrWidthIfVerticalOverflow)
       masonryRef.current?.on?.('layoutComplete', debouncedSetVisible)
       masonryRef.current.layout?.()
     })
 
     return () => {
       masonryRef.current?.destroy?.()
-      masonryRef.current?.off?.('layoutComplete', incrWidthIfVerticalOverflow)
       masonryRef.current?.off?.('layoutComplete', debouncedSetVisible)
     }
   }, [images])
@@ -154,9 +129,7 @@ const MasonryBackground = ({
   return (
     <div
       ref={contRef}
-      className="
-				w-[50%] pt-20
-				transition-opacity ease-in duration-300"
+      className="w-[50%] pt-20 transition-opacity ease-in duration-300"
       style={{
         opacity: 0,
       }}
