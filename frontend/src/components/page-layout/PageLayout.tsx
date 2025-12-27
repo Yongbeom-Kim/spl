@@ -3,14 +3,15 @@ import { isNavOverlayVisibleAtom } from "../hamburger-nav/is-nav-overlay-visible
 import { NavigationOverlay } from "../hamburger-nav/NavigationOverlay"
 
 type PageLayoutProps = {
+  headerLinksToHomePage: boolean
   children: React.ReactNode
 }
 
-export const PageLayout = ({ children }: PageLayoutProps) => {
+export const PageLayout = ({ headerLinksToHomePage, children }: PageLayoutProps) => {
   const isOverlayVisible = useAtomValue(isNavOverlayVisibleAtom)
   return (
     <div>
-      <NavigationOverlay />
+      <NavigationOverlay headerLinksToHomePage={headerLinksToHomePage} />
       <div inert={isOverlayVisible}>{children}</div>
     </div>
   )

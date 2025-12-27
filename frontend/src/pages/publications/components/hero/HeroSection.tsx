@@ -6,6 +6,7 @@ export const PublicationsPageHeroSection = () => {
 		<FullScreenHeroSection 
 			backgroundElement={<PublicationsHeroMasonryBackground />} 
 			headlineContent={'Publications'} 
+			headerLinksToHomePage={true}
 		/>
 	)
 }

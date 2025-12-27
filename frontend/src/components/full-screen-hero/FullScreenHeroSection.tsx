@@ -6,10 +6,11 @@ import { ReactNode } from 'react'
 type FullScreenHeroSectionProps = {
   backgroundElement: ReactNode
   headlineContent: string
+  headerLinksToHomePage?: boolean
 } & DivPropsWithoutChild
 
 export const FullScreenHeroSection = (
-  {backgroundElement, headlineContent, ...divProps}: FullScreenHeroSectionProps,
+  {backgroundElement, headlineContent, headerLinksToHomePage, ...divProps}: FullScreenHeroSectionProps,
 ) => {
   
   return (
@@ -42,7 +43,7 @@ export const FullScreenHeroSection = (
       />
       
       <div className="relative z-20 w-full h-full flex flex-col justify-start items-center">
-        <PageHeader bg='dark-gradient' header='light' hamburger='light' />
+        <PageHeader bg='dark-gradient' header='light' hamburger='light' headerLinksToHomePage={headerLinksToHomePage} />
         <FullScreenHeroSectionHeadline className="absolute h-1/4 bottom-0 w-full" headlineContent={headlineContent}/>
       </div>
     </div>

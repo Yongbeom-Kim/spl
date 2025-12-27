@@ -34,7 +34,11 @@ const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
   )
 }
 
-export const NavigationOverlay = () => {
+type NavigationOverlayProps = {
+  headerLinksToHomePage: boolean
+}
+
+export const NavigationOverlay = ({ headerLinksToHomePage }: NavigationOverlayProps) => {
   const [isNavOpen, setNavOpen] = useAtom(isNavOverlayVisibleAtom)
   const overlayRef = useRef<HTMLDivElement | null>(null)
   useTrapModalFocusForceOrder({
@@ -71,6 +75,7 @@ export const NavigationOverlay = () => {
         bg="none"
         header='dark'
         hamburger="dark"
+        headerLinksToHomePage={headerLinksToHomePage}
       />
       <NavigationOverlayLinks className="absolute top-1/2 lg:top-5/11 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     </div>

@@ -4,7 +4,7 @@ import heroImage from './assets/hero.jpg'
 
 export const ContactUsPage = () => {
   return (
-    <PageLayout>
+    <PageLayout headerLinksToHomePage={true}>
       <FullScreenHeroSection 
         backgroundElement={
           <img 
@@ -17,6 +17,7 @@ export const ContactUsPage = () => {
           />
         } 
         headlineContent={'Contact Us'} 
+        headerLinksToHomePage={true}
       />
     </PageLayout>
   )

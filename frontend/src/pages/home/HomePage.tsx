@@ -6,7 +6,7 @@ import heroCropped from './assets/hero-cropped.webp'
 
 export const HomePage = () => {
   return (
-    <PageLayout>
+    <PageLayout headerLinksToHomePage={false}>
       <FullScreenHeroSection 
         backgroundElement={
           <img 
@@ -16,6 +16,7 @@ export const HomePage = () => {
           />
         } 
         headlineContent='We are a group empowering learning for everyone.' 
+        headerLinksToHomePage={false}
       />
     </PageLayout>
   )

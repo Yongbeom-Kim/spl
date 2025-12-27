@@ -3,7 +3,7 @@ import { PublicationsPageHeroSection } from './components/hero/HeroSection'
 
 export const PublicationsPage = () => {
   return (
-    <PageLayout>
+    <PageLayout headerLinksToHomePage={true}>
       <PublicationsPageHeroSection />
     </PageLayout>
   )

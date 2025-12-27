@@ -4,7 +4,7 @@ import hero from './assets/hero_upscaled.webp'
 
 export const ProjectPage = () => {
   return (
-    <PageLayout>
+    <PageLayout headerLinksToHomePage={true}>
       <FullScreenHeroSection 
         backgroundElement={
           <img 
@@ -18,6 +18,7 @@ export const ProjectPage = () => {
           />
         } 
         headlineContent={'Our Projects'} 
+        headerLinksToHomePage={true}
       />
     </PageLayout>
   )
