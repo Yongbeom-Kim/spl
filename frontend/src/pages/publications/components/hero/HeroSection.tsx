@@ -4,8 +4,9 @@ import { PublicationsHeroMasonryBackground } from "./PublicationsHeroMasonryBack
 export const PublicationsPageHeroSection = () => {
 	return (
 		<FullScreenHeroSection 
-			backgroundElement={<PublicationsHeroMasonryBackground />} 
-			headlineContent={'Publications'} 
+			backgroundElement={<PublicationsHeroMasonryBackground averageImagesPerColumn={3.2} />} 
+			headlineContent={'Our Journey in Research'}
+			sublineContent="Passing peer review is never easy. We're proud to publish meaningful work in high-impact journals." 
 			headerLinksToHomePage={true}
 		/>
 	)

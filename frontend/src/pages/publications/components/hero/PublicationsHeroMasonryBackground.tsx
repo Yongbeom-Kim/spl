@@ -1,6 +1,7 @@
 import type Masonry from 'masonry-layout'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
+import { shuffle, debounce } from '@/util'
 
 // Import publication images
 import image1 from '../../assets/image.png'
@@ -22,32 +23,6 @@ import image16 from '../../assets/image copy 15.png'
 import image17 from '../../assets/image copy 16.png'
 import image18 from '../../assets/image copy 17.png'
 import image19 from '../../assets/image copy 18.png'
-
-function shuffle<T>(array: T[]): T[] {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
-function debounce(
-  f: (...args: any[]) => void,
-  delay: number,
-): (...args: any[]) => void {
-  let t: ReturnType<typeof setTimeout> | undefined = undefined
-  return (...args: any[]) => {
-    if (t !== undefined) {
-      clearTimeout(t)
-      t = undefined
-    }
-    t = setTimeout(() => {
-      f(...args)
-      t = undefined
-    }, delay)
-  }
-}
 
 const allPublicationImages: string[] = [
   image1,
@@ -74,7 +49,7 @@ type PublicationsHeroMasonryBackgroundProps = {
   averageImagesPerColumn: number
 }
 export const PublicationsHeroMasonryBackground = ({
-  averageImagesPerColumn = 3.2,
+  averageImagesPerColumn,
 }: PublicationsHeroMasonryBackgroundProps) => {
   const isLargeScreen = useIsLargeScreen()
   const numColumns = Math.ceil(

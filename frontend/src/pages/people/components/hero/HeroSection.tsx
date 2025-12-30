@@ -6,7 +6,8 @@ export const PeoplePageHeroSection = () => {
 
 		<FullScreenHeroSection 
 		backgroundElement={<PeoplePageHeroBackground />} 
-		headlineContent={'About Us'} 
+		headlineContent={'Our People'}
+		sublineContent="All good work stems from a team of like-minded people who give their best in their projects." 
 		headerLinksToHomePage={true}
 	/>
 	)

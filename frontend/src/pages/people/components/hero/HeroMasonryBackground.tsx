@@ -25,7 +25,7 @@ import tangShiyu from '../../assets/headshots/tang_shiyu.png'
 import yeoZhien from '../../assets/headshots/yeo_zhien.png'
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
-import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
+import { shuffle } from '@/util'
 
 // Array of all headshot images
 const allHeadshots = [
@@ -52,15 +52,6 @@ const allHeadshots = [
   tangShiyu,
   yeoZhien,
 ]
-
-function shuffle<T>(array: T[]): T[] {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
 
 export const PeoplePageHeroBackground = () => {
   const [headshots, setHeadshots] = useState(allHeadshots)
