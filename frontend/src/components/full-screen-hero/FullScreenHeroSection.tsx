@@ -1,7 +1,7 @@
-import { DivPropsWithoutChild } from '@/types/props'
 import { PageHeader } from '../../page-header/PageHeader'
 import { FullScreenHeroSectionHeadline } from './FullScreenHeroSectionHeadline'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import type { DivPropsWithoutChild } from '@/types/props'
 
 type FullScreenHeroSectionProps = {
   backgroundElement: ReactNode
@@ -10,12 +10,13 @@ type FullScreenHeroSectionProps = {
   headerLinksToHomePage?: boolean
 } & DivPropsWithoutChild
 
-export const FullScreenHeroSection = (
-  {backgroundElement, headlineContent, sublineContent, headerLinksToHomePage, ...divProps}: FullScreenHeroSectionProps,
-) => {
-
-  console.log({sublineContent})
-  
+export const FullScreenHeroSection = ({
+  backgroundElement,
+  headlineContent,
+  sublineContent,
+  headerLinksToHomePage,
+  ...divProps
+}: FullScreenHeroSectionProps) => {
   return (
     <div
       {...divProps}
@@ -32,7 +33,7 @@ export const FullScreenHeroSection = (
       <div className="absolute inset-0 z-0 w-full h-full">
         {backgroundElement}
       </div>
-      
+
       <div
         className="absolute inset-0 z-10"
         style={{
@@ -42,10 +43,19 @@ export const FullScreenHeroSection = (
           )`,
         }}
       />
-      
+
       <div className="relative z-20 w-full h-full flex flex-col justify-start items-center">
-        <PageHeader bg='dark-gradient' header='light' hamburger='light' headerLinksToHomePage={headerLinksToHomePage} />
-        <FullScreenHeroSectionHeadline className="absolute bottom-0 w-full" headlineContent={headlineContent} sublineContent={sublineContent} />
+        <PageHeader
+          bg="dark-gradient"
+          header="light"
+          hamburger="light"
+          headerLinksToHomePage={headerLinksToHomePage}
+        />
+        <FullScreenHeroSectionHeadline
+          className="absolute bottom-0 w-full"
+          headlineContent={headlineContent}
+          sublineContent={sublineContent}
+        />
       </div>
     </div>
   )

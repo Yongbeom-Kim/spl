@@ -1,9 +1,9 @@
 export function debounce(
-  f: (...args: any[]) => void,
+  f: (...args: Array<any>) => void,
   delay: number,
-): (...args: any[]) => void {
+): (...args: Array<any>) => void {
   let t: ReturnType<typeof setTimeout> | undefined = undefined
-  return (...args: any[]) => {
+  return (...args: Array<any>) => {
     if (t !== undefined) {
       clearTimeout(t)
       t = undefined
@@ -14,4 +14,3 @@ export function debounce(
     }, delay)
   }
 }
-

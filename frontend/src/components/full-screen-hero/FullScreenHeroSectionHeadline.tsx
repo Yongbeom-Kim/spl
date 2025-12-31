@@ -1,4 +1,4 @@
-import { DivPropsWithoutChild } from '@/types/props'
+import type { DivPropsWithoutChild } from '@/types/props'
 import { generateLinearOpacityGradientWithStepFn } from '@/util'
 
 type FullScreenHeroSectionHeadlineProps = {
@@ -20,16 +20,19 @@ export const FullScreenHeroSectionHeadline = ({
       pt-10 lg:pt-15
       ${divProps.className}`}
       style={{
-        background: `${generateLinearOpacityGradientWithStepFn('var(--color-neutral-900)', 30, (x) => {
-          const t = 0.3;
-          const p = 0.22
-          const a = (2 - p) * Math.pow(t, p - 1);
-          const b = (p - 1) * Math.pow(t, p - 2);
-        
-          x = Math.min(1, Math.max(0, x));
-          return x <= t ? (a*x + b*x*x) : Math.pow(x, p);
+        background: `${generateLinearOpacityGradientWithStepFn(
+          'var(--color-neutral-900)',
+          30,
+          (x) => {
+            const t = 0.3
+            const p = 0.22
+            const a = (2 - p) * Math.pow(t, p - 1)
+            const b = (p - 1) * Math.pow(t, p - 2)
 
-        })}`,
+            x = Math.min(1, Math.max(0, x))
+            return x <= t ? a * x + b * x * x : Math.pow(x, p)
+          },
+        )}`,
       }}
     >
       <div

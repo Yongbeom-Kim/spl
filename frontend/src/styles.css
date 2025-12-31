@@ -58,7 +58,6 @@ body {
 
   --font-main: var(--font-family-main);
   --font-brush: var(--font-family-brush);
-
 }
 
 @layer components {
@@ -75,18 +74,18 @@ body {
 }
 
 @utility scale-clickable-hover {
-  scale: 110%
+  scale: 110%;
 }
 
 @utility scale-clickable-active {
   scale: 85%;
   @media (width >= 64rem /* lg */) {
-    scale: 95%
+    scale: 95%;
   }
 }
 
 @utility scale-clickable-focus {
-  scale: 110%
+  scale: 110%;
 }
 
 body {

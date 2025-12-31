@@ -1,3 +1,4 @@
-body, html {
-	background-color: var(--color-neutral-900);
+body,
+html {
+  background-color: var(--color-neutral-900);
 }

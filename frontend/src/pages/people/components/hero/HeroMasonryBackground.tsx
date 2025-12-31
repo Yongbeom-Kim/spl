@@ -1,6 +1,7 @@
-import type Masonry from 'masonry-layout'
 
 // Import all headshot images
+import { useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
 import benjaminYap from '../../assets/headshots/benjamin_yap.png'
 import charlesWindle from '../../assets/headshots/charles_windle.png'
 import chooWeiXin from '../../assets/headshots/choo_wei_xin.png'
@@ -23,8 +24,7 @@ import steinerTanyanxu from '../../assets/headshots/steiner_tanyanxu.png'
 import tanLinYun from '../../assets/headshots/tan_lin_yun.png'
 import tangShiyu from '../../assets/headshots/tang_shiyu.png'
 import yeoZhien from '../../assets/headshots/yeo_zhien.png'
-import { useEffect, useRef, useState } from 'react'
-import classNames from 'classnames'
+import type Masonry from 'masonry-layout'
 import { shuffle } from '@/util'
 
 // Array of all headshot images
@@ -83,11 +83,15 @@ export const PeoplePageHeroBackground = () => {
   }
 
   return (
-    <div className='relative h-full bg-neutral-300'>
+    <div className="relative h-full bg-neutral-300">
       <div
-        className={classNames('masonry-grid', 'absolute top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2', {
-          'opacity-0': !visible,
-        })}
+        className={classNames(
+          'masonry-grid',
+          'absolute top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2',
+          {
+            'opacity-0': !visible,
+          },
+        )}
         ref={gridRef}
       >
         {headshots.map((headshot, idx) => (

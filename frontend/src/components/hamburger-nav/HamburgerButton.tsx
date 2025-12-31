@@ -33,7 +33,7 @@ export const HamburgerButton = ({ variant }: HamburgerButtonProps) => {
       )}
       aria-label={isNavOpen ? 'Close navigation menu' : 'Open navigation menu'}
       aria-expanded={isNavOpen}
-      aria-controls='nav-overlay'
+      aria-controls="nav-overlay"
     >
       <div
         className={classNames('transition-all ease-in-out', {

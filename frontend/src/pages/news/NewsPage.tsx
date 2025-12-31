@@ -1,22 +1,21 @@
+import heroImage from './assets/hero.jpeg'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
-import heroImage from './assets/hero.jpeg'
 
 export const NewsPage = () => {
   return (
     <PageLayout headerLinksToHomePage={true}>
-      <FullScreenHeroSection 
+      <FullScreenHeroSection
         backgroundElement={
-          <img 
-            src={heroImage} 
-            alt="" 
+          <img
+            src={heroImage}
+            alt=""
             className="w-full h-full object-cover object-center"
           />
-        } 
-        headlineContent={'News'} 
+        }
+        headlineContent={'News'}
         headerLinksToHomePage={true}
       />
     </PageLayout>
   )
 }
-

@@ -1,6 +1,6 @@
-import { HamburgerButton } from '../components/hamburger-nav/HamburgerButton'
 import classNames from 'classnames'
 import { Link } from '@tanstack/react-router'
+import { HamburgerButton } from '../components/hamburger-nav/HamburgerButton'
 
 type PageHeaderProps = {
   bg: 'dark-gradient' | 'none'
@@ -31,13 +31,10 @@ export const PageHeader = ({
 
   return (
     <div
-      className={classNames(
-        'w-full h-[128px]',
-        {
-          'bg-linear-to-b from-neutral-900 to-neutral-900/0 relative':
-            bg === 'dark-gradient',
-        },
-      )}
+      className={classNames('w-full h-[128px]', {
+        'bg-linear-to-b from-neutral-900 to-neutral-900/0 relative':
+          bg === 'dark-gradient',
+      })}
     >
       <div
         className="
@@ -46,7 +43,10 @@ export const PageHeader = ({
       px-[5%] lg:px[10%]"
       >
         {headerLinksToHomePage ? (
-          <Link to="/" className="hover:scale-clickable-hover active:scale-clickable-active focus-visible:scale-clickable-focus transition-all ease-in-out">
+          <Link
+            to="/"
+            className="hover:scale-clickable-hover active:scale-clickable-active focus-visible:scale-clickable-focus transition-all ease-in-out"
+          >
             {headerText}
           </Link>
         ) : (

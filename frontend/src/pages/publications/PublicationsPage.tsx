@@ -1,5 +1,5 @@
-import { PageLayout } from '@/components/page-layout/PageLayout'
 import { PublicationsPageHeroSection } from './components/hero/HeroSection'
+import { PageLayout } from '@/components/page-layout/PageLayout'
 
 export const PublicationsPage = () => {
   return (
@@ -8,4 +8,3 @@ export const PublicationsPage = () => {
     </PageLayout>
   )
 }
-

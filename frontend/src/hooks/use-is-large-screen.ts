@@ -1,5 +1,5 @@
-import { useMediaQuery } from "./use-media-query"
+import { useMediaQuery } from './use-media-query'
 
 export const useIsLargeScreen = () => {
-	return useMediaQuery('(min-width: 64rem)')
+  return useMediaQuery('(min-width: 64rem)')
 }
