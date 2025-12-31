@@ -1,20 +1,18 @@
 import classNames from 'classnames'
-import { Dialog } from '@base-ui/react/dialog'
+import { useAtom, useSetAtom } from 'jotai'
 import { PageHeader } from '../../page-header/PageHeader'
 import { WarmCenteredGlowBg } from '../background/WarmCenteredGlowBg'
 import { Link } from '@tanstack/react-router'
-import { useAtom, useAtomValue } from 'jotai'
-import { navOverlayDialogHandle, navOverlayAtom } from './nav-overlay-state'
-import { useRef } from 'react'
+import { isNavOverlayVisibleAtom } from './is-nav-overlay-visible-atom'
 import { useTrapModalFocusForceOrder } from '@/hooks/use-trap-modal-focus'
+import { useRef } from 'react'
 
 type NavigationOverlayLinksProps = {
   className?: string
 }
 
 const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
-  const [, setNavOverlayState] = useAtom(navOverlayAtom)
-
+  const setNavVisible = useSetAtom(isNavOverlayVisibleAtom)
   return (
     <nav
       className={`
@@ -25,30 +23,13 @@ const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
       *:transition-all *:ease-in-out
       ${className}`}
     >
-      <Link onClick={() => setNavOverlayState({ open: false })} to="/aboutus">
-        About Us
-      </Link>
-      <Link onClick={() => setNavOverlayState({ open: false })} to="/people">
-        People
-      </Link>
-      <Link onClick={() => setNavOverlayState({ open: false })} to="/projects">
-        Projects
-      </Link>
-      <Link
-        onClick={() => setNavOverlayState({ open: false })}
-        to="/publications"
-      >
-        Publications
-      </Link>
-      <Link onClick={() => setNavOverlayState({ open: false })} to="/partners">
-        Partners
-      </Link>
-      <Link onClick={() => setNavOverlayState({ open: false })} to="/news">
-        News
-      </Link>
-      <Link onClick={() => setNavOverlayState({ open: false })} to="/contactus">
-        Contact Us
-      </Link>
+      <Link onClick={() => setNavVisible(false)} to="/aboutus">About Us</Link>
+      <Link onClick={() => setNavVisible(false)} to="/people">People</Link>
+      <Link onClick={() => setNavVisible(false)} to="/projects">Projects</Link>
+      <Link onClick={() => setNavVisible(false)} to="/publications">Publications</Link>
+      <Link onClick={() => setNavVisible(false)} to="/partners">Partners</Link>
+      <Link onClick={() => setNavVisible(false)} to="/news">News</Link>
+      <Link onClick={() => setNavVisible(false)} to="/contactus">Contact Us</Link>
     </nav>
   )
 }
@@ -57,58 +38,46 @@ type NavigationOverlayProps = {
   headerLinksToHomePage: boolean
 }
 
-export const NavigationOverlay = ({
-  headerLinksToHomePage,
-}: NavigationOverlayProps) => {
-  const navOverlayState = useAtomValue(navOverlayAtom)
-  const [, setNavOverlayState] = useAtom(navOverlayAtom)
+export const NavigationOverlay = ({ headerLinksToHomePage }: NavigationOverlayProps) => {
+  const [isNavOpen, setNavOpen] = useAtom(isNavOverlayVisibleAtom)
   const overlayRef = useRef<HTMLDivElement | null>(null)
-
-  // Why the Base UI focus trapping does not work, I will never know.
   useTrapModalFocusForceOrder({
     modalRef: overlayRef,
-    requestModalCloseCallback: () => setNavOverlayState({ open: false }),
-    escapeClosesModal: false, // Defer to Base UI for escape handling
-    isActive: navOverlayState.isOverlayOpen,
+    requestModalCloseCallback: () => setNavOpen(false),
+    escapeClosesModal: true,
+    isActive: isNavOpen,
   })
 
   return (
-    <Dialog.Root
-      handle={navOverlayDialogHandle}
-      open={navOverlayState.isOverlayOpen}
-      onOpenChange={(open) => {
-          setNavOverlayState({ open })
-      }}
+    <div
+      className={classNames(
+        `
+			fixed h-screen w-screen
+			transition-all ease-in duration-300
+      bg-neutral-200
+      z-30
+		`,
+        {
+          'opacity-0 pointer-events-none': !isNavOpen,
+          'opacity-100': isNavOpen,
+        },
+      )}
+      id="nav-overlay"
+      aria-hidden={!isNavOpen}
+      inert={!isNavOpen}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site navigation"
+      ref={overlayRef}
     >
-      <Dialog.Portal>
-        <Dialog.Popup
-          ref={overlayRef}
-          className={classNames(
-            `
-            absolute top-0 left-0 w-full h-full
-            transition-all ease-in duration-300
-            bg-neutral-200
-            z-30
-          `,
-            {
-              'opacity-0 pointer-events-none':
-                !navOverlayState.isOverlayVisible,
-              'opacity-100': navOverlayState.isOverlayVisible,
-            },
-          )}
-          id="nav-overlay"
-          aria-label="Site navigation"
-        >
-          <WarmCenteredGlowBg />
-          <PageHeader
-            bg="none"
-            header="dark"
-            hamburger="dark"
-            headerLinksToHomePage={headerLinksToHomePage}
-          />
-          <NavigationOverlayLinks className="absolute top-1/2 lg:top-5/11 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
+      <WarmCenteredGlowBg />
+      <PageHeader
+        bg="none"
+        header='dark'
+        hamburger="dark"
+        headerLinksToHomePage={headerLinksToHomePage}
+      />
+      <NavigationOverlayLinks className="absolute top-1/2 lg:top-5/11 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+    </div>
   )
 }

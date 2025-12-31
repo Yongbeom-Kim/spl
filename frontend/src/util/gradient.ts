@@ -28,6 +28,7 @@ export const generateLinearOpacityGradientWithStepFn = (
 
   const contents = normalized.map((y, i) => {
     const percent = Math.round((i / steps) * 100)
+    console.log({percent, i, steps})
     const val = +(y * 100).toFixed(1)
     return `color-mix(in srgb, ${color} ${val}%, transparent) ${percent}%`
   })

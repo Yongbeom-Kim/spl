@@ -1,27 +1,26 @@
 import classNames from 'classnames'
-import { Dialog } from '@base-ui/react/dialog'
-import { navOverlayAtom, navOverlayDialogHandle } from './nav-overlay-state'
 import { useAtom } from 'jotai'
+import { isNavOverlayVisibleAtom } from './is-nav-overlay-visible-atom'
 
 export type HamburgerButtonProps = {
   variant: 'dark' | 'light'
 }
 
 export const HamburgerButton = ({ variant }: HamburgerButtonProps) => {
+  const [isNavOpen, setNavOpen] = useAtom(isNavOverlayVisibleAtom)
+
+  const handleHamburgerClick = () => {
+    setNavOpen((isNavOpen) => !isNavOpen)
+  }
+
   // After rotating, the top and bottom form a right-angle triangle like the folows:
   // |\ (13px)
   // |/ (13px)
   // Hypotenuse of triangle = 26px/sqrt(2)
   // Each line has to shift 26px/sqrt(2)/2 = 9.192388px
-  const [{ isOverlayOpen }, setOverlayOpen] = useAtom(navOverlayAtom)
-
-  const handleDialogTrigger = () => {
-    setOverlayOpen({ open: !isOverlayOpen })
-  }
   return (
-    <Dialog.Trigger
-      handle={navOverlayDialogHandle}
-      onClick={handleDialogTrigger}
+    <button
+      onClick={handleHamburgerClick}
       className={classNames(
         ` transform
 				flex flex-col gap-[6px]
@@ -32,31 +31,26 @@ export const HamburgerButton = ({ variant }: HamburgerButtonProps) => {
           '*:bg-neutral-900': variant === 'dark',
         },
       )}
-      aria-label="Open navigation menu"
+      aria-label={isNavOpen ? 'Close navigation menu' : 'Open navigation menu'}
+      aria-expanded={isNavOpen}
+      aria-controls='nav-overlay'
     >
       <div
-        className={classNames(
-          "transition-all ease-in-out",
-          {
-            "rotate-45 translate-y-[9.192px]": isOverlayOpen,
-          }
-        )}
+        className={classNames('transition-all ease-in-out', {
+          'rotate-45 translate-y-[9.192px]': isNavOpen,
+        })}
       ></div>
       <div
-        className={classNames(
-          {
-            "invisible ": isOverlayOpen,
-          }
-        )}
+        className={classNames({
+          invisible: isNavOpen,
+          'transition-all ease-in-out': !isNavOpen,
+        })}
       ></div>
       <div
-        className={classNames(
-          "transition-all ease-in-out",
-          {
-            "-rotate-45 translate-y-[-9.192px]": isOverlayOpen,
-          }
-        )}
+        className={classNames('transition-all ease-in-out', {
+          '-rotate-45 translate-y-[-9.192px]': isNavOpen,
+        })}
       ></div>
-    </Dialog.Trigger>
+    </button>
   )
 }

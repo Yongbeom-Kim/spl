@@ -1,8 +1,7 @@
 import type Masonry from 'masonry-layout'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
-import { shuffle } from '@/util'
-import { debounce } from '@/util/debounce'
+import { shuffle, debounce } from '@/util'
 
 // Import publication images
 import image1 from '../../assets/image.png'

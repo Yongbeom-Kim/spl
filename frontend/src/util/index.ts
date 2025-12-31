@@ -1,5 +1,5 @@
 export * from './array'
 export * from './const'
+export * from './function'
 export * from './gradient'
-export * from './debounce'
-export * from './jotai'
+
