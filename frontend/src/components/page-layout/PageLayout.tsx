@@ -1,18 +1,21 @@
-import { useAtomValue } from "jotai"
-import { isNavOverlayVisibleAtom } from "../hamburger-nav/is-nav-overlay-visible-atom"
-import { NavigationOverlay } from "../hamburger-nav/NavigationOverlay"
+import { useAtomValue } from 'jotai'
+import { NavigationOverlay } from '../hamburger-nav/NavigationOverlay'
+import { navOverlayAtom } from '../hamburger-nav/nav-overlay-state'
 
 type PageLayoutProps = {
   headerLinksToHomePage: boolean
   children: React.ReactNode
 }
 
-export const PageLayout = ({ headerLinksToHomePage, children }: PageLayoutProps) => {
-  const isOverlayVisible = useAtomValue(isNavOverlayVisibleAtom)
+export const PageLayout = ({
+  headerLinksToHomePage,
+  children,
+}: PageLayoutProps) => {
+  const {isOverlayOpen} = useAtomValue(navOverlayAtom)
   return (
     <div>
       <NavigationOverlay headerLinksToHomePage={headerLinksToHomePage} />
-      <div inert={isOverlayVisible}>{children}</div>
+      <div inert={isOverlayOpen}>{children}</div>
     </div>
   )
 }
