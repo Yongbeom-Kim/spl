@@ -1,7 +1,6 @@
 import classNames from 'classnames'
-import { FullScreenSectionRoot } from '../base/FullScreenSectionRoot'
+import { FullScreenSectionRoot } from '../root/FullScreenSectionRoot'
 import type { ReactNode } from 'react'
-import './styles.css'
 
 export type FullScreenTextOnlyLayoutProps = {
   children: ReactNode
