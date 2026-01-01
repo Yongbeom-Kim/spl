@@ -11,7 +11,7 @@ export const FullScreenSectionRoot = ({
 }: FullScreenSectionRootProps) => {
   return (
     <div
-      className={`relative base-horizontal-padding base-vertical-padding screen-section-min bg-neutral-0 ${className}`}
+      className={`section-root relative base-horizontal-padding base-vertical-padding screen-section-min bg-neutral-0 ${className}`}
     >
       <div className="max-w-2xl mx-auto">{children}</div>
     </div>
