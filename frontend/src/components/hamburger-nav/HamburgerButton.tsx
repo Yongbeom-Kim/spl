@@ -10,7 +10,7 @@ export const HamburgerButton = ({ variant }: HamburgerButtonProps) => {
   const [isNavOpen, setNavOpen] = useAtom(isNavOverlayVisibleAtom)
 
   const handleHamburgerClick = () => {
-    setNavOpen((isNavOpen) => !isNavOpen)
+    setNavOpen((isOpen) => !isOpen)
   }
 
   // After rotating, the top and bottom form a right-angle triangle like the folows:

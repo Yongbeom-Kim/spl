@@ -3,7 +3,7 @@ import { FullScreenTextOnlyLayout } from '@/components/page-sections/layout/Full
 
 export const ContactInfoSection = () => {
   return (
-    <FullScreenTextOnlyLayout header="Opportunities" align_header='left'>
+    <FullScreenTextOnlyLayout header="Opportunities" align_header="left">
       <h3>
         Want to join us or collaborate with us?
         <br />

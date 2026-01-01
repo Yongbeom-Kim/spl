@@ -1,7 +1,7 @@
-import { PageLayout } from '@/components/page-layout/PageLayout'
 import { FullScreenHeroSection } from '../../components/full-screen-hero/FullScreenHeroSection'
-import './styles.css'
 import heroCropped from './assets/hero-cropped.webp'
+import './styles.css'
+import { PageLayout } from '@/components/page-layout/PageLayout'
 
 export const HomePage = () => {
   return (

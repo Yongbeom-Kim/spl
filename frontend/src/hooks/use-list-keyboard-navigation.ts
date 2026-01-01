@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import type { KeyboardEvent } from 'react';
+import type { KeyboardEvent } from 'react'
 
 export type UseListKeyboardNavigationProps = {
   enabled: boolean
@@ -59,9 +59,7 @@ export const useListKeyboardNavigation = ({
       ) {
         keyboardEvent.preventDefault()
         const activeElement = document.activeElement as HTMLElement
-        const currentIndex = activeElement
-          ? focusableElements.indexOf(activeElement)
-          : -1
+        const currentIndex = focusableElements.indexOf(activeElement)
 
         if (currentIndex === -1) {
           if (keyboardEvent.key === 'ArrowDown') {

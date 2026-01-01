@@ -96,7 +96,7 @@ const MasonryBackground = () => {
   )
 
   useEffect(() => {
-    setImages((images) => shuffle(images))
+    setImages((currentImages) => shuffle(currentImages))
   }, [])
 
   useEffect(() => {
@@ -109,13 +109,15 @@ const MasonryBackground = () => {
         itemSelector: '.masonry-item',
         transitionDuration: 0,
       })
-      masonryRef.current?.on?.('layoutComplete', debouncedSetVisible)
+      masonryRef.current.on?.('layoutComplete', debouncedSetVisible)
       masonryRef.current.layout?.()
     })
 
     return () => {
-      masonryRef.current?.destroy?.()
-      masonryRef.current?.off?.('layoutComplete', debouncedSetVisible)
+      if (masonryRef.current) {
+        masonryRef.current.destroy?.()
+        masonryRef.current.off?.('layoutComplete', debouncedSetVisible)
+      }
     }
   }, [images])
 
