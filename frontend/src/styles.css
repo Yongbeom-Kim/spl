@@ -9,7 +9,9 @@
 body {
   margin: 0;
   scrollbar-gutter: stable;
+  /* TODO: fix, native scroll on y-axis causes horizontal overflow (and scrolling) */
   overflow-x: hidden;
+  /* TOOD: replace this with Base UI ScrollArea https://base-ui.com/react/components/scroll-area */
   overflow-y: auto;
 }
 
