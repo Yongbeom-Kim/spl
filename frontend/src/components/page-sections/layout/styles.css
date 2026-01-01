@@ -50,3 +50,55 @@ strong {
   color: var(--color-neutral-900);
   font-weight: 600;
 }
+
+a {
+  color: var(--color-accent-blue-600);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-blue-300);
+  text-underline-offset: 0.25em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--color-accent-blue-700);
+  text-decoration-color: var(--color-accent-blue-500);
+}
+
+a:active {
+  color: var(--color-accent-blue-800);
+  text-decoration-color: var(--color-accent-blue-400);
+}
+
+a:focus {
+  outline: 2px solid var(--color-accent-blue-400);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+a:visited {
+  color: var(--color-accent-blue-700);
+}
+
+/* Mobile-specific: larger touch targets and adjusted active states */
+@media (max-width: 63.9375rem) {
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  a:active {
+    color: var(--color-accent-blue-800);
+    text-decoration-color: var(--color-accent-blue-500);
+    opacity: 0.8;
+  }
+}
+
+/* Desktop-specific: hover effects */
+@media (min-width: 64rem) {
+  a:hover {
+    color: var(--color-accent-blue-700);
+    text-decoration-color: var(--color-accent-blue-500);
+  }
+}
