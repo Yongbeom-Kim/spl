@@ -1,6 +1,7 @@
 import { useAtomValue } from 'jotai'
 import { isNavOverlayVisibleAtom } from '../hamburger-nav/is-nav-overlay-visible-atom'
 import { NavigationOverlay } from '../hamburger-nav/NavigationOverlay'
+import { Footer } from '../footer/Footer'
 
 type PageLayoutProps = {
   headerLinksToHomePage: boolean
@@ -30,6 +31,7 @@ export const PageLayout = ({
       <main id="main-content" tabIndex={-1} inert={isOverlayVisible}>
         {children}
       </main>
+      <Footer />
     </div>
   )
 }
