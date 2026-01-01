@@ -18,6 +18,7 @@ export const FullScreenHeroSectionHeadline = ({
       flex flex-col gap-4 lg:gap-6
       pb-4 lg:pb-20 
       pt-10 lg:pt-15
+      base-horizontal-padding
       ${divProps.className}`}
       style={{
         background: `${generateLinearOpacityGradientWithStepFn(
@@ -37,7 +38,7 @@ export const FullScreenHeroSectionHeadline = ({
     >
       <div
         className="
-        mt-auto w-full px-[5%] lg:px[10%]
+        mt-auto w-full
         text-neutral-0 font-family-main font-bold text-4xl lg:text-6xl"
         // TODO: disable after we settle on a tagline
         contentEditable={true}
@@ -47,7 +48,7 @@ export const FullScreenHeroSectionHeadline = ({
       {sublineContent && (
         <div
           className="
-          w-full px-[5%] lg:px[10%]
+          w-full
           text-neutral-100 font-family-main font-semibold text-lg lg:text-3xl"
         >
           {sublineContent}

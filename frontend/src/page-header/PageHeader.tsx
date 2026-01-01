@@ -31,16 +31,15 @@ export const PageHeader = ({
 
   return (
     <div
-      className={classNames('w-full h-[128px]', {
+      className={classNames('w-full h-[128px] base-horizontal-padding', {
         'bg-linear-to-b from-neutral-900 to-neutral-900/0 relative':
           bg === 'dark-gradient',
       })}
     >
       <div
         className="
-      w-full h-2/3 mb-auto
-      flex flex-row items-center justify-between
-      px-[5%] lg:px[10%]"
+          w-full h-2/3 mb-auto
+          flex flex-row items-center justify-between"
       >
         {headerLinksToHomePage ? (
           <Link
