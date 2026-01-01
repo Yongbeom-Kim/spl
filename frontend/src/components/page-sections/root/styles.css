@@ -58,7 +58,9 @@
   text-decoration: underline;
   text-decoration-color: var(--color-accent-blue-300);
   text-underline-offset: 0.25em;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -81,3 +83,58 @@
 .section-root a:visited {
   color: var(--color-accent-blue-700);
 }
+
+.section-root[data-theme='dark'] h2 {
+  color: var(--color-neutral-200);
+}
+
+.section-root[data-theme='dark'] h3 {
+  color: var(--color-neutral-200);
+}
+
+.section-root[data-theme='dark'] h4 {
+  color: var(--color-neutral-100);
+}
+
+.section-root[data-theme='dark'] p {
+  color: var(--color-neutral-100);
+}
+
+.section-root[data-theme='dark'] ul {
+  color: var(--color-neutral-100);
+}
+
+.section-root[data-theme='dark'] li::before {
+  color: var(--color-neutral-500);
+}
+
+.section-root[data-theme='dark'] strong {
+  color: var(--color-neutral-200);
+}
+
+.section-root[data-theme='dark'] a {
+  color: var(--color-accent-blue-200);
+  text-decoration-color: var(--color-accent-blue-200);
+}
+
+.section-root[data-theme='dark'] a:hover {
+  color: var(--color-accent-blue-100);
+  text-decoration-color: var(--color-accent-blue-100);
+}
+
+.section-root[data-theme='dark'] a:active {
+  color: var(--color-accent-blue-50);
+  text-decoration-color: var(--color-accent-blue-50);
+}
+
+.section-root[data-theme='dark'] a:focus {
+  outline: 2px solid var(--color-accent-blue-100);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.section-root[data-theme='dark'] a:visited {
+  color: var(--color-accent-blue-300);
+}
+
+

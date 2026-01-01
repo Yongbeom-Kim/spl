@@ -9,9 +9,12 @@ export type CalloutProps = {
 }
 
 const VARIANT_STYLES: Record<CalloutVariant, string> = {
-  blue: 'bg-accent-blue-50 border-l-4 border-accent-blue-500',
-  red: 'bg-accent-red-50 border-l-4 border-accent-red-500',
-  neutral: 'bg-neutral-50 border-l-4 border-neutral-300',
+  blue:
+    "border-l-4 border-accent-blue-500 bg-accent-blue-500/10 dark:bg-accent-blue-400/10",
+  red:
+    "border-l-4 border-accent-red-500 bg-accent-red-500/10 dark:bg-accent-red-400/15",
+  neutral:
+    "border-l-4 border-neutral-300 bg-neutral-500/5 dark:bg-neutral-200/5",
 }
 
 export const Callout = ({

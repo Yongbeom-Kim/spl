@@ -7,6 +7,8 @@ export type FullScreenTextOnlyLayoutProps = {
   header: string
   align_header: 'left' | 'center'
   className?: string
+  theme: 'light' | 'dark'
+  backgroundColor?: string
 }
 
 export const FullScreenTextOnlyLayout = ({
@@ -14,9 +16,18 @@ export const FullScreenTextOnlyLayout = ({
   header,
   align_header,
   className = '',
+  theme,
+  backgroundColor,
 }: FullScreenTextOnlyLayoutProps) => {
+  const textColorClass =
+    theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'
+
   return (
-    <FullScreenSectionRoot className={`${className} text-neutral-800`}>
+    <FullScreenSectionRoot
+      className={`${className} ${textColorClass}`}
+      theme={theme}
+      backgroundColor={backgroundColor}
+    >
       <h2
         className={classNames({
           'h-full text-center': align_header === 'center',
