@@ -79,26 +79,3 @@ a:focus {
 a:visited {
   color: var(--color-accent-blue-700);
 }
-
-/* Mobile-specific: larger touch targets and adjusted active states */
-@media (max-width: 63.9375rem) {
-  a {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  a:active {
-    color: var(--color-accent-blue-800);
-    text-decoration-color: var(--color-accent-blue-500);
-    opacity: 0.8;
-  }
-}
-
-/* Desktop-specific: hover effects */
-@media (min-width: 64rem) {
-  a:hover {
-    color: var(--color-accent-blue-700);
-    text-decoration-color: var(--color-accent-blue-500);
-  }
-}
