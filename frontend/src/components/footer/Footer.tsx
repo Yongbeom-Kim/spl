@@ -5,7 +5,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-neutral-900 text-neutral-0 base-horizontal-padding base-vertical-padding">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div>
           <Link
             to="/"
@@ -90,8 +90,6 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-      </div>
-      <div className="mt-8">
         <p className="text-sm opacity-80">© SENPAI LEARN {currentYear}</p>
       </div>
     </footer>
