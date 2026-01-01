@@ -6,6 +6,7 @@ import { PageHeader } from '../../page-header/PageHeader'
 import { WarmCenteredGlowBg } from '../background/WarmCenteredGlowBg'
 import { VisuallyHidden } from '../ui/VisuallyHidden'
 import { isNavOverlayVisibleAtom } from './is-nav-overlay-visible-atom'
+import { useDisableScrollWhenNavOpen } from '@/hooks/use-disable-scroll-when-nav-open'
 import { useTrapModalFocusForceOrder } from '@/hooks/use-trap-modal-focus'
 import { useListKeyboardNavigation } from '@/hooks/use-list-keyboard-navigation'
 
@@ -84,6 +85,7 @@ export const NavigationOverlay = ({
 }: NavigationOverlayProps) => {
   const [isNavOpen, setNavOpen] = useAtom(isNavOverlayVisibleAtom)
   const overlayRef = useRef<HTMLDivElement | null>(null)
+  useDisableScrollWhenNavOpen()
   useTrapModalFocusForceOrder({
     modalRef: overlayRef,
     requestModalCloseCallback: () => setNavOpen(false),
