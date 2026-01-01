@@ -1,4 +1,5 @@
 import heroImage from './assets/hero.jpg'
+import { ContactInfoSection } from './components/ContactInfoSection'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
 
@@ -19,6 +20,7 @@ export const ContactUsPage = () => {
         headlineContent={'Contact Us'}
         headerLinksToHomePage={true}
       />
+      <ContactInfoSection />
     </PageLayout>
   )
 }

@@ -8,6 +8,7 @@
 
 body {
   margin: 0;
+  scrollbar-gutter: stable;
 }
 
 @tailwind utilities;
@@ -89,9 +90,29 @@ body {
 }
 
 @utility base-horizontal-padding {
-  padding-inline: 5%;
+  padding-inline: 10%;
   @media (width >= 64rem /* lg */) {
     padding-inline: 10%;
+  }
+}
+
+@utility base-vertical-padding {
+  padding-block: 2rem;
+}
+
+@utility screen-section {
+  width: 100vw;
+  height: 96svh;
+  @media (width >= 64rem /* lg */) {
+    height: 100svh;
+  }
+}
+
+@utility screen-section-min {
+  width: 100vw;
+  min-height: 96svh;
+  @media (width >= 64rem /* lg */) {
+    min-height: 100svh;
   }
 }
 

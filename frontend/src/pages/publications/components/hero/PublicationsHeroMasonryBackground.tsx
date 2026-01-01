@@ -1,7 +1,4 @@
-import type Masonry from 'masonry-layout'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
-import { shuffle, debounce } from '@/util'
 
 // Import publication images
 import image1 from '../../assets/image.png'
@@ -23,8 +20,11 @@ import image16 from '../../assets/image copy 15.png'
 import image17 from '../../assets/image copy 16.png'
 import image18 from '../../assets/image copy 17.png'
 import image19 from '../../assets/image copy 18.png'
+import type Masonry from 'masonry-layout'
+import { debounce, shuffle } from '@/util'
+import { useIsLargeScreen } from '@/hooks/use-is-large-screen'
 
-const allPublicationImages: string[] = [
+const allPublicationImages: Array<string> = [
   image1,
   image2,
   image3,

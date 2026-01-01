@@ -1,5 +1,7 @@
-import { RefObject, useEffect, useRef } from 'react'
-import { FocusableElement, tabbable } from 'tabbable'
+import { useEffect, useRef } from 'react'
+import { tabbable } from 'tabbable'
+import type { RefObject} from 'react';
+import type { FocusableElement} from 'tabbable';
 
 type UseTrapModalFocusParams = {
   modalRef: RefObject<HTMLElement | null>
@@ -88,7 +90,7 @@ export const useTrapModalFocusForceOrder = ({
 
         if (focusedElIdx === -1) {
           if (e.shiftKey) {
-            modalTabbableList.at(firstFocusElIdx-1)?.focus()
+            modalTabbableList.at(firstFocusElIdx - 1)?.focus()
           } else {
             modalTabbableList.at(firstFocusElIdx)?.focus()
           }

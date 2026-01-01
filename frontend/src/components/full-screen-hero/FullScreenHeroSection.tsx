@@ -25,7 +25,7 @@ export const FullScreenHeroSection = ({
       }}
       className={`
         relative
-        w-screen h-[96svh] lg:h-svh
+        screen-section
         flex flex-col justify-start items-center
         overflow-hidden
         ${divProps.className}`}

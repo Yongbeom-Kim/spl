@@ -1,4 +1,3 @@
-
 // Import all headshot images
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'

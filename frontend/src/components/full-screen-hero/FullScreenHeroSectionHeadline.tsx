@@ -16,7 +16,7 @@ export const FullScreenHeroSectionHeadline = ({
       {...divProps}
       className={`
       flex flex-col gap-4 lg:gap-6
-      pb-4 lg:pb-20 
+      pb-8 lg:pb-20 
       pt-10 lg:pt-15
       base-horizontal-padding
       ${divProps.className}`}

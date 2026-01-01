@@ -1,4 +1,5 @@
-import { useEffect, useRef, KeyboardEvent } from 'react'
+import { useEffect, useRef } from 'react'
+import type { KeyboardEvent } from 'react';
 
 export type UseListKeyboardNavigationProps = {
   enabled: boolean
