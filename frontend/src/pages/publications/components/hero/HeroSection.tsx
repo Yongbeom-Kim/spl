@@ -9,7 +9,6 @@ export const PublicationsPageHeroSection = () => {
       }
       headlineContent={'Our Journey in Research'}
       sublineContent="Passing peer review is never easy. We're proud to publish meaningful work in high-impact journals."
-      headerLinksToHomePage={true}
     />
   )
 }

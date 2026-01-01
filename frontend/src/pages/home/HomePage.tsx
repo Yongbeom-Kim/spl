@@ -15,7 +15,6 @@ export const HomePage = () => {
           />
         }
         headlineContent="We are a group empowering learning for everyone."
-        headerLinksToHomePage={false}
       />
     </PageLayout>
   )

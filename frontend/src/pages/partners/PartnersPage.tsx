@@ -18,7 +18,6 @@ export const PartnersPage = () => {
           />
         }
         headlineContent={'Partners'}
-        headerLinksToHomePage={true}
       />
     </PageLayout>
   )

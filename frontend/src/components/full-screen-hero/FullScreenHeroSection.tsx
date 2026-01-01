@@ -1,4 +1,3 @@
-import { PageHeader } from '../../page-header/PageHeader'
 import { FullScreenHeroSectionHeadline } from './FullScreenHeroSectionHeadline'
 import type { ReactNode } from 'react'
 import type { DivPropsWithoutChild } from '@/types/props'
@@ -7,14 +6,12 @@ type FullScreenHeroSectionProps = {
   backgroundElement: ReactNode
   headlineContent: string
   sublineContent?: string
-  headerLinksToHomePage?: boolean
 } & DivPropsWithoutChild
 
 export const FullScreenHeroSection = ({
   backgroundElement,
   headlineContent,
   sublineContent,
-  headerLinksToHomePage,
   ...divProps
 }: FullScreenHeroSectionProps) => {
   return (
@@ -27,7 +24,6 @@ export const FullScreenHeroSection = ({
         relative
         screen-section
         flex flex-col justify-start items-center
-        overflow-hidden
         ${divProps.className}`}
     >
       <div className="absolute inset-0 z-0 w-full h-full">
@@ -45,12 +41,6 @@ export const FullScreenHeroSection = ({
       />
 
       <div className="relative z-20 w-full h-full flex flex-col justify-start items-center">
-        <PageHeader
-          bg="dark-gradient"
-          header="light"
-          hamburger="light"
-          headerLinksToHomePage={headerLinksToHomePage}
-        />
         <FullScreenHeroSectionHeadline
           className="absolute bottom-0 w-full"
           headlineContent={headlineContent}

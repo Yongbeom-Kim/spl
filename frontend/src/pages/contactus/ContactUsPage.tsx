@@ -18,7 +18,6 @@ export const ContactUsPage = () => {
           />
         }
         headlineContent={'Contact Us'}
-        headerLinksToHomePage={true}
       />
       <ContactInfoSection />
     </PageLayout>

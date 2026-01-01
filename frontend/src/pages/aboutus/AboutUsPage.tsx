@@ -18,7 +18,6 @@ export const AboutUsPage = () => {
         sublineContent={
           'We are a team of enablers who support projects related to enhanced learning via novel approaches.'
         }
-        headerLinksToHomePage={true}
       />
     </PageLayout>
   )

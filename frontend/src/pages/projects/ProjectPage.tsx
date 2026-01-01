@@ -19,7 +19,6 @@ export const ProjectPage = () => {
         }
         headlineContent={'Our Projects'}
         sublineContent="Since 2015, SenpaiLearn has trailblazed the path unchartered by applying suitable technological tools to engage learners and enhance their learning."
-        headerLinksToHomePage={true}
       />
     </PageLayout>
   )

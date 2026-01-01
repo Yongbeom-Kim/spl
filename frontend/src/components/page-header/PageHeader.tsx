@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { Link } from '@tanstack/react-router'
-import { HamburgerButton } from '../components/hamburger-nav/HamburgerButton'
+import { useScrollDirection } from '@/hooks/use-scroll-direction'
+import { HamburgerButton } from '../hamburger-nav/HamburgerButton'
 
 type PageHeaderProps = {
   bg: 'dark-gradient' | 'none'
@@ -15,10 +16,11 @@ export const PageHeader = ({
   hamburger,
   headerLinksToHomePage = true,
 }: PageHeaderProps) => {
+  const scrollDirection = useScrollDirection()
   const headerText = (
     <div
       className={classNames(
-        ' font-family-main font-semibold capitalize text-2xl lg:text-4xl',
+        'font-family-main font-semibold capitalize text-2xl lg:text-4xl transition-all duration-300 ease-in-out',
         {
           'text-neutral-0': header === 'light',
           'text-neutral-900': header === 'dark',
@@ -30,11 +32,17 @@ export const PageHeader = ({
   )
 
   return (
-    <div
-      className={classNames('w-full h-[128px] base-horizontal-padding', {
-        'bg-linear-to-b from-neutral-900 to-neutral-900/0 relative':
-          bg === 'dark-gradient',
-      })}
+    <div className='sticky top-0 left-0 right-0 z-50 h-0'>
+      <div
+      className={classNames(
+        'absolute top-0 w-full h-[128px] base-horizontal-padding transition-all duration-300 ease-in-out',
+        {
+          '-translate-y-full': scrollDirection === 'down',
+          'translate-y-0': scrollDirection === 'up' || scrollDirection === null,
+          'bg-linear-to-b from-neutral-900 to-neutral-900/0 relative':
+            bg === 'dark-gradient',
+        },
+      )}
     >
       <div
         className="
@@ -60,6 +68,7 @@ export const PageHeader = ({
           />
         </div>
       </div>
+    </div>
     </div>
   )
 }

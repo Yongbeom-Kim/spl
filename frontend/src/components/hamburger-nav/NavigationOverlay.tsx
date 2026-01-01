@@ -2,13 +2,13 @@ import { useRef } from 'react'
 import { Link } from '@tanstack/react-router'
 import classNames from 'classnames'
 import { useAtom, useSetAtom } from 'jotai'
-import { PageHeader } from '../../page-header/PageHeader'
 import { WarmCenteredGlowBg } from '../background/WarmCenteredGlowBg'
 import { VisuallyHidden } from '../ui/VisuallyHidden'
 import { isNavOverlayVisibleAtom } from './is-nav-overlay-visible-atom'
 import { useDisableScrollWhenNavOpen } from '@/hooks/use-disable-scroll-when-nav-open'
 import { useTrapModalFocusForceOrder } from '@/hooks/use-trap-modal-focus'
 import { useListKeyboardNavigation } from '@/hooks/use-list-keyboard-navigation'
+import { PageHeader } from '../page-header/PageHeader'
 
 type NavigationOverlayLinksProps = {
   className?: string
@@ -77,7 +77,7 @@ const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
 }
 
 type NavigationOverlayProps = {
-  headerLinksToHomePage: boolean
+  headerLinksToHomePage?: boolean
 }
 
 export const NavigationOverlay = ({
@@ -122,12 +122,6 @@ export const NavigationOverlay = ({
         ref={overlayRef}
       >
         <WarmCenteredGlowBg />
-        <PageHeader
-          bg="none"
-          header="dark"
-          hamburger="dark"
-          headerLinksToHomePage={headerLinksToHomePage}
-        />
         <NavigationOverlayLinks className="absolute top-1/2 lg:top-5/11 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </div>
     </>

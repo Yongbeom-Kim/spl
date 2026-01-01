@@ -2,6 +2,7 @@ import { useAtomValue } from 'jotai'
 import { isNavOverlayVisibleAtom } from '../hamburger-nav/is-nav-overlay-visible-atom'
 import { NavigationOverlay } from '../hamburger-nav/NavigationOverlay'
 import { Footer } from '../footer/Footer'
+import { PageHeader } from '../page-header/PageHeader'
 
 type PageLayoutProps = {
   headerLinksToHomePage: boolean
@@ -27,7 +28,13 @@ export const PageLayout = ({
   return (
     <div>
       {/* <SkipToContentLink /> */}
-      <NavigationOverlay headerLinksToHomePage={headerLinksToHomePage} />
+      <PageHeader
+        bg={isOverlayVisible ? "none" : "dark-gradient"}
+        header={isOverlayVisible ? "dark": "light"}
+        hamburger={isOverlayVisible ? "dark": "light"}
+        headerLinksToHomePage={headerLinksToHomePage}
+      />
+      <NavigationOverlay/>
       <main id="main-content" tabIndex={-1} inert={isOverlayVisible}>
         {children}
       </main>

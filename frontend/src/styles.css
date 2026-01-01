@@ -102,7 +102,7 @@ body {
 
 @utility base-vertical-padding {
   padding-block: 4rem;
-  @media (width >= 6454m /* lg */) {
+  @media (width >= 64rem /* lg */) {
     padding-block: 6rem;
   }
 }

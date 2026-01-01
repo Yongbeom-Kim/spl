@@ -14,7 +14,6 @@ export const NewsPage = () => {
           />
         }
         headlineContent={'News'}
-        headerLinksToHomePage={true}
       />
     </PageLayout>
   )
