@@ -4,7 +4,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-neutral-900 text-neutral-0 base-horizontal-padding base-vertical-padding">
+    <footer className="border-t-2 border-neutral-50 bg-neutral-900 text-neutral-0 base-horizontal-padding base-vertical-padding">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div>
           <Link
