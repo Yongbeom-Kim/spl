@@ -1,9 +1,9 @@
 import { Callout } from '@/components/page-sections/components/callout/Callout'
-import { FullScreenTextOnlyLayout } from '@/components/page-sections/layout/FullScreenTextOnlyLayout'
+import { FullScreenHeaderOnlySection } from '@/components/page-sections/layout/FullScreenHeaderOnlySection'
 
 export const ContactInfoSection = () => {
   return (
-    <FullScreenTextOnlyLayout
+    <FullScreenHeaderOnlySection
       header="Opportunities"
       align_header="left"
       theme="light"
@@ -111,6 +111,6 @@ export const ContactInfoSection = () => {
         <li>ERASMUS+</li>
         <li>Royal Society of Chemistry</li>
       </ul>
-    </FullScreenTextOnlyLayout>
+    </FullScreenHeaderOnlySection>
   )
 }

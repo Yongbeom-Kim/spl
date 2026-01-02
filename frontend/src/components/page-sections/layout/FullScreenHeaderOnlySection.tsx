@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { FullScreenSectionRoot } from '../root/FullScreenSectionRoot'
 import type { ReactNode } from 'react'
 
-export type FullScreenTextOnlyLayoutProps = {
+export type FullScreenHeaderOnlySection = {
   children: ReactNode
   header: string
   align_header: 'left' | 'center'
@@ -11,14 +11,14 @@ export type FullScreenTextOnlyLayoutProps = {
   backgroundColor?: string
 }
 
-export const FullScreenTextOnlyLayout = ({
+export const FullScreenHeaderOnlySection = ({
   children,
   header,
   align_header,
   className = '',
   theme,
   backgroundColor,
-}: FullScreenTextOnlyLayoutProps) => {
+}: FullScreenHeaderOnlySection) => {
   const textColorClass =
     theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'
 
