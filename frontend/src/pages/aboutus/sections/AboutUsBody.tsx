@@ -39,8 +39,8 @@ const AboutUsSection2 = () => {
       width="wide"
       height="fit-content"
     >
-      <div className="flex flex-row items-start mb-20">
-        <ul className="w-5/6">
+      <div className="flex flex-col lg:flex-row items-start mb-20">
+        <ul className="w-full lg:w-5/6">
           <li>
             <strong>Be an Enabler.</strong> Be a champion for a cause that you
             believe in.
@@ -57,7 +57,7 @@ const AboutUsSection2 = () => {
             <strong>Be an Inspiration.</strong> Lead by example.
           </li>
         </ul>
-        <div className="p-4 bg-white -mt-20 rounded-sm">
+        <div className="p-4 bg-white mt-10 ml-auto lg:-mt-20 rounded-sm">
           <img
             src="https://static.wixstatic.com/media/658066_2f9d53fb49d147158946cd30efc5a75e~mv2.jpg/v1/fill/w_103,h_154,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/658066_2f9d53fb49d147158946cd30efc5a75e~mv2.jpg"
             alt=""
@@ -67,10 +67,10 @@ const AboutUsSection2 = () => {
 
       <Card
         variant={'light'}
-        className="h-fit w-full py-20 mx-auto bg-neutral-400"
+        className="h-fit w-full py-0 lg:py-20 px-0 lg:px-10 mx-auto bg-neutral-400"
       >
         <iframe
-          className="w-2xl aspect-video mx-auto"
+          className="max-w-3xl aspect-video mx-auto"
           src="https://www.youtube.com/embed/YO7JlCSHBl0?autoplay=1&mute=1"
           title="YouTube video player"
           frameBorder="0"
