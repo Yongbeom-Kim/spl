@@ -1,5 +1,9 @@
 /* TODO: I'm sure this can be improved with a css preprocessor */
 
+.section-root {
+  font-size: var(--text-lg);
+}
+
 .section-root h2 {
   color: var(--color-neutral-900);
   font-size: var(--text-4xl);
@@ -31,7 +35,8 @@
   color: var(--color-neutral-800);
   line-height: 1.2;
   list-style: none;
-  padding-left: 0;
+  text-indent: -1.5rem;
+  padding-left: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -85,11 +90,11 @@
 }
 
 .section-root[data-theme='dark'] h2 {
-  color: var(--color-neutral-200);
+  color: var(--color-neutral-50);
 }
 
 .section-root[data-theme='dark'] h3 {
-  color: var(--color-neutral-200);
+  color: var(--color-neutral-100);
 }
 
 .section-root[data-theme='dark'] h4 {

@@ -35,7 +35,11 @@ export const PageLayout = ({
         headerLinksToHomePage={headerLinksToHomePage}
       />
       <NavigationOverlay/>
-      <main id="main-content" tabIndex={-1} inert={isOverlayVisible}>
+      <main
+        id="main-content"
+        tabIndex={-1}
+        inert={isOverlayVisible}
+      >
         {children}
       </main>
       <Footer />

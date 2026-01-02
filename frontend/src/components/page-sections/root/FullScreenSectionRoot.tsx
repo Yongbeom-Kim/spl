@@ -1,11 +1,14 @@
 import type { ReactNode } from 'react'
-import './styles.css'
+import './Section.css'
+import classNames from 'classnames'
 
 export type FullScreenSectionRootProps = {
   children: ReactNode
   className?: string
   theme: 'light' | 'dark'
   backgroundColor?: string
+  width: 'narrow' | 'wide'
+  height: 'min-fullscreen' | 'fit-content'
 }
 
 export const FullScreenSectionRoot = ({
@@ -13,21 +16,26 @@ export const FullScreenSectionRoot = ({
   className = '',
   theme,
   backgroundColor,
+  width,
+  height,
 }: FullScreenSectionRootProps) => {
-  const bgStyle = backgroundColor ? { backgroundColor } : {}
-  const bgClass = !backgroundColor
-    ? theme === 'dark'
-      ? 'bg-neutral-900'
-      : 'bg-neutral-0'
-    : ''
-
   return (
     <div
-      className={`section-root relative base-horizontal-padding base-vertical-padding screen-section-min ${bgClass} ${className}`}
+      className={classNames(
+        'section-root relative base-horizontal-padding base-vertical-padding',
+        {
+          'bg-neutral-900': !backgroundColor && theme === 'dark',
+          'bg-neutral-0': !backgroundColor && theme === 'light',
+          'max-w-2xl mx-auto': width === 'narrow',
+          'fullscreen-section-min': height === 'min-fullscreen',
+          'h-fit': height === 'fit-content',
+        },
+        className,
+      )}
       data-theme={theme}
-      style={bgStyle}
+      style={backgroundColor ? { backgroundColor } : {}}
     >
-      <div className="max-w-2xl mx-auto">{children}</div>
+      {children}
     </div>
   )
 }

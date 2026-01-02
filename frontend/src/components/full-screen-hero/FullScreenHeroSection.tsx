@@ -22,7 +22,7 @@ export const FullScreenHeroSection = ({
       }}
       className={`
         relative
-        screen-section
+        fullscreen-section
         flex flex-col justify-start items-center
         ${divProps.className}`}
     >

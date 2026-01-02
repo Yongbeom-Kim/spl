@@ -1,14 +1,9 @@
 import classNames from 'classnames'
-import { FullScreenSectionRoot } from '../root/FullScreenSectionRoot'
-import type { ReactNode } from 'react'
+import { FullScreenSectionRoot, FullScreenSectionRootProps } from '../root/FullScreenSectionRoot'
 
-export type FullScreenHeaderOnlySection = {
-  children: ReactNode
+export type FullScreenHeaderOnlySectionProps = FullScreenSectionRootProps & {
   header: string
   align_header: 'left' | 'center'
-  className?: string
-  theme: 'light' | 'dark'
-  backgroundColor?: string
 }
 
 export const FullScreenHeaderOnlySection = ({
@@ -18,7 +13,9 @@ export const FullScreenHeaderOnlySection = ({
   className = '',
   theme,
   backgroundColor,
-}: FullScreenHeaderOnlySection) => {
+  width,
+  height,
+}: FullScreenHeaderOnlySectionProps) => {
   const textColorClass =
     theme === 'dark' ? 'text-neutral-200' : 'text-neutral-800'
 
@@ -27,6 +24,8 @@ export const FullScreenHeaderOnlySection = ({
       className={`${className} ${textColorClass}`}
       theme={theme}
       backgroundColor={backgroundColor}
+      width={width}
+      height={height}
     >
       <h2
         className={classNames({

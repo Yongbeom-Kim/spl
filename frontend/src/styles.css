@@ -107,7 +107,7 @@ body {
   }
 }
 
-@utility screen-section {
+@utility fullscreen-section {
   width: 100vw;
   height: 96svh;
   @media (width >= 64rem /* lg */) {
@@ -115,7 +115,7 @@ body {
   }
 }
 
-@utility screen-section-min {
+@utility fullscreen-section-min {
   width: 100vw;
   min-height: 96svh;
   @media (width >= 64rem /* lg */) {
