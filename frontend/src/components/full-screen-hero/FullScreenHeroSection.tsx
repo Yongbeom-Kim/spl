@@ -26,7 +26,7 @@ export const FullScreenHeroSection = ({
         flex flex-col justify-start items-center
         ${divProps.className}`}
     >
-      <div className="absolute inset-0 z-0 w-full h-full">
+      <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
         {backgroundElement}
       </div>
 
