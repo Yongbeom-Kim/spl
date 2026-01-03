@@ -90,7 +90,6 @@ export const PublicationCard = ({ publication }: PublicationCardProps) => {
         </h3>
 
         <div className="text-sm text-neutral-700 leading-relaxed mb-4 flex-1">
-          <span className="text-neutral-600">Authors:</span>{' '}
           {publication.authors.join(', ')}
         </div>
 
