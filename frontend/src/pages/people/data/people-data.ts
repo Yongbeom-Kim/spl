@@ -61,6 +61,7 @@ export const peopleData: Person[] = [
     description:
       'Dr. Fun Man Fung is a Singaporean trained at the National University of Singapore. Until recently, he was a Core Faculty and Assistant Director of Education at the NUS Institute for Applied Learning Sciences & Education Technology. He is passionate about education, mentorship, youth empowerment, and civic engagement.',
     isAlumni: false,
+    // TODO: write this page
     readMoreHref: "/people/funman",
   },
   {
