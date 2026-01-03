@@ -3,7 +3,7 @@ import { PeopleList } from '../components/PeopleList'
 import { peopleData } from '../data/people-data'
 
 export const PeopleBody = () => {
-  const currentMembers = peopleData.filter((person) => !person.is_alumni)
+  const currentMembers = peopleData.filter((person) => !person.isAlumni)
   const lead = currentMembers.find((person) => person.role === 'Lead')
   const nonLeadCurrent = currentMembers.filter(
     (person) => person.role !== 'Lead',
@@ -12,7 +12,7 @@ export const PeopleBody = () => {
     ? [lead, ...nonLeadCurrent]
     : nonLeadCurrent
 
-  const alumni = peopleData.filter((person) => person.is_alumni)
+  const alumni = peopleData.filter((person) => person.isAlumni)
 
   return (
     <>
