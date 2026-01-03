@@ -46,12 +46,11 @@ const allPublicationImages: Array<string> = [
   image19,
 ]
 type PublicationsHeroMasonryBackgroundProps = {
-  averageImagesPerColumn: number
 }
 export const PublicationsHeroMasonryBackground = ({
-  averageImagesPerColumn,
 }: PublicationsHeroMasonryBackgroundProps) => {
   const isLargeScreen = useIsLargeScreen()
+  const averageImagesPerColumn = isLargeScreen ? 3.2 : 5.7
   const numColumns = Math.ceil(
     allPublicationImages.length / averageImagesPerColumn,
   )
