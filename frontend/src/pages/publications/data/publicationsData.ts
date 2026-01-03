@@ -3,7 +3,7 @@ export type Publication = {
   authors: string[]
   publicationDate: string
   readMoreUrl: string
-  posterImg: {
+  posterImg?: {
     src: string
     alt: string
   }
@@ -122,10 +122,6 @@ export const publicationData: Publication[] = [
     ],
     publicationDate: '24 September 2021',
     readMoreUrl: 'https://td.journals.psu.edu/td/article/view/1513',
-    posterImg: {
-      src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
-      alt: 'nothing.png',
-    },
   },
   {
     title:
@@ -241,10 +237,6 @@ export const publicationData: Publication[] = [
     ],
     publicationDate: '16 August 2020',
     readMoreUrl: 'https://pubs.acs.org/doi/10.1021/jacs.0c07877',
-    posterImg: {
-      src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
-      alt: 'nothing.png',
-    },
   },
   {
     title:
@@ -301,10 +293,6 @@ export const publicationData: Publication[] = [
     ],
     publicationDate: '15 July 2020',
     readMoreUrl: 'http://None',
-    posterImg: {
-      src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
-      alt: 'nothing.png',
-    },
   },
   {
     title: 'Reflecting on a Year of Elements. Chemistry International',
@@ -312,10 +300,6 @@ export const publicationData: Publication[] = [
     publicationDate: '15 July 2020',
     readMoreUrl:
       'https://www.degruyter.com/document/doi/10.1515/ci-2020-0302/html',
-    posterImg: {
-      src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
-      alt: 'nothing.png',
-    },
   },
   {
     title:
@@ -395,10 +379,6 @@ export const publicationData: Publication[] = [
     authors: ['Fun Man Fung', 'Simon Watts'],
     publicationDate: '7 November 2017',
     readMoreUrl: 'https://pubs.acs.org/doi/abs/10.1021/bk-2017-1270.ch009',
-    posterImg: {
-      src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
-      alt: 'nothing.png',
-    },
   },
   {
     title:
@@ -406,10 +386,6 @@ export const publicationData: Publication[] = [
     authors: ['Rachel Lim Rui Xia', 'Alina Ang Sihui', 'Fun Man Fung'],
     publicationDate: '7 November 2017',
     readMoreUrl: 'https://pubs.acs.org/doi/abs/10.1021/bk-2017-1270.ch003',
-    posterImg: {
-      src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
-      alt: 'nothing.png',
-    },
   },
   {
     title:

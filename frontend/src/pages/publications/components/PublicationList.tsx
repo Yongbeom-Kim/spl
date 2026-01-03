@@ -13,7 +13,7 @@ export const PublicationList = () => {
   const sortedPublications = sortByDate(publicationData)
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-6 px-4 sm:px-6 lg:px-8">
       {sortedPublications.map((publication) => (
         <PublicationCard key={publication.title} publication={publication} />
       ))}
