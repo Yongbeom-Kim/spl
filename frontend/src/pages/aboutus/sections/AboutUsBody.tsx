@@ -59,6 +59,7 @@ const AboutUsSection2 = () => {
           </Section.Li>
         </Section.Ul>
         <div className="p-4 bg-white mt-10 ml-auto lg:-mt-20 rounded-sm">
+          {/* TODO: Change this to be the proper image */}
           <img
             src="https://static.wixstatic.com/media/658066_2f9d53fb49d147158946cd30efc5a75e~mv2.jpg/v1/fill/w_103,h_154,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/658066_2f9d53fb49d147158946cd30efc5a75e~mv2.jpg"
             alt=""
