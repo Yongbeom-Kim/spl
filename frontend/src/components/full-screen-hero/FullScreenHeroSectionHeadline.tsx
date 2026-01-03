@@ -40,8 +40,6 @@ export const FullScreenHeroSectionHeadline = ({
         className="
         mt-auto w-full
         text-neutral-0 font-family-main font-bold text-4xl lg:text-6xl"
-        // TODO: disable after we settle on a tagline
-        contentEditable={true}
       >
         {headlineContent}
       </div>
