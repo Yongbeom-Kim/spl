@@ -1,6 +1,7 @@
 import hero from './assets/hero_upscaled.webp'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
+import { ProjectsBody } from './sections/ProjectsBody'
 
 export const ProjectPage = () => {
   return (
@@ -20,6 +21,7 @@ export const ProjectPage = () => {
         headlineContent={'Our Projects'}
         sublineContent="Since 2015, SenpaiLearn has trailblazed the path unchartered by applying suitable technological tools to engage learners and enhance their learning."
       />
+      <ProjectsBody />
     </PageLayout>
   )
 }
