@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import { Person } from '../data/people-data'
 
 interface ProfileCardProps {
@@ -12,7 +13,7 @@ export const ProfileCard = ({ person }: ProfileCardProps) => {
         alt={`${person.name} headshot`}
         className="
           w-full max-w-[200px] aspect-square object-cover rounded-xl
-          lg:w-48 lg:rounded-full lg:flex-shrink-0
+          lg:w-48 lg:rounded-full lg:shrink-0
         "
       />
 
@@ -27,9 +28,20 @@ export const ProfileCard = ({ person }: ProfileCardProps) => {
           {person.name}
         </h3>
 
-        <p className="text-base text-neutral-700 leading-relaxed">
-          {person.description}
-        </p>
+        <div className="relative">
+          <p className="text-base text-neutral-700 leading-relaxed">
+            {person.description}
+          </p>
+
+          {person.readMoreHref && (
+            <Link
+              to={person.readMoreHref}
+              className="inline-block mt-3 text-sm font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"
+            >
+              Read More →
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   )
