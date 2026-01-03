@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { FullScreenSectionRoot, FullScreenSectionRootProps } from '../root/FullScreenSectionRoot'
+import { Section } from '../..'
 
 export type FullScreenHeaderOnlySectionProps = FullScreenSectionRootProps & {
   header: string
@@ -11,7 +12,7 @@ export const FullScreenHeaderOnlySection = ({
   header,
   align_header,
   className = '',
-  theme,
+  variant: theme,
   backgroundColor,
   width,
   height,
@@ -22,19 +23,19 @@ export const FullScreenHeaderOnlySection = ({
   return (
     <FullScreenSectionRoot
       className={`${className} ${textColorClass}`}
-      theme={theme}
+      variant={theme}
       backgroundColor={backgroundColor}
       width={width}
       height={height}
     >
-      <h2
+      <Section.H2
         className={classNames({
           'h-full text-center': align_header === 'center',
           '': align_header === 'left',
         })}
       >
         {header}
-      </h2>
+      </Section.H2>
       {children}
     </FullScreenSectionRoot>
   )

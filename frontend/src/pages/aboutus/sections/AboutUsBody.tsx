@@ -1,26 +1,27 @@
-import { FullScreenHeaderOnlySection } from '@/components/page-sections/layout/FullScreenHeaderOnlySection'
 import heroCropped from '../assets/hero-cropped.webp'
-import { Card } from '@/components/page-sections/components/card/Card'
+import { Card } from '@/components/page-section/containers/card/Card'
+import { Section } from '@/components/page-section'
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 
 const AboutUsSection1 = () => {
   return (
     <FullScreenHeaderOnlySection
       header={'Welcome to Senpai Learn!'}
       align_header={'left'}
-      theme={'light'}
+      variant={'light'}
       width="wide"
       height="fit-content"
     >
       <div className="w-full lg:w-1/2 mr-auto">
-        <p>
+        <Section.P>
           We are a team of enablers who support projects related to enhanced
           learning via novel approaches.
-        </p>
-        <p>We are determined to engender equity in our work.</p>
-        <p>
+        </Section.P>
+        <Section.P>We are determined to engender equity in our work.</Section.P>
+        <Section.P>
           Our team of highly motivated individuals is invested in mentoring
           youths, to educate and build skills via evidence-based portfolios.
-        </p>
+        </Section.P>
       </div>
       <img
         src={heroCropped}
@@ -35,28 +36,28 @@ const AboutUsSection2 = () => {
     <FullScreenHeaderOnlySection
       header={'Our Philosophy'}
       align_header={'left'}
-      theme={'dark'}
+      variant={'dark'}
       width="wide"
       height="fit-content"
     >
       <div className="flex flex-col lg:flex-row items-start mb-20">
-        <ul className="w-full lg:w-5/6">
-          <li>
-            <strong>Be an Enabler.</strong> Be a champion for a cause that you
+        <Section.Ul className="w-full lg:w-5/6">
+          <Section.Li>
+            <Section.Strong>Be an Enabler.</Section.Strong> Be a champion for a cause that you
             believe in.
-          </li>
-          <li>
-            <strong>Be a Leader.</strong> Leadership starts from within.
-          </li>
-          <li>
-            <strong>Be an Educator.</strong> Captivate learners with authentic
+          </Section.Li>
+          <Section.Li>
+            <Section.Strong>Be a Leader.</Section.Strong> Leadership starts from within.
+          </Section.Li>
+          <Section.Li>
+            <Section.Strong>Be an Educator.</Section.Strong> Captivate learners with authentic
             delivery and cultivate a sense of responsibility in their roles in
             society.
-          </li>
-          <li>
-            <strong>Be an Inspiration.</strong> Lead by example.
-          </li>
-        </ul>
+          </Section.Li>
+          <Section.Li>
+            <Section.Strong>Be an Inspiration.</Section.Strong> Lead by example.
+          </Section.Li>
+        </Section.Ul>
         <div className="p-4 bg-white mt-10 ml-auto lg:-mt-20 rounded-sm">
           <img
             src="https://static.wixstatic.com/media/658066_2f9d53fb49d147158946cd30efc5a75e~mv2.jpg/v1/fill/w_103,h_154,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/658066_2f9d53fb49d147158946cd30efc5a75e~mv2.jpg"
@@ -88,7 +89,7 @@ const AboutUsSection3 = () => {
     <FullScreenHeaderOnlySection
       header={''}
       align_header={'center'}
-      theme={'light'}
+      variant={'light'}
       width="wide"
       height="fit-content"
     >
@@ -111,12 +112,12 @@ const AboutUsSection3 = () => {
             "
           </div>
 
-          <footer className="text-lg lg:text-xl text-neutral-100">
+          <footer className="text-lg lg:text-xl text-neutral-800">
             <p className="font-semibold mb-2">— Professor Randy Pausch</p>
-            <p className="text-base lg:text-lg text-neutral-200 mb-1">
+            <p className="text-base lg:text-lg text-neutral-700 mb-1">
               Carnegie Mellon University
             </p>
-            <p className="text-sm lg:text-base text-neutral-300">(1961-2008)</p>
+            <p className="text-sm lg:text-base text-neutral-700">(1961-2008)</p>
           </footer>
         </Card>
       </div>

@@ -1,0 +1,1 @@
+export type SectionVariant = 'light' | 'dark'
