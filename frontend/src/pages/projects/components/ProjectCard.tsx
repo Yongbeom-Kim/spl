@@ -7,7 +7,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, isReversed }: ProjectCardProps) => {
   return (
-    <article className="relative flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-start bg-neutral-50 p-8 lg:p-12">
+    <article className="relative flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-start odd:bg-neutral-50 bg-neutral-50/50 p-8 lg:p-12">
       <div className={isReversed ? 'lg:order-2' : ''}>
         <img
           src={project.thumbnailUrl}
