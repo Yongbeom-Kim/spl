@@ -2,6 +2,8 @@ import classNames from 'classnames'
 import { Link } from '@tanstack/react-router'
 import { HamburgerButton } from '../hamburger-nav/HamburgerButton'
 import { useScrollDirection } from '@/hooks/use-scroll-direction'
+import { useSetAtom } from 'jotai'
+import { isNavOverlayVisibleAtom } from '../hamburger-nav/is-nav-overlay-visible-atom'
 
 type PageHeaderProps = {
   bg: 'dark-gradient' | 'none'
@@ -17,6 +19,7 @@ export const PageHeader = ({
   headerLinksToHomePage = true,
 }: PageHeaderProps) => {
   const scrollDirection = useScrollDirection()
+  const setNavOverlayVisibility = useSetAtom(isNavOverlayVisibleAtom)
   const headerText = (
     <div
       className={classNames(
@@ -54,6 +57,7 @@ export const PageHeader = ({
             <Link
               to="/"
               className="hover:scale-clickable-hover active:scale-clickable-active focus-visible:scale-clickable-focus transition-all ease-in-out"
+              onClick={() => setNavOverlayVisibility(false)}
             >
               {headerText}
             </Link>
