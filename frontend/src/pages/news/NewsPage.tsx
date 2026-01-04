@@ -1,4 +1,4 @@
-import heroImage from './assets/hero.jpeg'
+import heroImage from './assets/hero.webp'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
 import { NewsBody } from './sections/NewsBody'
