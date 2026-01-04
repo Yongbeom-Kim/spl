@@ -8,7 +8,6 @@ import { isNavOverlayVisibleAtom } from './is-nav-overlay-visible-atom'
 import { useDisableScrollWhenNavOpen } from '@/hooks/use-disable-scroll-when-nav-open'
 import { useTrapModalFocusForceOrder } from '@/hooks/use-trap-modal-focus'
 import { useListKeyboardNavigation } from '@/hooks/use-list-keyboard-navigation'
-import { PageHeader } from '../page-header/PageHeader'
 
 type NavigationOverlayLinksProps = {
   className?: string
