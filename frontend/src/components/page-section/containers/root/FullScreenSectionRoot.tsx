@@ -23,11 +23,9 @@ export const FullScreenSectionRoot = ({
     <Section.VariantContext variant={variant}>
       <div
         className={classNames(
-          'text-lg relative base-horizontal-padding base-vertical-padding',
+          'text-lg relative base-horizontal-padding base-vertical-padding bg-transparent',
           {
-            'bg-neutral-900': !backgroundColor && variant === 'dark',
-            'bg-neutral-0': !backgroundColor && variant === 'light',
-            'max-w-2xl mx-auto': width === 'narrow',
+            'max-w-5xl mx-auto': width === 'narrow',
             'fullscreen-section-min': height === 'min-fullscreen',
             'h-fit': height === 'fit-content',
           },
@@ -36,6 +34,15 @@ export const FullScreenSectionRoot = ({
         data-theme={variant}
         style={backgroundColor ? { backgroundColor } : {}}
       >
+        <div
+          className={classNames(
+            'absolute top-0 h-full w-screen left-1/2 -translate-x-1/2 -z-10',
+            {
+              'bg-neutral-900': !backgroundColor && variant === 'dark',
+              'bg-neutral-0': !backgroundColor && variant === 'light',
+            },
+          )}
+        ></div>
         {children}
       </div>
     </Section.VariantContext>

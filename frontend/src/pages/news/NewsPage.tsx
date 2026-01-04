@@ -1,6 +1,7 @@
 import heroImage from './assets/hero.jpeg'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
+import { NewsBody } from './sections/NewsBody'
 
 export const NewsPage = () => {
   return (
@@ -15,6 +16,7 @@ export const NewsPage = () => {
         }
         headlineContent={'News'}
       />
+      <NewsBody />
     </PageLayout>
   )
 }
