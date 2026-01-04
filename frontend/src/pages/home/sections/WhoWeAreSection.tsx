@@ -1,7 +1,7 @@
-import { Section } from '@/components/page-section'
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { Link } from '@tanstack/react-router'
 import aboutusHero from '../../aboutus/assets/hero-cropped.webp'
+import { Section } from '@/components/page-section'
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { ExternalLinkIcon } from '@/components/external-link-icon/ExternalLinkIcon'
 import { AboutUsImageCarousel } from '@/pages/aboutus/components/AboutUsImageCarousel'
 

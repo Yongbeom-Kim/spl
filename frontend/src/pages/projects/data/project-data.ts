@@ -5,7 +5,7 @@ export type Project = {
   subtitle: string
 }
 
-const unsortedProjectData: Project[] = [
+const unsortedProjectData: Array<Project> = [
   {
     thumbnailUrl:
       'https://static.wixstatic.com/media/658066_3a1ea6eac7c647bba3174c1b1439a565~mv2.jpg/v1/fill/w_373%2Ch_278%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Abstract%20Graphic%20revised%20Miro.jpg',
@@ -186,6 +186,6 @@ const unsortedProjectData: Project[] = [
   },
 ]
 
-export const projectData: Project[] = [...unsortedProjectData].sort(
+export const projectData: Array<Project> = [...unsortedProjectData].sort(
   (a, b) => b.startYear - a.startYear,
 )

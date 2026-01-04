@@ -1,6 +1,6 @@
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { PeopleList } from '../components/PeopleList'
 import { peopleData } from '../data/people-data'
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 
 export const PeopleBody = () => {
   const currentMembers = peopleData.filter((person) => !person.isAlumni)

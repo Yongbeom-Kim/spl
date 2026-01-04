@@ -1,6 +1,6 @@
-import type { ReactNode, AnchorHTMLAttributes } from 'react'
 import classNames from 'classnames'
 import { useSectionVariant } from '../context/VariantContext'
+import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
 export type SectionAProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode

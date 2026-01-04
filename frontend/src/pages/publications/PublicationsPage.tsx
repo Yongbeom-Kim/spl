@@ -1,6 +1,6 @@
 import { PublicationsPageHeroSection } from './components/hero/HeroSection'
-import { PageLayout } from '@/components/page-layout/PageLayout'
 import { PublicationsBody } from './sections/PublicationsBody'
+import { PageLayout } from '@/components/page-layout/PageLayout'
 
 export const PublicationsPage = () => {
   return (

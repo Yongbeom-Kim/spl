@@ -1,5 +1,5 @@
 import { PublicationPlaceholder } from '../assets/PublicationPlaceholder'
-import { Publication } from '../data/publicationsData'
+import type { Publication } from '../data/publicationsData'
 
 interface PublicationCardProps {
   publication: Publication

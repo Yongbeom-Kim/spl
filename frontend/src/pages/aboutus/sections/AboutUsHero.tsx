@@ -1,5 +1,5 @@
-import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import heroCropped from '../assets/hero-cropped.webp'
+import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 
 export const AboutUsHeroSection = () => {
   return (

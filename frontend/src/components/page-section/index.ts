@@ -1,15 +1,15 @@
 import { Callout } from './containers/callout/Callout'
 import { SectionVariantContext } from './context/VariantContext'
 import {
+  SectionA,
   SectionH2,
   SectionH3,
   SectionH4,
-  SectionP,
-  SectionUl,
   SectionLi,
-  SectionStrong,
-  SectionA,
+  SectionP,
   SectionRoot,
+  SectionStrong,
+  SectionUl,
 } from './items'
 
 export type {

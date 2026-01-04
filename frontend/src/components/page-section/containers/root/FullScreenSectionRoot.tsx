@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import { Section } from '../..'
+import type { ReactNode } from 'react'
 
 export type FullScreenSectionRootProps = {
   children: ReactNode

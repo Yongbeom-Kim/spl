@@ -1,5 +1,5 @@
-import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import heroImage from '../assets/hero.jpg'
+import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 
 export const PartnersHeroSection = () => {
   return (

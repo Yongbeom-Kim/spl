@@ -1,7 +1,8 @@
+import { publicationData } from '../data/publicationsData'
 import { PublicationCard } from './PublicationCard'
-import { publicationData, Publication } from '../data/publicationsData'
+import type { Publication } from '../data/publicationsData';
 
-const sortByDate = (publications: Publication[]): Publication[] => {
+const sortByDate = (publications: Array<Publication>): Array<Publication> => {
   return [...publications].sort((a, b) => {
     const dateA = new Date(a.publicationDate)
     const dateB = new Date(b.publicationDate)

@@ -1,6 +1,7 @@
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { peopleData, Person } from '../../people/data/people-data'
 import { Link } from '@tanstack/react-router'
+import { peopleData } from '../../people/data/people-data'
+import type { Person } from '../../people/data/people-data';
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { Section } from '@/components/page-section'
 
 const TeamMemberHeadshot = ({ person }: { person: Person }) => {

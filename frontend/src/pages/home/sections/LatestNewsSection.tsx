@@ -1,6 +1,7 @@
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { newsData, NewsItem } from '../../news/data/news-data'
 import { Link } from '@tanstack/react-router'
+import { newsData } from '../../news/data/news-data'
+import type { NewsItem } from '../../news/data/news-data';
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { ExternalLinkIcon } from '@/components/external-link-icon/ExternalLinkIcon'
 
 const NewsHighlightCard = ({ newsItem }: { newsItem: NewsItem }) => {

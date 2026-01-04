@@ -1,9 +1,10 @@
 import classNames from 'classnames'
 import {
-  FullScreenSectionRoot,
-  FullScreenSectionRootProps,
+  FullScreenSectionRoot
 } from '../root/FullScreenSectionRoot'
 import { Section } from '../..'
+import type {
+  FullScreenSectionRootProps} from '../root/FullScreenSectionRoot';
 
 export type FullScreenHeaderOnlySectionProps = FullScreenSectionRootProps & {
   header: string

@@ -1,5 +1,5 @@
-import { Section } from '@/components/page-section'
 import { grantData } from '../data/grant-data'
+import { Section } from '@/components/page-section'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 
 const FundedGrantProposalsSection = () => {

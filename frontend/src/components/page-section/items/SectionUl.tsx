@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import { useSectionVariant } from '../context/VariantContext'
+import type { ReactNode } from 'react'
 
 export type SectionUlProps = {
   children: ReactNode

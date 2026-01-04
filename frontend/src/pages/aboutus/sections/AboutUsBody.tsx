@@ -1,7 +1,7 @@
+import { AboutUsImageCarousel } from '../components/AboutUsImageCarousel'
 import { Card } from '@/components/page-section/containers/card/Card'
 import { Section } from '@/components/page-section'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { AboutUsImageCarousel } from '../components/AboutUsImageCarousel'
 
 const AboutUsSection1 = () => {
   return (

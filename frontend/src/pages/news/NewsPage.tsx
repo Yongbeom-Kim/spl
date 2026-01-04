@@ -1,7 +1,7 @@
 import heroImage from './assets/hero.webp'
+import { NewsBody } from './sections/NewsBody'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
-import { NewsBody } from './sections/NewsBody'
 
 export const NewsPage = () => {
   return (

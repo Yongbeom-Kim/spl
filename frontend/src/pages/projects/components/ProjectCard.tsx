@@ -1,4 +1,4 @@
-import { Project } from '../data/project-data'
+import type { Project } from '../data/project-data'
 
 interface ProjectCardProps {
   project: Project

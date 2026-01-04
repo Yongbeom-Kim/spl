@@ -1,5 +1,5 @@
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { ProjectList } from '../components/ProjectList'
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 
 export const ProjectsBody = () => {
   return (

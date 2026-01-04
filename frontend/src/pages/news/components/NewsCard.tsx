@@ -1,4 +1,4 @@
-import { NewsItem } from '../data/news-data'
+import type { NewsItem } from '../data/news-data'
 
 interface NewsCardProps {
   newsItem: NewsItem

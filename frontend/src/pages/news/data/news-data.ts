@@ -8,7 +8,7 @@ export type NewsItem = {
   imageAlt: string
 }
 
-export const newsData: NewsItem[] = [
+export const newsData: Array<NewsItem> = [
   {
     id: 'fun-man-gesda-2024',
     date: '12 Jun 2024',

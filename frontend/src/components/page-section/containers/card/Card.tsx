@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react'
 import classNames from 'classnames'
-import { SectionVariant } from '../../types'
 import { SectionVariantContext } from '../../context/VariantContext'
+import type { SectionVariant } from '../../types'
+import type { ReactNode } from 'react'
 
 export type CardProps = {
   children: ReactNode

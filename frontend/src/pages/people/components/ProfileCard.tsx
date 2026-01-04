@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { Person } from '../data/people-data'
+import type { Person } from '../data/people-data'
 
 interface ProfileCardProps {
   person: Person

@@ -6,7 +6,7 @@ export type Grant = {
   description?: string
 }
 
-export const grantData: Grant[] = [
+export const grantData: Array<Grant> = [
   {
     period: '2023-2024',
     title: 'Chemistry’s Point of View (ChemPOV)',

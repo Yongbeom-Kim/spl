@@ -1,6 +1,6 @@
 export type Publication = {
   title: string
-  authors: string[]
+  authors: Array<string>
   publicationDate: string
   readMoreUrl: string
   posterImg?: {
@@ -9,7 +9,7 @@ export type Publication = {
   }
 }
 
-export const publicationData: Publication[] = [
+export const publicationData: Array<Publication> = [
   {
     title:
       'Technology-Enabled Blended Learning Experiences for Chemistry Education and Outreach',

@@ -10,7 +10,7 @@ export type CarouselImage = {
 }
 
 type CarouselProps = {
-  images: CarouselImage[]
+  images: Array<CarouselImage>
   autoPlayInterval?: number
   aspectRatio?: string
   className?: string
@@ -75,7 +75,7 @@ export const Carousel = ({
           e.preventDefault()
           const focusableElements = Array.from(
             lightboxRef.current.querySelectorAll('button'),
-          ) as HTMLButtonElement[]
+          )
           const focusedElement =
             document.activeElement as HTMLButtonElement | null
           const currentIndex = focusedElement

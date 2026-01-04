@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
+import { peopleData } from '../../data/people-data'
 import type Masonry from 'masonry-layout'
 import { shuffle } from '@/util'
-import { peopleData } from '../../data/people-data'
 
 export const PeoplePageHeroBackground = () => {
   const [headshots, setHeadshots] = useState(

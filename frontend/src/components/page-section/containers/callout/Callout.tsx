@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react'
 import {
   SectionVariantContext,
   useSectionVariant,
 } from '../../context/VariantContext'
-import { SectionVariant } from '../../types'
+import type { SectionVariant } from '../../types'
+import type { ReactNode } from 'react'
 
 export type CalloutVariant = 'blue' | 'red' | 'neutral'
 

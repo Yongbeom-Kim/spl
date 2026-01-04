@@ -1,7 +1,7 @@
 import hero from './assets/hero_upscaled.webp'
+import { ProjectsBody } from './sections/ProjectsBody'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
-import { ProjectsBody } from './sections/ProjectsBody'
 
 export const ProjectPage = () => {
   return (

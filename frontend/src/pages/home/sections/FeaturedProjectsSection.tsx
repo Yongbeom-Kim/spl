@@ -1,6 +1,7 @@
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { projectData, Project } from '../../projects/data/project-data'
 import { Link } from '@tanstack/react-router'
+import { projectData } from '../../projects/data/project-data'
+import type { Project } from '../../projects/data/project-data';
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 
 const FeaturedProjectCard = ({ project }: { project: Project }) => {
   return (

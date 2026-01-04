@@ -30,7 +30,7 @@ export interface Person {
   readMoreHref: string | undefined
 }
 
-export const peopleData: Person[] = [
+export const peopleData: Array<Person> = [
   {
     id: 'benjamin-yap',
     name: 'Benjamin Yap',

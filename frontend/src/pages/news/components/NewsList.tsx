@@ -1,7 +1,8 @@
+import { newsData } from '../data/news-data'
 import { NewsCard } from './NewsCard'
-import { newsData, NewsItem } from '../data/news-data'
+import type { NewsItem } from '../data/news-data';
 
-const sortByDate = (newsItems: NewsItem[]): NewsItem[] => {
+const sortByDate = (newsItems: Array<NewsItem>): Array<NewsItem> => {
   return [...newsItems].sort((a, b) => {
     const dateA = new Date(a.date)
     const dateB = new Date(b.date)

@@ -1,8 +1,8 @@
-import { Person } from '../data/people-data'
 import { ProfileCard } from './ProfileCard'
+import type { Person } from '../data/people-data'
 
 interface PeopleListProps {
-  people: Person[]
+  people: Array<Person>
 }
 
 export const PeopleList = ({ people }: PeopleListProps) => {
