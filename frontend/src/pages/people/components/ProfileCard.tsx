@@ -7,7 +7,10 @@ interface ProfileCardProps {
 
 export const ProfileCard = ({ person }: ProfileCardProps) => {
   return (
-    <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-center lg:items-start">
+    <div
+      id={person.id}
+      className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-center lg:items-start"
+    >
       <img
         src={person.profileImage}
         alt={`${person.name} headshot`}

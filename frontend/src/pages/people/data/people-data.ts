@@ -21,6 +21,7 @@ import tangShiyu from '../assets/headshots/tang_shiyu.png'
 import yeoZhien from '../assets/headshots/yeo_zhien.png'
 
 export interface Person {
+  id: string
   name: string
   profileImage: string
   role?: string
@@ -31,6 +32,7 @@ export interface Person {
 
 export const peopleData: Person[] = [
   {
+    id: 'benjamin-yap',
     name: 'Benjamin Yap',
     profileImage: benjaminYap,
     description:
@@ -39,6 +41,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'charles-windle',
     name: 'Charles Windle',
     profileImage: charlesWindle,
     description:
@@ -47,6 +50,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'choo-wen-xin',
     name: 'Choo Wen Xin',
     profileImage: chooWeiXin,
     description:
@@ -55,6 +59,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'fun-man-fung',
     name: 'Fun Man Fung',
     profileImage: funman2,
     role: 'Lead',
@@ -62,9 +67,10 @@ export const peopleData: Person[] = [
       'Dr. Fun Man Fung is a Singaporean trained at the National University of Singapore. Until recently, he was a Core Faculty and Assistant Director of Education at the NUS Institute for Applied Learning Sciences & Education Technology. He is passionate about education, mentorship, youth empowerment, and civic engagement.',
     isAlumni: false,
     // TODO: write this page
-    readMoreHref: "/people/funman",
+    readMoreHref: '/people/funman',
   },
   {
+    id: 'gun-rui',
     name: 'Gun Rui',
     profileImage: gunRui,
     description:
@@ -73,6 +79,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'han-jia-yi',
     name: 'Han Jia Yi',
     profileImage: hanJiayi,
     description:
@@ -81,6 +88,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'jonathan-ong',
     name: 'Jonathan Ong',
     profileImage: jonathanOng,
     description:
@@ -89,6 +97,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'jovern-teo',
     name: 'Jovern Teo',
     profileImage: jovernTeo,
     description:
@@ -97,6 +106,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'karen-loh',
     name: 'Karen Loh',
     profileImage: karenLoh,
     description:
@@ -105,6 +115,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'kenzo-togo',
     name: 'Kenzo Togo',
     profileImage: kenzoTogo,
     description:
@@ -113,6 +124,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'kim-yongbeom',
     name: 'Kim Yongbeom',
     profileImage: kimYongbeom,
     description:
@@ -121,6 +133,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'kiran',
     name: 'Kiran',
     profileImage: kiran,
     description:
@@ -129,6 +142,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'leon-lim',
     name: 'Leon Lim',
     profileImage: leonLim,
     description:
@@ -137,6 +151,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'matthias-kon',
     name: 'Matthias Kon',
     profileImage: matthiasKon,
     description:
@@ -145,6 +160,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'pang-hanqing',
     name: 'Pang Hanqing',
     profileImage: pangHanqing,
     description:
@@ -153,6 +169,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'panshul-sharma',
     name: 'Panshul Sharma',
     profileImage: panshulSharma,
     description:
@@ -161,6 +178,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'pua-min-xin',
     name: 'Pua Min Xin',
     profileImage: puaMinXin,
     description:
@@ -169,6 +187,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'steiner-tan-yan-xu',
     name: 'Steiner Tan Yan Xu',
     profileImage: steinerTanyanxu,
     description:
@@ -177,6 +196,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'tan-lin-yun',
     name: 'Tan Lin Yun',
     profileImage: tanLinYun,
     description:
@@ -185,6 +205,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'tang-shiyu',
     name: 'Tang Shiyu',
     profileImage: tangShiyu,
     description:
@@ -193,6 +214,7 @@ export const peopleData: Person[] = [
     readMoreHref: undefined,
   },
   {
+    id: 'yeo-zhi-en',
     name: 'Yeo Zhi En',
     profileImage: yeoZhien,
     description:

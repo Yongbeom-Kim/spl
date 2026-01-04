@@ -1,4 +1,5 @@
 export type NewsItem = {
+  id: string
   date: string
   title: string
   summary: string
@@ -9,38 +10,42 @@ export type NewsItem = {
 
 export const newsData: NewsItem[] = [
   {
+    id: 'fun-man-gesda-2024',
     date: '12 Jun 2024',
-    title: 'Fun Man selected for the 3rd GESDA Cohort in Geneva',
+    title: 'Fun Man selected for 3rd GESDA Cohort in Geneva',
     summary:
-      'Fun Man is the first Singaporean to be admitted to the prestigious program on Science Diplomacy, held at the United Nations, Palais des Nations, Geneva, Switzerland',
+      'Fun Man is the first Singaporean to be admitted to prestigious program on Science Diplomacy, held at the United Nations, Palais des Nations, Geneva, Switzerland',
     url: 'https://www.funmanfung.com/news/fun-man-selected-for-the-3rd-gesda-cohort-in-geneva',
     imageUrl:
       'https://static.wixstatic.com/media/658066_79cc83a52afd4973a1bed2ddf177250b~mv2.jpg/v1/fill/w_265,h_137,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg',
-    imageAlt: 'Fun Man selected for the 3rd GESDA Cohort in Geneva',
+    imageAlt: 'Fun Man selected for 3rd GESDA Cohort in Geneva',
   },
   {
+    id: 'fun-man-gya-2024',
     date: '8 May 2024',
     title:
       'Fun Man admitted as a Member of the Global Young Academy (2024-2029)',
     summary:
-      'Fun Man is the first and only Singaporean out of 45 early-and mid-career researchers to be awarded membership in the Global Young Academy (GYA) which aims to enable young researchers to lead international, interdisciplinary and intergenerational dialogue and contribute to societal challenges.',
+      'Fun Man is the first and only Singaporean out of 45 early-and mid-career researchers to be awarded membership in Global Young Academy (GYA) which aims to enable young researchers to lead international, interdisciplinary and intergenerational dialogue and contribute to societal challenges.',
     url: 'https://www.funmanfung.com/news/fun-man-admitted-as-a-member-of-the-global-young-academy-(2024-2029)',
     imageUrl:
       'https://static.wixstatic.com/media/658066_b180ba4052c0444aac8a73f5ade4668c~mv2.png/v1/fill/w_265,h_137,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png',
     imageAlt:
-      'Fun Man admitted as a Member of the Global Young Academy (2024-2029)',
+      'Fun Man admitted as a Member of Global Young Academy (2024-2029)',
   },
   {
+    id: 'fun-man-ntnu-2024',
     date: '1 Apr 2024',
     title: 'Fun Man spoke at College of Education, NTNU',
     summary:
-      'Hosted by Prof. Chin-Chung Tsai, Chair of the Learning Science Program, and Dean of School.',
+      'Hosted by Prof. Chin-Chung Tsai, Chair of Learning Science Program, and Dean of School.',
     url: 'https://www.funmanfung.com/news/fun-man-spoke-at-college-of-education%2C-ntnu',
     imageUrl:
       'https://static.wixstatic.com/media/658066_7f6a3557dc3c4ad0987c6440c7d9b804~mv2.jpg/v1/fill/w_265,h_137,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg',
     imageAlt: 'Fun Man spoke at College of Education, NTNU',
   },
   {
+    id: 'fun-man-chem-tw-2024',
     date: '29 Mar 2024',
     title:
       'Fun Man spoke as invited speaker at 2024 Chemistry National Meeting, Taiwan',
@@ -53,6 +58,7 @@ export const newsData: NewsItem[] = [
       'Fun Man spoke as invited speaker at 2024 Chemistry National Meeting, Taiwan',
   },
   {
+    id: 'fun-man-acs-youth-2024',
     date: '11 Mar 2024',
     title: 'Fun Man speaks at ACS Singapore Youth Challenge 2024',
     summary:
@@ -63,6 +69,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'Fun Man speaks at ACS Singapore Youth Challenge 2024',
   },
   {
+    id: 'nccr-unifri-2024',
     date: '22 Feb 2024',
     title: 'NCCR Seminar by Dr. Fung at UniFri, Switzerland',
     summary: 'Hosted by Prof. Dr. Jovana Milic at Adolph Merkle Institute',
@@ -72,6 +79,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'NCCR Seminar by Dr. Fung at UniFri, Switzerland',
   },
   {
+    id: 'epfl-talk-2024',
     date: '21 Feb 2024',
     title: 'Dr. Fung speaks at EPFL, Switzerland',
     summary: 'Hosted by Prof. Dr. Philippe Schwaller, LIAC Group',
@@ -81,6 +89,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'Dr. Fung speaks at EPFL, Switzerland',
   },
   {
+    id: 'htw-saar-2024',
     date: '10 Feb 2024',
     title: 'Dr. Fung invited to speak at htw saar, Germany',
     summary: 'Dr. Fung hosted by Prof. Timo Gehring in Saarbruken, Germany',
@@ -90,6 +99,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'Dr. Fung invited to speak at htw saar, Germany',
   },
   {
+    id: 'chempov-gold-elfa-2023',
     date: '29 Nov 2023',
     title: 'Gold Award for ChemPOV',
     summary: 'ChemPOV received Gold in eLFA Award',
@@ -99,6 +109,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'Gold Award for ChemPOV',
   },
   {
+    id: 'world-laureates-forum-2023',
     date: '10 Nov 2023',
     title: 'The 6th World Laureates Forum',
     summary:
@@ -109,6 +120,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'The 6th World Laureates Forum',
   },
   {
+    id: 'iupac-chains-hague-2023',
     date: '25 Aug 2023',
     title: 'IUPAC | CHAINS presentation at the Hague',
     summary:
@@ -119,6 +131,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'IUPAC | CHAINS presentation at the Hague',
   },
   {
+    id: 'icho-book-launch-2023',
     date: '3 Aug 2023',
     title:
       'Book Launch for "10 Things You Must Know about the International Chemistry Olympiad (IChO)"',
@@ -130,6 +143,7 @@ export const newsData: NewsItem[] = [
       'Book Launch for "10 Things You Must Know about the International Chemistry Olympiad (IChO)"',
   },
   {
+    id: '9nice-conference-2023',
     date: '31 Jul 2023',
     title: 'Presentation at 9Nice Conference 2023',
     summary:
@@ -140,6 +154,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'Presentation at 9Nice Conference 2023',
   },
   {
+    id: 'chempov-acs-spring-2023',
     date: '26 Mar 2023',
     title:
       'Congratulations to SCIENTIA ChemPOV team on Presenting at ACS Spring Meeting 2023',
@@ -151,6 +166,7 @@ export const newsData: NewsItem[] = [
       'Congratulations to SCIENTIA ChemPOV team on Presenting at ACS Spring Meeting 2023',
   },
   {
+    id: 'nus-high-mentor-award-2023',
     date: '15 Feb 2023',
     title: 'NUS High School Inspiring Mentor Award',
     summary:
@@ -161,6 +177,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'NUS High School Inspiring Mentor Award',
   },
   {
+    id: 'ipsg-symposium-2023',
     date: '18 Jan 2023',
     title: 'Invited Presentation at 15th Pre-U Chemistry IPSG Symposium 2023',
     summary:
@@ -172,6 +189,7 @@ export const newsData: NewsItem[] = [
       'Invited Presentation at 15th Pre-U Chemistry IPSG Symposium 2023',
   },
   {
+    id: 'xilong-snic-award-2022',
     date: '7 Jul 2022',
     title: 'Xilong Scientific-SNIC Industry Award in Chemistry Education',
     summary:
@@ -182,6 +200,7 @@ export const newsData: NewsItem[] = [
     imageAlt: 'Xilong Scientific-SNIC Industry Award in Chemistry Education',
   },
   {
+    id: 'raffles-ssef-silver-2022',
     date: '15 Jun 2022',
     title:
       'Achievements at the 2022 Singapore Science and Engineering Fair Competition',
