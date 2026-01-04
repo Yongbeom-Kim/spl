@@ -32,7 +32,6 @@ export const FullScreenSectionRoot = ({
           className,
         )}
         data-theme={variant}
-        style={backgroundColor ? { backgroundColor } : {}}
       >
         <div
           className={classNames(
@@ -42,6 +41,7 @@ export const FullScreenSectionRoot = ({
               'bg-neutral-0': !backgroundColor && variant === 'light',
             },
           )}
+          style={backgroundColor ? { backgroundColor } : {}}
         ></div>
         {children}
       </div>

@@ -1,24 +1,12 @@
-import heroImage from './assets/hero.jpg'
-import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 import { PageLayout } from '@/components/page-layout/PageLayout'
+import { PartnersHeroSection } from './components/PartnersHeroSection'
+import { PartnersBodySections } from './components/PartnersBodySections'
 
 export const PartnersPage = () => {
   return (
     <PageLayout headerLinksToHomePage={true}>
-      <FullScreenHeroSection
-        backgroundElement={
-          <img
-            src={heroImage}
-            alt=""
-            className="w-full h-full object-cover object-center"
-            style={{
-              objectPosition: '50% 100%',
-              filter: 'brightness(1.08) contrast(1.15)',
-            }}
-          />
-        }
-        headlineContent={'Partners'}
-      />
+      <PartnersHeroSection />
+      <PartnersBodySections />
     </PageLayout>
   )
 }
