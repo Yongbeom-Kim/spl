@@ -1,6 +1,16 @@
 import { Callout } from './containers/callout/Callout'
 import { SectionVariantContext } from './context/VariantContext'
-import { SectionH2, SectionH3, SectionH4, SectionP, SectionUl, SectionLi, SectionStrong, SectionA, SectionRoot } from './items'
+import {
+  SectionH2,
+  SectionH3,
+  SectionH4,
+  SectionP,
+  SectionUl,
+  SectionLi,
+  SectionStrong,
+  SectionA,
+  SectionRoot,
+} from './items'
 
 export type {
   SectionH2Props,
@@ -25,7 +35,7 @@ export const Section = {
   A: SectionA,
   Root: SectionRoot,
   VariantContext: SectionVariantContext,
-  Callout: Callout
+  Callout: Callout,
 }
 
 export { useSectionVariant } from './context/VariantContext'

@@ -23,11 +23,9 @@ const AboutUsSection1 = () => {
           youths, to educate and build skills via evidence-based portfolios.
         </Section.P>
       </div>
-      <div
-        className="w-full lg:w-2/3 ml-auto my-10"
-      >
+      <div className="w-full lg:w-2/3 ml-auto my-10">
         <AboutUsImageCarousel />
-        </div>
+      </div>
     </FullScreenHeaderOnlySection>
   )
 }

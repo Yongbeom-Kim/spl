@@ -7,18 +7,11 @@ export type SectionRootProps = {
   className?: string
 }
 
-export const SectionRoot = ({
-  children,
-  className = '',
-}: SectionRootProps) => {
-	const variant = useSectionVariant()
+export const SectionRoot = ({ children, className = '' }: SectionRootProps) => {
+  const variant = useSectionVariant()
   return (
-    <div
-      className={classNames('text-lg', className)}
-      data-theme={variant}
-    >
+    <div className={classNames('text-lg', className)} data-theme={variant}>
       {children}
     </div>
   )
 }
-

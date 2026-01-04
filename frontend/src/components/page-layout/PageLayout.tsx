@@ -29,17 +29,13 @@ export const PageLayout = ({
     <div>
       {/* <SkipToContentLink /> */}
       <PageHeader
-        bg={isOverlayVisible ? "none" : "dark-gradient"}
-        header={isOverlayVisible ? "dark": "light"}
-        hamburger={isOverlayVisible ? "dark": "light"}
+        bg={isOverlayVisible ? 'none' : 'dark-gradient'}
+        header={isOverlayVisible ? 'dark' : 'light'}
+        hamburger={isOverlayVisible ? 'dark' : 'light'}
         headerLinksToHomePage={headerLinksToHomePage}
       />
-      <NavigationOverlay/>
-      <main
-        id="main-content"
-        tabIndex={-1}
-        inert={isOverlayVisible}
-      >
+      <NavigationOverlay />
+      <main id="main-content" tabIndex={-1} inert={isOverlayVisible}>
         {children}
       </main>
       <Footer />

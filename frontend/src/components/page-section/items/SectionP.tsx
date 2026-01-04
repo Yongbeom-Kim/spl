@@ -7,11 +7,8 @@ export type SectionPProps = {
   className?: string
 }
 
-export const SectionP = ({
-  children,
-  className = '',
-}: SectionPProps) => {
-	const variant = useSectionVariant()
+export const SectionP = ({ children, className = '' }: SectionPProps) => {
+  const variant = useSectionVariant()
   return (
     <p
       className={classNames(
@@ -27,4 +24,3 @@ export const SectionP = ({
     </p>
   )
 }
-

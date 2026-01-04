@@ -45,7 +45,7 @@ const PartnerInstitutionsImageSection = () => {
       height={'min-fullscreen'}
       header={''}
       align_header={'left'}
-			backgroundColor='var(--color-neutral-200)'
+      backgroundColor="var(--color-neutral-200)"
     >
       <div className="flex flex-col">
         <img
@@ -72,7 +72,7 @@ export const PartnersBodySections = () => {
   return (
     <>
       <FundedGrantProposalsSection />
-			<PartnerInstitutionsImageSection />
+      <PartnerInstitutionsImageSection />
     </>
   )
 }

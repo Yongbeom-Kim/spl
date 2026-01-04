@@ -11,16 +11,19 @@ export const SectionStrong = ({
   children,
   className = '',
 }: SectionStrongProps) => {
-	const variant = useSectionVariant()
+  const variant = useSectionVariant()
   return (
     <strong
-      className={classNames('font-semibold', {
-        'text-neutral-900': variant === 'light',
-        'text-neutral-200': variant === 'dark',
-      }, className)}
+      className={classNames(
+        'font-semibold',
+        {
+          'text-neutral-900': variant === 'light',
+          'text-neutral-200': variant === 'dark',
+        },
+        className,
+      )}
     >
       {children}
     </strong>
   )
 }
-

@@ -7,11 +7,8 @@ export type SectionH2Props = {
   className?: string
 }
 
-export const SectionH2 = ({
-  children,
-  className = '',
-}: SectionH2Props) => {
-	const variant = useSectionVariant()
+export const SectionH2 = ({ children, className = '' }: SectionH2Props) => {
+  const variant = useSectionVariant()
   return (
     <h2
       className={classNames(
@@ -27,4 +24,3 @@ export const SectionH2 = ({
     </h2>
   )
 }
-

@@ -1,5 +1,8 @@
 import classNames from 'classnames'
-import { FullScreenSectionRoot, FullScreenSectionRootProps } from '../root/FullScreenSectionRoot'
+import {
+  FullScreenSectionRoot,
+  FullScreenSectionRootProps,
+} from '../root/FullScreenSectionRoot'
 import { Section } from '../..'
 
 export type FullScreenHeaderOnlySectionProps = FullScreenSectionRootProps & {

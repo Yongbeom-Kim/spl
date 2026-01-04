@@ -1,15 +1,15 @@
-import type { SectionVariant } from "../types";
-import { createContext, ReactNode, useContext } from "react";
+import type { SectionVariant } from '../types'
+import { createContext, ReactNode, useContext } from 'react'
 
-const sectionVariantContext = createContext<SectionVariant>('light');
+const sectionVariantContext = createContext<SectionVariant>('light')
 
 export const useSectionVariant = () => {
-	return useContext(sectionVariantContext);
-};
+  return useContext(sectionVariantContext)
+}
 
 export type SectionVariantContextProps = {
-	children: ReactNode,
-	variant: SectionVariant,
+  children: ReactNode
+  variant: SectionVariant
 }
 
 export const SectionVariantContext = ({
@@ -20,5 +20,5 @@ export const SectionVariantContext = ({
     <sectionVariantContext.Provider value={variant}>
       {children}
     </sectionVariantContext.Provider>
-  );
-};
+  )
+}

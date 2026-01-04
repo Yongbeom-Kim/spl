@@ -12,7 +12,7 @@ export const SectionA = ({
   className = '',
   ...anchorProps
 }: SectionAProps) => {
-	const variant = useSectionVariant()
+  const variant = useSectionVariant()
 
   return (
     <a
@@ -32,4 +32,3 @@ export const SectionA = ({
     </a>
   )
 }
-

@@ -10,7 +10,7 @@ export const ContactInfoSection = () => {
       variant="light"
       width="wide"
       height={'fit-content'}
-      >
+    >
       <Section.H3>
         Want to join us or collaborate with us?
         <br />
@@ -79,9 +79,10 @@ export const ContactInfoSection = () => {
       </Section.P>
 
       <Callout variant="red">
-        <Section.Strong>Note:</Section.Strong> if your nationality is from a country outside the
-        EU or the UK, you are classed as an overseas student and will normally
-        have to provide your own funding sources for subsistence and fees.
+        <Section.Strong>Note:</Section.Strong> if your nationality is from a
+        country outside the EU or the UK, you are classed as an overseas student
+        and will normally have to provide your own funding sources for
+        subsistence and fees.
         <br />
         <br />
         Nevertheless, there are opportunities for you to take up part-time work

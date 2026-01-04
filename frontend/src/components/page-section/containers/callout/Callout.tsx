@@ -1,5 +1,8 @@
 import type { ReactNode } from 'react'
-import { SectionVariantContext, useSectionVariant } from '../../context/VariantContext'
+import {
+  SectionVariantContext,
+  useSectionVariant,
+} from '../../context/VariantContext'
 import { SectionVariant } from '../../types'
 
 export type CalloutVariant = 'blue' | 'red' | 'neutral'
@@ -26,7 +29,11 @@ export const Callout = ({
 }: CalloutProps) => {
   const parentSectionVariant = useSectionVariant()
   return (
-    <SectionVariantContext variant={sectionVariant !== 'inherit' ? sectionVariant : parentSectionVariant}>
+    <SectionVariantContext
+      variant={
+        sectionVariant !== 'inherit' ? sectionVariant : parentSectionVariant
+      }
+    >
       <div
         className={`${VARIANT_STYLES[variant]} p-4 my-6 rounded-md ${className}`}
       >

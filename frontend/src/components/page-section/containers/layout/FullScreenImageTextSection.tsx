@@ -43,13 +43,13 @@ export const FullScreenImageTextSection = ({
   backgroundColor,
   variant,
   width,
-	height,
+  height,
 }: FullScreenImageTextSectionProps) => {
   const Body = BodyComponentMap[variant]
   return (
     <FullScreenHeaderOnlySection
       width={width}
-			height={height}
+      height={height}
       header={header}
       align_header={align_header}
       variant={theme}

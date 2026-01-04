@@ -7,11 +7,8 @@ export type SectionUlProps = {
   className?: string
 }
 
-export const SectionUl = ({
-  children,
-  className = '',
-}: SectionUlProps) => {
-	const variant = useSectionVariant()
+export const SectionUl = ({ children, className = '' }: SectionUlProps) => {
+  const variant = useSectionVariant()
   return (
     <ul
       className={classNames(
@@ -27,4 +24,3 @@ export const SectionUl = ({
     </ul>
   )
 }
-

@@ -7,11 +7,8 @@ export type SectionLiProps = {
   className?: string
 }
 
-export const SectionLi = ({
-  children,
-  className = '',
-}: SectionLiProps) => {
-	const variant = useSectionVariant()
+export const SectionLi = ({ children, className = '' }: SectionLiProps) => {
+  const variant = useSectionVariant()
   return (
     <li
       className={classNames(
@@ -27,4 +24,3 @@ export const SectionLi = ({
     </li>
   )
 }
-

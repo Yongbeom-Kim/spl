@@ -9,7 +9,7 @@ export const NewsBody = () => {
       variant="light"
       width="narrow"
       height="fit-content"
-      className='px-16'
+      className="px-16"
     >
       <NewsList />
     </FullScreenHeaderOnlySection>
