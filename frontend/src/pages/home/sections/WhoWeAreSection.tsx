@@ -3,6 +3,7 @@ import { FullScreenHeaderOnlySection } from '@/components/page-section/container
 import { Link } from '@tanstack/react-router'
 import aboutusHero from '../../aboutus/assets/hero-cropped.webp'
 import { ExternalLinkIcon } from '@/components/external-link-icon/ExternalLinkIcon'
+import { AboutUsImageCarousel } from '@/pages/aboutus/components/AboutUsImageCarousel'
 
 export const WhoWeAreSection = () => {
   return (
@@ -36,11 +37,7 @@ export const WhoWeAreSection = () => {
         </div>
 
         <div className="lg:w-1/2 lg:-translate-y-16 lg:-mb-16">
-          <img
-            src={aboutusHero}
-            alt=""
-            className="w-full aspect-3/2 lg:aspect-4/3 object-cover object-center rounded-lg shadow-lg"
-          />
+          <AboutUsImageCarousel />
         </div>
       </div>
     </FullScreenHeaderOnlySection>

@@ -24,7 +24,6 @@ export const Carousel = ({
 }: CarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
-  const [lightboxIndex, setLightboxIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const lightboxRef = useRef<HTMLDivElement>(null)
 
@@ -64,10 +63,12 @@ export const Carousel = ({
           setIsLightboxOpen(false)
           break
         case 'ArrowLeft':
-          setLightboxIndex((prev) => (prev - 1 + images.length) % images.length)
+          setActiveIndex(
+            (prev: number) => (prev - 1 + images.length) % images.length,
+          )
           break
         case 'ArrowRight':
-          setLightboxIndex((prev) => (prev + 1) % images.length)
+          setActiveIndex((prev: number) => (prev + 1) % images.length)
           break
         case 'Tab':
           if (!lightboxRef.current) return
@@ -94,7 +95,7 @@ export const Carousel = ({
   }, [isLightboxOpen, images.length])
 
   const openLightbox = (index: number) => {
-    setLightboxIndex(index)
+    setActiveIndex(index)
     setIsLightboxOpen(true)
   }
 
@@ -103,11 +104,11 @@ export const Carousel = ({
   }
 
   const goToPrevious = () => {
-    setLightboxIndex((prev) => (prev - 1 + images.length) % images.length)
+    setActiveIndex((prev) => (prev - 1 + images.length) % images.length)
   }
 
   const goToNext = () => {
-    setLightboxIndex((prev) => (prev + 1) % images.length)
+    setActiveIndex((prev) => (prev + 1) % images.length)
   }
 
   return (
@@ -125,8 +126,14 @@ export const Carousel = ({
           <button
             key={img.src}
             onClick={() => openLightbox(index)}
-            className="absolute inset-0 w-full h-full p-0 border-0 bg-transparent cursor-pointer"
+            className={classNames(
+              'absolute inset-0 w-full h-full p-0 border-0 bg-transparent',
+              index === activeIndex
+                ? 'cursor-pointer pointer-events-auto'
+                : 'cursor-default pointer-events-none',
+            )}
             aria-label={`View ${img.alt} in lightbox`}
+            inert={index !== activeIndex}
           >
             <img
               src={img.src}
@@ -156,8 +163,8 @@ export const Carousel = ({
 
             <div className="absolute inset-0 flex items-center justify-center p-4 md:p-12">
               <img
-                src={images[lightboxIndex]?.src}
-                alt={images[lightboxIndex]?.alt}
+                src={images[activeIndex]?.src}
+                alt={images[activeIndex]?.alt}
                 className="max-w-full max-h-full object-contain"
               />
             </div>
@@ -188,8 +195,8 @@ export const Carousel = ({
 
             <VisuallyHidden>
               <div role="status" aria-live="polite">
-                Image {lightboxIndex + 1} of {images.length}:{' '}
-                {images[lightboxIndex]?.alt}
+                Image {activeIndex + 1} of {images.length}:{' '}
+                {images[activeIndex]?.alt}
               </div>
             </VisuallyHidden>
           </div>,
