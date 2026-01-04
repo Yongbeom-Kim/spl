@@ -106,13 +106,12 @@ export const NewsCardImageColumn = ({ newsItem }: NewsCardProps) => {
 
 export const NewsCard = ({ newsItem }: NewsCardProps) => {
   return (
-    <article className="w-full">
+    <article id={newsItem.id} className="w-full">
       <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1.5fr_1fr] items-start py-12">
         <NewsCardTitle newsItem={newsItem} />
         <NewsCardContentColumn newsItem={newsItem} />
         <NewsCardThumbnail newsItem={newsItem} />
       </div>
-
     </article>
   )
 }

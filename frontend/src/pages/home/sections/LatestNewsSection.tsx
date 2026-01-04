@@ -5,10 +5,9 @@ import { ExternalLinkIcon } from '@/components/external-link-icon/ExternalLinkIc
 
 const NewsHighlightCard = ({ newsItem }: { newsItem: NewsItem }) => {
   return (
-    <a
-      href={newsItem.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      to="/news"
+      hash={newsItem.id}
       className="group block bg-neutral-800 rounded-lg overflow-hidden hover:bg-neutral-700 transition-colors duration-200"
     >
       <div className="p-6">
@@ -38,7 +37,7 @@ const NewsHighlightCard = ({ newsItem }: { newsItem: NewsItem }) => {
           </svg>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
