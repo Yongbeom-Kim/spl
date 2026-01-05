@@ -4,7 +4,10 @@ name: 'Deploy Firebase Frontend'
 on:
   push:
     branches:
-    - 'main'
+      - 'main'
+  workflow_dispatch:
+  repository_dispatch:
+  
 jobs:
   run:
     name: 'Deploy'
