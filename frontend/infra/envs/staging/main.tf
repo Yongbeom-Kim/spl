@@ -9,6 +9,8 @@ module "firebase" {
 	dns_zone_name = "senpailearn-com"
 	apex_domain = "staging.senpailearn.com"
 	is_subdomain = true
+	env = "STAGING"
+	github_repository = "Yongbeom-Kim/spl"
 }
 
 output "firebase_site_id" {

@@ -5,11 +5,11 @@
   "targets": {
     "senpailearn-global": {
       "hosting": {
-        "prod": [
-          "senpailearn-prod-b29e5"
-        ],
         "staging": [
           "senpailearn-staging-b29e5"
+        ],
+        "prod": [
+          "senpailearn-prod-b29e5"
         ]
       }
     }
