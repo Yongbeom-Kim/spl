@@ -13,9 +13,17 @@ jobs:
       contents: read
     runs-on: 'ubuntu-latest'
     steps:
+    
     - name: Checkout
       uses: actions/checkout@v6.0.1
-          
+      
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        
+    - name: Install Firebase CLI
+      run: npm i -g firebase-tools
+      
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
@@ -23,6 +31,7 @@ jobs:
         # Secrets from frontend/infra/envs/prod/main.tf
         workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
         service_account: ${{ secrets.SA_EMAIL }}
+        
     - id: 'deploy-firebase'
       run: |-
         cd frontend && firebase deploy --only hosting --site ${{ secrets.FIREBASE_SITE_ID }}
