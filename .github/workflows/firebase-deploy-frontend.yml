@@ -1,0 +1,25 @@
+# https://github.com/terraform-google-modules/terraform-google-github-actions-runners/tree/main/modules/gh-oidc
+
+name: 'Deploy Firebase Frontend'
+on:
+  push:
+    branches:
+    - 'main'
+jobs:
+  run:
+    name: 'Deploy'
+    permissions:
+      id-token: write
+      contents: read
+    runs-on: 'ubuntu-latest'
+    steps:
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        token_format: 'access_token'
+        # Secrets from frontend/infra/envs/prod/main.tf
+        workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
+        service_account: ${{ secrets.SA_EMAIL }}
+    - id: 'deploy firebase'
+      run: |-
+        cd frontend && firebase deploy --only hosting --site ${{ secrets.FIREBASE_SITE_ID }}
