@@ -34,4 +34,4 @@ jobs:
         
     - id: 'deploy-firebase'
       run: |-
-        cd frontend && firebase deploy --only hosting --site ${{ secrets.FIREBASE_SITE_ID }}
+        cd frontend && firebase deploy --only hosting:prod
