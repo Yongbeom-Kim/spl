@@ -1,22 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
-import { peopleData } from '../../data/people-data'
 import type Masonry from 'masonry-layout'
-import { shuffle } from '@/util'
+import { debounce, shuffle } from '@/util'
+import { Person, usePeopleQuery } from '../../hooks/use-people-query'
 
 export const PeoplePageHeroBackground = () => {
-  const [headshots, setHeadshots] = useState(
-    peopleData.map((person) => person.profileImage),
-  )
+  const {data: peopleData} = usePeopleQuery()
+  const headshots = (peopleData ?? []).map((person) => person.headshot)
   const [visible, setVisible] = useState(false)
   const gridRef = useRef<HTMLDivElement | null>(null)
   const masonryRef = useRef<Masonry | null>(null)
 
   useEffect(() => {
-    const makeVisible = () => setVisible(true)
+    const makeVisible = debounce(() => setVisible(true), 400)
 
     if (!gridRef.current) return
-    setHeadshots(shuffle(headshots))
     import('masonry-layout').then((masonryLayoutImport) => {
       const Masonry = masonryLayoutImport.default
       masonryRef.current = new Masonry(gridRef.current as HTMLElement, {
@@ -40,18 +38,19 @@ export const PeoplePageHeroBackground = () => {
       <div
         className={classNames(
           'masonry-grid',
-          'absolute top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2',
+          'absolute top-0 left-1/2 -translate-x-1/2',
           {
             'opacity-0': !visible,
           },
         )}
         ref={gridRef}
       >
-        {headshots.map((headshot: string, idx: number) => (
+        {/* TODO: shuffle */}
+        {(headshots).map((headshot: Person['headshot'], idx: number) => (
           <img
             key={idx}
             className="masonry-item float-left w-1/4 lg:w-1/6"
-            src={headshot}
+            src={headshot.url}
             alt={`headshot ${idx}`}
             onLoad={handleImageLoad}
           />

@@ -1,20 +1,19 @@
 import { Link } from '@tanstack/react-router'
-import { peopleData } from '../../people/data/people-data'
-import type { Person } from '../../people/data/people-data';
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { Section } from '@/components/page-section'
+import { type Person, usePeopleQuery } from '@/pages/people/hooks/use-people-query'
 
 const TeamMemberHeadshot = ({ person }: { person: Person }) => {
   return (
     <Link
       to="/people"
-      hash={person.id}
+      hash={person.documentId}
       className="group block"
       aria-label={`View ${person.name}'s profile`}
     >
       <div className="relative overflow-hidden rounded-full w-full aspect-square mx-auto">
         <img
-          src={person.profileImage}
+          src={person.headshot.url}
           alt={`${person.name} headshot`}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
         />
@@ -24,11 +23,7 @@ const TeamMemberHeadshot = ({ person }: { person: Person }) => {
 }
 
 export const OurTeamSection = () => {
-  const currentTeamMembers = [...peopleData].sort((a, b) => {
-    // Sort by alumni status: non-alumni first, alumni last
-    if (!!a.isAlumni === !!b.isAlumni) return 0
-    return a.isAlumni ? 1 : -1
-  })
+  const {data: peopleData} = usePeopleQuery()
 
   return (
     <FullScreenHeaderOnlySection
@@ -43,8 +38,8 @@ export const OurTeamSection = () => {
         collaboration of our team members.
       </Section.P>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(20%,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(12%,1fr))] gap-2 lg:gap-8 mb-16">
-        {currentTeamMembers.map((person) => (
-          <TeamMemberHeadshot key={person.name} person={person} />
+        {(peopleData ?? []).map((person) => (
+          <TeamMemberHeadshot key={person.documentId} person={person} />
         ))}
       </div>
 

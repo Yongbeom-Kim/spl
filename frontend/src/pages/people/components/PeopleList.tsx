@@ -1,5 +1,5 @@
+import { Person } from '../hooks/use-people-query'
 import { ProfileCard } from './ProfileCard'
-import type { Person } from '../data/people-data'
 
 interface PeopleListProps {
   people: Array<Person>
