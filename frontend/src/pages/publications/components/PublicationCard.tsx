@@ -1,13 +1,11 @@
+import { Publication } from '@/strapi/hooks/use-publication-query'
 import { PublicationPlaceholder } from '../assets/PublicationPlaceholder'
-import type { Publication } from '../data/publicationsData'
 
 interface PublicationCardProps {
   publication: Publication
 }
 
-const formatDate = (dateString: string): string => {
-  try {
-    const date = new Date(dateString)
+const formatDate = (date: Date): string => {
     return date
       .toLocaleDateString('en-US', {
         day: 'numeric',
@@ -15,9 +13,6 @@ const formatDate = (dateString: string): string => {
         year: 'numeric',
       })
       .toUpperCase()
-  } catch {
-    return dateString.toUpperCase()
-  }
 }
 
 export const PublicationCardThumbnail = ({
@@ -25,14 +20,14 @@ export const PublicationCardThumbnail = ({
 }: PublicationCardProps) => {
   return (
     <div className="aspect-4/3 bg-neutral-200 relative overflow-hidden">
-      {!publication.posterImg ? (
+      {!publication.Thumbnail?.url ? (
         <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-neutral-200 to-neutral-300">
           <PublicationPlaceholder />
         </div>
       ) : (
         <img
-          src={publication.posterImg.src}
-          alt={publication.posterImg.alt}
+          src={publication.Thumbnail.url}
+          alt={publication.Thumbnail.alternativeText ?? ''}
           className="w-full h-full object-cover"
         />
       )}
@@ -44,22 +39,22 @@ export const PublicationCardBody = ({ publication }: PublicationCardProps) => {
   return (
     <div className="p-5 flex flex-col gap-4">
       <div className="text-xs text-neutral-500 uppercase tracking-wide font-medium">
-        {formatDate(publication.publicationDate)}
+        {formatDate(publication.PublicationDate)}
       </div>
 
       <h3 className="text-base font-semibold text-neutral-900 leading-snug">
-        {publication.title}
+        {publication.Title}
       </h3>
 
       <div className="text-sm text-neutral-700 leading-relaxed">
-        {publication.authors.join(', ')}
+        {publication.Authors}
       </div>
 
       <div className="invisible inert h-12"></div>
 
       <div className="absolute bottom-4 right-8">
         <a
-          href={publication.readMoreUrl}
+          href={publication.Link}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center text-sm font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"

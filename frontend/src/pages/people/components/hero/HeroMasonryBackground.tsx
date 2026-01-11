@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import type Masonry from 'masonry-layout'
 import { debounce, shuffle } from '@/util'
-import { Person, usePeopleQuery } from '../../hooks/use-people-query'
+import { Person, usePeopleQuery } from '../../../../strapi/hooks/use-people-query'
 
 export const PeoplePageHeroBackground = () => {
   const {data: peopleData} = usePeopleQuery()

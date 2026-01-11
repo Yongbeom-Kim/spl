@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { Section } from '@/components/page-section'
-import { type Person, usePeopleQuery } from '@/pages/people/hooks/use-people-query'
+import { type Person, usePeopleQuery } from '@/strapi/hooks/use-people-query'
 
 const TeamMemberHeadshot = ({ person }: { person: Person }) => {
   return (

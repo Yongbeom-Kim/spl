@@ -1,6 +1,6 @@
 import { PeopleList } from '../components/PeopleList'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { usePeopleQuery } from '../hooks/use-people-query'
+import { usePeopleQuery } from '../../../strapi/hooks/use-people-query'
 
 export const PeopleBody = () => {
   const {data: peopleData} = usePeopleQuery()

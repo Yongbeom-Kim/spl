@@ -1,55 +1,14 @@
 import { skipToken, useQuery, useSuspenseQuery } from '@tanstack/react-query'
-import axios from 'axios'
+import { strapiAxiosInstance } from '../utils/axiosInstance'
+import { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
 
-export interface Person {
-  id: number
-  documentId: string
+export type Person = StrapiBaseObject & {
   name: string
   is_alumni: boolean
   is_lead: boolean
   short_description: string
-  createdAt: string // ISO datetime
-  updatedAt: string // ISO datetime
-  publishedAt: string // ISO datetime
-	headshot: {
-		id: number
-		documentId: string
-		name: string
-		alternativeText: string | null
-		caption: string | null
-		width: number
-		height: number
-		formats: {
-			thumbnail: {
-				ext: string
-				url: string
-				hash: string
-				mime: string
-				name: string
-				path: string | null
-				size: number
-				width: number
-				height: number
-				sizeInBytes: number
-			}
-		}
-		hash: string
-		ext: string
-		mime: string
-		size: number
-		url: string
-		previewUrl: string | null
-		provider: string
-		provider_metadata: any | null
-		createdAt: string
-		updatedAt: string
-		publishedAt: string
-	}
+	headshot: StrapiImageType
 }
-
-const strapiAxiosInstance = axios.create({
-  baseURL: 'https://mighty-leader-533aceef93.strapiapp.com',
-})
 
 const fetchPeople = async () => {
   const resp = await strapiAxiosInstance.get('/api/team-members?populate=headshot')
@@ -57,6 +16,14 @@ const fetchPeople = async () => {
     throw new Error('Non-200 return code')
   }
   return resp.data.data as Person[]
+}
+
+const fetchPersonById = async (documentId: string) => {
+  const resp = await strapiAxiosInstance.get(`/api/team-members/${documentId}`)
+  if (resp.status !== 200) {
+    throw new Error('Non-200 return code')
+  }
+  return resp.data as Person
 }
 
 export const usePeopleQuery = () => {
@@ -80,14 +47,6 @@ export const usePeopleQuery = () => {
       });
     }
   })
-}
-
-const fetchPersonById = async (documentId: string) => {
-  const resp = await strapiAxiosInstance.get(`/api/team-members/${documentId}`)
-  if (resp.status !== 200) {
-    throw new Error('Non-200 return code')
-  }
-  return resp.data as Person
 }
 
 export const usePeopleQueryById = (documentId: string | undefined) => {

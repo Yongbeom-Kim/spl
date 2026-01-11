@@ -1,4 +1,4 @@
-import { Person } from '../hooks/use-people-query'
+import { Person } from '../../../strapi/hooks/use-people-query'
 import { ProfileCard } from './ProfileCard'
 
 interface PeopleListProps {

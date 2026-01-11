@@ -1,37 +1,31 @@
 import { Link } from '@tanstack/react-router'
-import { projectData } from '../../projects/data/project-data'
-import type { Project } from '../../projects/data/project-data';
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
+import { Project, useProjectListQuery } from '@/strapi/hooks/use-project-query'
 
 const FeaturedProjectCard = ({ project }: { project: Project }) => {
   return (
     <Link
       to="/projects"
+      hash={project.documentId}
       className="group block bg-neutral-800 rounded-lg overflow-hidden hover:bg-neutral-700 transition-colors duration-200"
     >
       <div className="aspect-video overflow-hidden">
         <img
-          src={project.thumbnailUrl}
-          alt={`${project.title} project thumbnail`}
+          src={project.Thumbnail[0].url}
+          alt={`${project.Title} project thumbnail`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
       <div className="p-6">
         <div className="text-sm text-neutral-400 uppercase tracking-wide mb-2">
-          Since {project.startYear}
+          Since {project.StartYear}
         </div>
         <h3
           className="text-xl font-semibold text-white mb-3 leading-tight"
-          dangerouslySetInnerHTML={{ __html: project.title }}
-        />
-        <p className="text-sm text-neutral-300 line-clamp-2">
-          {project.subtitle
-            .replace(/<[^>]*>/g, '')
-            .replace(/&[^;]+;/g, ' ')
-            .trim()
-            .substring(0, 120)}
-          {project.subtitle.replace(/<[^>]*>/g, '').length > 120 && '...'}
-        </p>
+        >{project.Title}</h3>
+        {/* <p className="text-sm text-neutral-300 line-clamp-2">
+          {project.Summary}
+        </p> */}
       </div>
     </Link>
   )
@@ -39,19 +33,25 @@ const FeaturedProjectCard = ({ project }: { project: Project }) => {
 
 export const FeaturedProjectsSection = () => {
   const featuredProjectTitles = [
-    '<strong>ChemPOV</strong>',
-    '<strong>NuPOV</strong>',
-    '<strong>VR</strong> Crime Scene',
-    "<strong>Lightboard</strong> for better student's engagement",
+    '<ChemPOV',
+    '<NuPOV',
+    'VR',
+    "Lightboard",
   ]
 
-  const featuredProjects = projectData
-    .filter((project) =>
-      featuredProjectTitles.some((title) =>
-        project.title.includes(title.replace(/<[^>]*>/g, '')),
-      ),
-    )
-    .slice(0, 4)
+  const {data: featuredProjects} = useProjectListQuery({
+    limit: 4,
+    additionalFilters: [
+      (project) =>
+        featuredProjectTitles.some((title) =>
+          project.Title.includes(title.replace(/<[^>]*>/g, '')),
+        ),
+    ],
+  })
+
+  if (!featuredProjects) {
+    return <div></div>
+  }
 
   return (
     <FullScreenHeaderOnlySection
@@ -63,7 +63,7 @@ export const FeaturedProjectsSection = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-16">
         {featuredProjects.map((project) => (
-          <FeaturedProjectCard key={project.title} project={project} />
+          <FeaturedProjectCard key={project.documentId} project={project} />
         ))}
       </div>
 

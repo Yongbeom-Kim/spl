@@ -13,9 +13,12 @@
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "push:force": "npx strapi transfer --to https://mighty-leader-533aceef93.strapiapp.com/admin"
+    "push:force": "echo 'Go to https://mighty-leader-533aceef93.strapiapp.com/admin/settings/transfer-tokens and get a \"Push\" transfer token' && npx strapi transfer --to https://mighty-leader-533aceef93.strapiapp.com/admin",
+    "pull:force": "echo 'Go to https://mighty-leader-533aceef93.strapiapp.com/admin/settings/transfer-tokens and get a \"Pull\" transfer token' && npx strapi transfer --from https://mighty-leader-533aceef93.strapiapp.com/admin"
   },
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^6.0.3",
+    "@ckeditor/strapi-plugin-ckeditor": "^1.1.1",
     "@strapi/plugin-cloud": "5.33.1",
     "@strapi/plugin-users-permissions": "5.33.1",
     "@strapi/strapi": "5.33.1",

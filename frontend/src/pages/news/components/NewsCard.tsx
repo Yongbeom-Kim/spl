@@ -1,7 +1,8 @@
-import type { NewsItem } from '../data/news-data'
+import { NewsSummary } from "@/strapi/hooks/use-news-query"
+import { dateToHumanReadable } from "@/strapi/utils/date"
 
 interface NewsCardProps {
-  newsItem: NewsItem
+  newsItem: NewsSummary
 }
 
 const NewsPlaceholder = () => {
@@ -31,7 +32,7 @@ const NewsPlaceholder = () => {
 }
 
 export const NewsCardThumbnail = ({ newsItem }: NewsCardProps) => {
-  const isPlaceholder = !newsItem.imageUrl
+  const isPlaceholder = !newsItem.PreviewThumbnail?.url
 
   return (
     <div className="aspect-4/3 lg:my-8 bg-neutral-100 relative overflow-hidden">
@@ -41,8 +42,8 @@ export const NewsCardThumbnail = ({ newsItem }: NewsCardProps) => {
         </div>
       ) : (
         <img
-          src={newsItem.imageUrl}
-          alt={newsItem.imageAlt}
+          src={newsItem.PreviewThumbnail?.url}
+          alt={newsItem.PreviewThumbnail?.alternativeText ?? ''}
           className="w-full h-full object-cover"
         />
       )}
@@ -54,10 +55,10 @@ export const NewsCardTitle = ({ newsItem }: NewsCardProps) => {
   return (
     <div className="flex flex-col justify-start mb-3 lg:p-8">
       <div className="text-sm lg:text-md text-neutral-500 uppercase tracking-wide font-medium mb-3">
-        {newsItem.date}
+        {dateToHumanReadable(newsItem.Date)}
       </div>
       <h3 className="text-2xl lg:text-2xl font-semibold text-neutral-900 leading-snug">
-        {newsItem.title}
+        {newsItem.Title}
       </h3>
     </div>
   )
@@ -67,13 +68,11 @@ export const NewsCardContentColumn = ({ newsItem }: NewsCardProps) => {
   return (
     <div className="flex flex-col justify-between mb-3 lg:p-8">
       <p className="text-md text-neutral-700 leading-relaxed">
-        {newsItem.summary}
+        {newsItem.PreviewSummary}
       </p>
       <div className="mt-4">
         <a
-          href={newsItem.url}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`/news/${newsItem.slug}`}
           className="inline-flex items-center text-sm font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"
         >
           Read More
@@ -106,7 +105,7 @@ export const NewsCardImageColumn = ({ newsItem }: NewsCardProps) => {
 
 export const NewsCard = ({ newsItem }: NewsCardProps) => {
   return (
-    <article id={newsItem.id} className="w-full">
+    <article id={newsItem.slug} className="w-full">
       <div className="flex flex-col lg:grid lg:grid-cols-[1fr_1.5fr_1fr] items-start py-12">
         <NewsCardTitle newsItem={newsItem} />
         <NewsCardContentColumn newsItem={newsItem} />

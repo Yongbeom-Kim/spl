@@ -1,8 +1,9 @@
-import { grantData } from '../data/grant-data'
 import { Section } from '@/components/page-section'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
+import { useGrantListQuery } from '@/strapi/hooks/use-grant-query'
 
 const FundedGrantProposalsSection = () => {
+  const {data: grantList} = useGrantListQuery()
   return (
     <FullScreenHeaderOnlySection
       variant={'light'}
@@ -13,21 +14,21 @@ const FundedGrantProposalsSection = () => {
     >
       <Section.H2>Funded Grant Proposals</Section.H2>
       <div className="">
-        {grantData.map((grant, idx) => (
+        {grantList.map((grant, idx) => (
           <Section.P key={idx} className="font-bold">
-            {grant.period}
-            {grant.amount && (
+            {grant.StartYear} - {grant.EndYear}
+            {grant.Amount && (
               <>
-                <br /> {grant.amount}
+                <br /> {grant.Amount}
               </>
             )}
             <br />
-            {grant.title}
+            {grant.Title}
             <br />
-            {grant.grantNumber}
-            {grant.description && (
+            {grant.GrantNumber}
+            {grant.Description && (
               <>
-                <br /> {grant.description}
+                <br /> {grant.Description}
               </>
             )}
           </Section.P>
