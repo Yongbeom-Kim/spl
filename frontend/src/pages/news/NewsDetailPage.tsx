@@ -38,7 +38,7 @@ export const NewsDetailPage = () => {
 
   return (
     <PageLayout headerLinksToHomePage={true}>
-      <article className="max-w-4xl mx-auto px-6 py-12 lg:py-16 pt-[10vh]">
+      <article className="max-w-4xl mx-auto px-6 pb-12 lg:pb-16 pt-24 lg:pt-28">
         {newsItem.NewsPageThumbnail && (
           <div className="mb-8">
             <img
