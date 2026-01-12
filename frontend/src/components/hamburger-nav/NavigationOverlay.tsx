@@ -50,6 +50,9 @@ const NavigationOverlayLinks = ({ className }: NavigationOverlayLinksProps) => {
       <VisuallyHidden>
         <h2>Main Navigation</h2>
       </VisuallyHidden>
+      <Link onClick={handleLinkClick} to="/">
+        Home
+      </Link>
       <Link onClick={handleLinkClick} to="/aboutus">
         About Us
       </Link>
@@ -121,7 +124,7 @@ export const NavigationOverlay = ({
         ref={overlayRef}
       >
         <WarmCenteredGlowBg />
-        <NavigationOverlayLinks className="absolute top-1/2 lg:top-5/11 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <NavigationOverlayLinks className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </div>
     </>
   )
