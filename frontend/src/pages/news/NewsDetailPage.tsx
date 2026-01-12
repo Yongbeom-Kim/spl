@@ -66,7 +66,12 @@ export const NewsDetailPage = () => {
 
           {newsItem.NewsPageBody && (
             <div
-              className="prose-content"
+              className="
+                prose-content
+                text-neutral-900
+                [&_p]:mb-6
+                [&_img]:my-12 [&_img]:w-full [&_img]:px-[5%] [&_img]:lg:px-[20%]
+                "
               dangerouslySetInnerHTML={{ __html: newsItem.NewsPageBody }}
             />
           )}
