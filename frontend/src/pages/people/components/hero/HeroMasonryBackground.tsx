@@ -2,14 +2,22 @@ import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import type Masonry from 'masonry-layout'
 import { debounce, shuffle } from '@/util'
-import { Person, usePeopleQuery } from '../../../../strapi/hooks/use-people-query'
+import {
+  Person,
+  usePeopleQuery,
+} from '../../../../strapi/hooks/use-people-query'
+import { StrapiImageType } from '@/strapi/utils/strapi-types'
 
 export const PeoplePageHeroBackground = () => {
-  const {data: peopleData} = usePeopleQuery()
-  const headshots = (peopleData ?? []).map((person) => person.headshot)
+  const { data: peopleData } = usePeopleQuery()
+  const [headshots, setHeadshots] = useState<StrapiImageType[]>()
   const [visible, setVisible] = useState(false)
   const gridRef = useRef<HTMLDivElement | null>(null)
   const masonryRef = useRef<Masonry | null>(null)
+
+  useEffect(() => {
+    setHeadshots(shuffle((peopleData ?? []).map((person) => person.headshot)))
+  }, [peopleData])
 
   useEffect(() => {
     const makeVisible = debounce(() => setVisible(true), 400)
@@ -27,26 +35,27 @@ export const PeoplePageHeroBackground = () => {
     return () => {
       masonryRef.current?.off?.('layoutComplete', makeVisible)
     }
-  }, [])
+  }, [headshots])
 
   const handleImageLoad = () => {
     masonryRef.current?.layout?.()
   }
+  if (!headshots) return <div className='h-full bg-neutral-300'></div>
 
   return (
     <div className="relative h-full bg-neutral-300">
       <div
         className={classNames(
           'masonry-grid',
-          'absolute top-0 left-1/2 -translate-x-1/2',
+          'absolute inset-0',
+          'transition-opacity ease-linear duratio-1000',
           {
             'opacity-0': !visible,
           },
         )}
         ref={gridRef}
       >
-        {/* TODO: shuffle */}
-        {(headshots).map((headshot: Person['headshot'], idx: number) => (
+        {headshots.map((headshot: Person['headshot'], idx: number) => (
           <img
             key={idx}
             className="masonry-item float-left w-1/4 lg:w-1/6"
