@@ -14,4 +14,4 @@ Staging: [staging.senpailearn.com](https://staging.senpailearn.com)
 | Infrastructure | GCP / Firebase                                   | Strapi Cloud                  |     |
 | IaC?           | Yes (OpenTofu)                                   | Yes (I suppose, bootstrapped) |     |
 | CI?            | Only FE, no Infra    (on push to origin/main)    | No                            |     |
-| How to deploy  | `pnpm run build && ./deploy.sh (staging\|prod)`. | `pnpm run deploy`             |     |
+| How to deploy  | `./deploy.sh (staging\|prod)`. | `pnpm run deploy`             |     |
