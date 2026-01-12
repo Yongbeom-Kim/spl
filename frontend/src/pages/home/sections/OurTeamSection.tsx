@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { Section } from '@/components/page-section'
 import { type Person, usePeopleQuery } from '@/strapi/hooks/use-people-query'
+import { ExternalLinkIcon } from 'lucide-react'
 
 const TeamMemberHeadshot = ({ person }: { person: Person }) => {
   return (
@@ -46,22 +47,10 @@ export const OurTeamSection = () => {
       <div className="text-center">
         <Link
           to="/people"
-          className="inline-flex items-center text-lg font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"
+          className="inline-flex items-center gap-1 text-lg font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"
         >
           View the full team
-          <svg
-            className="w-5 h-5 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
+          <ExternalLinkIcon className='h-4' />
         </Link>
       </div>
     </FullScreenHeaderOnlySection>

@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { ExternalLinkIcon } from '@/components/external-link-icon/ExternalLinkIcon'
 import { type NewsSummary, useNewsSummaryListQuery } from '@/strapi/hooks/use-news-query';
 import { dateToHumanReadable } from '@/strapi/utils/date';
+import { ExternalLinkIcon } from 'lucide-react';
 
 const NewsHighlightCard = ({ newsSummary }: { newsSummary: NewsSummary }) => {
   return (
@@ -23,19 +23,7 @@ const NewsHighlightCard = ({ newsSummary }: { newsSummary: NewsSummary }) => {
         </p>
         <div className="inline-flex items-center text-accent-blue-400 font-medium text-sm">
           Read more
-          <svg
-            className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
+          <ExternalLinkIcon />
         </div>
       </div>
     </Link>
