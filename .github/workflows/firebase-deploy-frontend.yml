@@ -42,6 +42,8 @@ jobs:
     - name: Verify Firebase 404 artifact
       run: test -f frontend/.output/public/404.html
 
-    - name: Deploy to Firebase
-      id: 'deploy-firebase'
+    - name: Deploy to Firebase (staging)
+      run: cd frontend && firebase deploy --only hosting:staging
+
+    - name: Deploy to Firebase (prod)
       run: cd frontend && firebase deploy --only hosting:prod
