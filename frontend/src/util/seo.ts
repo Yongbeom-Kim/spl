@@ -3,7 +3,7 @@ interface SeoMetaConfig {
   description: string
   path: string
   image?: string
-  keywords?: string[]
+  keywords?: Array<string>
   type?: 'website' | 'article'
   noIndex?: boolean
 }
@@ -13,7 +13,7 @@ export const generateSeoMeta = (config: SeoMetaConfig) => {
   const fullUrl = `${baseUrl}${config.path}`
   const defaultImage = `${baseUrl}/logo_rounded_rectangle.webp`
 
-  const meta: any[] = [
+  const meta: Array<any> = [
     { name: 'description', content: config.description },
     { name: 'keywords', content: config.keywords?.join(', ') || '' },
     { property: 'og:title', content: config.title },
@@ -26,7 +26,7 @@ export const generateSeoMeta = (config: SeoMetaConfig) => {
     { name: 'twitter:title', content: config.title },
     { name: 'twitter:description', content: config.description },
     { name: 'twitter:image', content: config.image || defaultImage },
-    {title: config.title},
+    { title: config.title },
   ]
 
   if (config.noIndex) {

@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { strapiAxiosInstance } from '../utils/axiosInstance'
-import { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
 import { yyyymmddToDate } from '../utils/date'
+import type { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
 
 export type PublicationRaw = StrapiBaseObject & {
   Authors: string
@@ -16,26 +16,28 @@ export type Publication = Omit<PublicationRaw, 'PublicationDate'> & {
 }
 
 const fetchPublicationsList = async () => {
-  const resp = await strapiAxiosInstance.get('/api/publications?populate=Thumbnail')
+  const resp = await strapiAxiosInstance.get(
+    '/api/publications?populate=Thumbnail',
+  )
   if (resp.status !== 200) {
     throw new Error('Non-200 return code')
   }
-  return resp.data.data as PublicationRaw[]
+  return resp.data.data as Array<PublicationRaw>
 }
 
 export const usePublicationListQuery = () => {
   return useSuspenseQuery({
     queryKey: ['publcation_list'],
     queryFn: fetchPublicationsList,
-    select: (publications): Publication[] => {
-      return publications.map((pub) => (
-        {
+    select: (publications): Array<Publication> => {
+      return publications
+        .map((pub) => ({
           ...pub,
           PublicationDate: yyyymmddToDate(pub.PublicationDate),
-        }
-      )).sort((a, b) => {
-        return b.PublicationDate.getTime() - a.PublicationDate.getTime()
-      })
+        }))
+        .sort((a, b) => {
+          return b.PublicationDate.getTime() - a.PublicationDate.getTime()
+        })
     },
   })
 }

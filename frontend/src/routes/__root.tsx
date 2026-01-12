@@ -2,8 +2,9 @@ import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
-import appCss from '../styles.css?url'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import appCss from '../styles.css?url'
+import { NotFoundComponent } from '@/components/not-found'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -46,6 +47,7 @@ export const Route = createRootRoute({
   }),
 
   shellComponent: RootDocument,
+  notFoundComponent: NotFoundComponent,
 })
 
 const client = new QueryClient()
@@ -57,9 +59,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <QueryClientProvider client={client}>
-        {children}
-        </QueryClientProvider>
+        <QueryClientProvider client={client}>{children}</QueryClientProvider>
         <TanStackDevtools
           config={{
             position: 'bottom-right',

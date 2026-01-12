@@ -38,6 +38,10 @@ jobs:
 
     - name: Install & Build
       run: cd frontend && pnpm install && pnpm run build
-      
-    - id: 'deploy-firebase'
+
+    - name: Verify Firebase 404 artifact
+      run: test -f frontend/.output/public/404.html
+
+    - name: Deploy to Firebase
+      id: 'deploy-firebase'
       run: cd frontend && firebase deploy --only hosting:prod

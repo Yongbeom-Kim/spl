@@ -1,9 +1,9 @@
 import { Link } from '@tanstack/react-router'
+import { ExternalLinkIcon } from 'lucide-react'
 import aboutusHero from '../../aboutus/assets/hero-cropped.webp'
 import { Section } from '@/components/page-section'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { AboutUsImageCarousel } from '@/pages/aboutus/components/AboutUsImageCarousel'
-import { ExternalLinkIcon } from 'lucide-react'
 
 export const WhoWeAreSection = () => {
   return (
@@ -31,7 +31,7 @@ export const WhoWeAreSection = () => {
               className="inline-flex items-center gap-0.5 text-lg font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"
             >
               Learn more about us
-              <ExternalLinkIcon className='h-4' />
+              <ExternalLinkIcon className="h-4" />
             </Link>
           </div>
         </div>

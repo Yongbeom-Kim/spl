@@ -1,7 +1,5 @@
-import { Project } from '@/strapi/hooks/use-project-query'
-import {
-  BlocksRenderer,
-} from '@strapi/blocks-react-renderer'
+import { BlocksRenderer } from '@strapi/blocks-react-renderer'
+import type { Project } from '@/strapi/hooks/use-project-query'
 
 interface ProjectCardProps {
   project: Project
@@ -10,7 +8,10 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, isReversed }: ProjectCardProps) => {
   return (
-    <article id={project.documentId} className="relative flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-start odd:bg-neutral-50 bg-neutral-50/50 p-8 lg:p-12">
+    <article
+      id={project.documentId}
+      className="relative flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-start odd:bg-neutral-50 bg-neutral-50/50 p-8 lg:p-12"
+    >
       <div className={isReversed ? 'lg:order-2' : ''}>
         <img
           src={project.Thumbnail[0].url}

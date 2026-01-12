@@ -1,7 +1,8 @@
 import { Link } from '@tanstack/react-router'
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { Project, useProjectListQuery } from '@/strapi/hooks/use-project-query'
 import { ExternalLinkIcon } from 'lucide-react'
+import type { Project } from '@/strapi/hooks/use-project-query'
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
+import { useProjectListQuery } from '@/strapi/hooks/use-project-query'
 
 const FeaturedProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -21,9 +22,9 @@ const FeaturedProjectCard = ({ project }: { project: Project }) => {
         <div className="text-sm text-neutral-400 uppercase tracking-wide mb-2">
           Since {project.StartYear}
         </div>
-        <h3
-          className="text-xl font-semibold text-white mb-3 leading-tight"
-        >{project.Title}</h3>
+        <h3 className="text-xl font-semibold text-white mb-3 leading-tight">
+          {project.Title}
+        </h3>
         {/* <p className="text-sm text-neutral-300 line-clamp-2">
           {project.Summary}
         </p> */}
@@ -33,14 +34,9 @@ const FeaturedProjectCard = ({ project }: { project: Project }) => {
 }
 
 export const FeaturedProjectsSection = () => {
-  const featuredProjectTitles = [
-    '<ChemPOV',
-    '<NuPOV',
-    'VR',
-    "Lightboard",
-  ]
+  const featuredProjectTitles = ['<ChemPOV', '<NuPOV', 'VR', 'Lightboard']
 
-  const {data: featuredProjects} = useProjectListQuery({
+  const { data: featuredProjects } = useProjectListQuery({
     limit: 4,
     additionalFilters: [
       (project) =>
@@ -49,10 +45,6 @@ export const FeaturedProjectsSection = () => {
         ),
     ],
   })
-
-  if (!featuredProjects) {
-    return <div></div>
-  }
 
   return (
     <FullScreenHeaderOnlySection
@@ -74,7 +66,7 @@ export const FeaturedProjectsSection = () => {
           className="inline-flex items-center gap-1 text-lg font-medium text-neutral-200 hover:text-white transition-colors duration-200"
         >
           View all projects
-          <ExternalLinkIcon className='h-4' />
+          <ExternalLinkIcon className="h-4" />
         </Link>
       </div>
     </FullScreenHeaderOnlySection>

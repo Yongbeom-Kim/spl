@@ -1,5 +1,5 @@
-import { Person } from '../../../strapi/hooks/use-people-query'
 import { ProfileCard } from './ProfileCard'
+import type { Person } from '../../../strapi/hooks/use-people-query'
 
 interface PeopleListProps {
   people: Array<Person>

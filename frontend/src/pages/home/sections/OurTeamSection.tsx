@@ -1,8 +1,9 @@
 import { Link } from '@tanstack/react-router'
+import { ExternalLinkIcon } from 'lucide-react'
+import type { Person } from '@/strapi/hooks/use-people-query'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { Section } from '@/components/page-section'
-import { type Person, usePeopleQuery } from '@/strapi/hooks/use-people-query'
-import { ExternalLinkIcon } from 'lucide-react'
+import { usePeopleQuery } from '@/strapi/hooks/use-people-query'
 
 const TeamMemberHeadshot = ({ person }: { person: Person }) => {
   return (
@@ -24,7 +25,7 @@ const TeamMemberHeadshot = ({ person }: { person: Person }) => {
 }
 
 export const OurTeamSection = () => {
-  const {data: peopleData} = usePeopleQuery()
+  const { data: peopleData } = usePeopleQuery()
 
   return (
     <FullScreenHeaderOnlySection
@@ -39,7 +40,7 @@ export const OurTeamSection = () => {
         collaboration of our team members.
       </Section.P>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(20%,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(12%,1fr))] gap-2 lg:gap-8 mb-16">
-        {(peopleData ?? []).map((person) => (
+        {peopleData.map((person) => (
           <TeamMemberHeadshot key={person.documentId} person={person} />
         ))}
       </div>
@@ -50,7 +51,7 @@ export const OurTeamSection = () => {
           className="inline-flex items-center gap-1 text-lg font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"
         >
           View the full team
-          <ExternalLinkIcon className='h-4' />
+          <ExternalLinkIcon className="h-4" />
         </Link>
       </div>
     </FullScreenHeaderOnlySection>

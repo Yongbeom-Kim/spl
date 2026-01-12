@@ -45,40 +45,39 @@ const allPublicationImages: Array<string> = [
   image18,
   image19,
 ]
-type PublicationsHeroMasonryBackgroundProps = {}
-export const PublicationsHeroMasonryBackground =
-  ({}: PublicationsHeroMasonryBackgroundProps) => {
-    const isLargeScreen = useIsLargeScreen()
-    const averageImagesPerColumn = isLargeScreen ? 3.2 : 5.7
-    const numColumns = Math.ceil(
-      allPublicationImages.length / averageImagesPerColumn,
-    )
-    const itemWidth = isLargeScreen ? 256 : 128
-    const [totalWidth, setTotalWidth] = useState(512)
 
-    useEffect(() => {
-      setTotalWidth(numColumns * itemWidth * 2)
-    }, [])
+export const PublicationsHeroMasonryBackground = () => {
+  const isLargeScreen = useIsLargeScreen()
+  const averageImagesPerColumn = isLargeScreen ? 3.2 : 5.7
+  const numColumns = Math.ceil(
+    allPublicationImages.length / averageImagesPerColumn,
+  )
+  const itemWidth = isLargeScreen ? 256 : 128
+  const [totalWidth, setTotalWidth] = useState(512)
 
-    return (
-      <div
-        className="flex flex-row animate-publications-hero-loop"
-        style={{
-          animation: 'loop 60s linear infinite',
-          width: `${totalWidth}px`,
-        }}
-      >
-        <MasonryBackground />
-        <MasonryBackground />
-        <style>
-          {`@keyframes loop {
+  useEffect(() => {
+    setTotalWidth(numColumns * itemWidth * 2)
+  }, [])
+
+  return (
+    <div
+      className="flex flex-row animate-publications-hero-loop"
+      style={{
+        animation: 'loop 60s linear infinite',
+        width: `${totalWidth}px`,
+      }}
+    >
+      <MasonryBackground />
+      <MasonryBackground />
+      <style>
+        {`@keyframes loop {
             from { transform: translateX(0); }
             to   { transform: translateX(-50%); }
         }`}
-        </style>
-      </div>
-    )
-  }
+      </style>
+    </div>
+  )
+}
 
 const MasonryBackground = () => {
   const contRef = useRef<HTMLDivElement | null>(null)

@@ -1,19 +1,19 @@
-import { Publication } from '@/strapi/hooks/use-publication-query'
-import { PublicationPlaceholder } from '../assets/PublicationPlaceholder'
 import { ExternalLinkIcon } from 'lucide-react'
+import { PublicationPlaceholder } from '../assets/PublicationPlaceholder'
+import type { Publication } from '@/strapi/hooks/use-publication-query'
 
 interface PublicationCardProps {
   publication: Publication
 }
 
 const formatDate = (date: Date): string => {
-    return date
-      .toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-      .toUpperCase()
+  return date
+    .toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+    .toUpperCase()
 }
 
 export const PublicationCardThumbnail = ({
@@ -61,7 +61,7 @@ export const PublicationCardBody = ({ publication }: PublicationCardProps) => {
           className="inline-flex items-center gap-0.5 text-sm font-medium text-accent-blue-600 hover:text-accent-blue-700 transition-colors duration-200"
         >
           Read More
-          <ExternalLinkIcon className='h-4' />
+          <ExternalLinkIcon className="h-4" />
         </a>
       </div>
     </div>

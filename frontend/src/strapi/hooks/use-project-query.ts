@@ -1,11 +1,11 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { strapiAxiosInstance } from '../utils/axiosInstance'
-import { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
+import type { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
 
 export type Project = StrapiBaseObject & {
   StartYear: string
   Summary: any
-  Thumbnail: StrapiImageType[]
+  Thumbnail: Array<StrapiImageType>
   Title: string
 }
 
@@ -14,7 +14,7 @@ const fetchProjectList = async () => {
   if (resp.status !== 200) {
     throw new Error('Non-200 return code')
   }
-  return resp.data.data as Project[]
+  return resp.data.data as Array<Project>
 }
 
 export const useProjectListQuery = ({
@@ -22,9 +22,9 @@ export const useProjectListQuery = ({
   additionalFilters,
 }: {
   limit?: number
-  additionalFilters?: ((p: Project) => boolean)[]
+  additionalFilters?: Array<(p: Project) => boolean>
 } = {}) => {
-  return useSuspenseQuery<Project[], Error>({
+  return useSuspenseQuery<Array<Project>, Error>({
     queryKey: ['project_list'],
     queryFn: fetchProjectList,
     select: (projects) => {

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import type { ReactNode} from 'react';
+import type { ReactNode } from 'react'
 import type { SectionVariant } from '../types'
 
 const sectionVariantContext = createContext<SectionVariant>('light')

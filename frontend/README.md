@@ -17,6 +17,28 @@ To build this application for production:
 pnpm build
 ```
 
+## Deployment
+
+This project deploys to Firebase Hosting with static SSG output.
+
+### Firebase 404 Handling
+
+This app uses a custom 404 setup for Firebase Hosting to ensure proper HTTP 404 semantics:
+
+1. **Route**: `/404` is a statically generated route (`.output/public/404/index.html`)
+2. **Post-build**: `.output/public/404.html` is created automatically by the `postbuild` script
+3. **Firebase**: Serves `404.html` for unknown paths with HTTP 404 status
+
+### Deploy to Firebase
+
+```bash
+npm run build    # Creates .output/public/404.html via postbuild
+./deploy.sh prod  # Deploy to production
+./deploy.sh staging  # Deploy to staging
+```
+
+The deployment script uses OpenTofu to manage Firebase infrastructure and deploys the build output to Firebase Hosting.
+
 ## Testing
 
 This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:

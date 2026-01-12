@@ -3,7 +3,7 @@ import { FullScreenHeaderOnlySection } from '@/components/page-section/container
 import { useGrantListQuery } from '@/strapi/hooks/use-grant-query'
 
 const FundedGrantProposalsSection = () => {
-  const {data: grantList} = useGrantListQuery()
+  const { data: grantList } = useGrantListQuery()
   return (
     <FullScreenHeaderOnlySection
       variant={'light'}

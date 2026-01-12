@@ -1,9 +1,6 @@
-import {
-  FullScreenHeaderOnlySection
-} from './FullScreenHeaderOnlySection'
+import { FullScreenHeaderOnlySection } from './FullScreenHeaderOnlySection'
 import type { ReactNode } from 'react'
-import type {
-  FullScreenHeaderOnlySectionProps} from './FullScreenHeaderOnlySection';
+import type { FullScreenHeaderOnlySectionProps } from './FullScreenHeaderOnlySection'
 
 type FullScreenImageTextSectionVariant = 'centered_image'
 

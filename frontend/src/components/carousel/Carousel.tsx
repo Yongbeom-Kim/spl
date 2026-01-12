@@ -58,32 +58,34 @@ export const Carousel = ({
     if (!isLightboxOpen) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      switch (e.key) {
-        case 'Escape':
-          setIsLightboxOpen(false)
-          break
-        case 'ArrowLeft':
-          setActiveIndex(
-            (prev: number) => (prev - 1 + images.length) % images.length,
-          )
-          break
-        case 'ArrowRight':
-          setActiveIndex((prev: number) => (prev + 1) % images.length)
-          break
-        case 'Tab':
-          if (!lightboxRef.current) return
-          e.preventDefault()
-          const focusableElements = Array.from(
-            lightboxRef.current.querySelectorAll('button'),
-          )
-          const focusedElement =
-            document.activeElement as HTMLButtonElement | null
-          const currentIndex = focusedElement
-            ? focusableElements.indexOf(focusedElement)
-            : -1
-          const nextIndex = currentIndex === -1 ? 0 : currentIndex
-          focusableElements[nextIndex]?.focus()
-          break
+      if (e.key === 'Escape') {
+        setIsLightboxOpen(false)
+        return
+      }
+      if (e.key === 'ArrowLeft') {
+        setActiveIndex(
+          (prev: number) => (prev - 1 + images.length) % images.length,
+        )
+        return
+      }
+      if (e.key === 'ArrowRight') {
+        setActiveIndex((prev: number) => (prev + 1) % images.length)
+        return
+      }
+      if (e.key === 'Tab') {
+        if (!lightboxRef.current) return
+        e.preventDefault()
+        const focusableElements = Array.from(
+          lightboxRef.current.querySelectorAll('button'),
+        )
+        const focusedElement =
+          document.activeElement as HTMLButtonElement | null
+        const currentIndex = focusedElement
+          ? focusableElements.indexOf(focusedElement)
+          : -1
+        const nextIndex = currentIndex === -1 ? 0 : currentIndex
+        focusableElements[nextIndex]?.focus()
+        return
       }
     }
 

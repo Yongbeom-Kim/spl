@@ -1,6 +1,6 @@
-import { NewsSummary } from "@/strapi/hooks/use-news-query"
-import { dateToHumanReadable } from "@/strapi/utils/date"
-import { ExternalLinkIcon } from "lucide-react"
+import { ExternalLinkIcon } from 'lucide-react'
+import type { NewsSummary } from '@/strapi/hooks/use-news-query'
+import { dateToHumanReadable } from '@/strapi/utils/date'
 
 interface NewsCardProps {
   newsItem: NewsSummary

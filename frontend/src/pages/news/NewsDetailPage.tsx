@@ -1,8 +1,8 @@
+import { useParams } from '@tanstack/react-router'
+import { ExternalLinkIcon } from 'lucide-react'
 import { useNewsItemDetailQuery } from '@/strapi/hooks/use-news-query'
 import { dateToHumanReadable } from '@/strapi/utils/date'
-import { useParams } from '@tanstack/react-router'
 import { PageLayout } from '@/components/page-layout/PageLayout'
-import { ExternalLinkIcon } from 'lucide-react'
 
 export const NewsDetailPage = () => {
   const { slug } = useParams({ from: '/news/$slug' })
@@ -43,7 +43,9 @@ export const NewsDetailPage = () => {
           <div className="mb-8">
             <img
               src={newsItem.NewsPageThumbnail[0].url}
-              alt={newsItem.NewsPageThumbnail[0].alternativeText || newsItem.Title}
+              alt={
+                newsItem.NewsPageThumbnail[0].alternativeText || newsItem.Title
+              }
               className="w-full h-auto rounded-lg shadow-lg"
             />
           </div>
@@ -86,7 +88,7 @@ export const NewsDetailPage = () => {
               className="inline-flex items-center gap-1 px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent-blue-600 hover:bg-accent-blue-700"
             >
               Read Original Article
-              <ExternalLinkIcon className='h-4 relative bottom-px' />
+              <ExternalLinkIcon className="h-4 relative bottom-px" />
             </a>
           </div>
         )}

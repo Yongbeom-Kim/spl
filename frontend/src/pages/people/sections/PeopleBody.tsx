@@ -1,11 +1,11 @@
 import { PeopleList } from '../components/PeopleList'
-import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { usePeopleQuery } from '../../../strapi/hooks/use-people-query'
+import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 
 export const PeopleBody = () => {
-  const {data: peopleData} = usePeopleQuery()
-  const nonAlumni = (peopleData ?? []).filter(person => !person.is_alumni)
-  const alumni = (peopleData ?? []).filter((person) => person.is_alumni)
+  const { data: peopleData } = usePeopleQuery()
+  const nonAlumni = peopleData.filter((person) => !person.is_alumni)
+  const alumni = peopleData.filter((person) => person.is_alumni)
 
   return (
     <>

@@ -1,8 +1,8 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { strapiAxiosInstance } from '../utils/axiosInstance'
-import { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
-import { yyyymmddToDate } from '../utils/date'
 import qs from 'qs'
+import { strapiAxiosInstance } from '../utils/axiosInstance'
+import { yyyymmddToDate } from '../utils/date'
+import type { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
 
 export type NewsSummaryRaw = StrapiBaseObject & {
   Date: string // yyyy-mm-dd
@@ -21,7 +21,7 @@ export type NewsItemRaw = StrapiBaseObject & {
   Title: string
   PreviewSummary: string
   slug: string
-  NewsPageThumbnail?: StrapiImageType[]
+  NewsPageThumbnail?: Array<StrapiImageType>
   NewsPageBody?: any
   LinkToArticle?: string
 }
@@ -44,16 +44,16 @@ const fetchNewsSummaryList = async () => {
   if (resp.status !== 200) {
     throw new Error('Non-200 return code')
   }
-  return resp.data.data as NewsSummaryRaw[]
+  return resp.data.data as Array<NewsSummaryRaw>
 }
 
 export const useNewsSummaryListQuery = ({
   select,
-}: { select?: (arg: NewsSummary[]) => NewsSummary[] } = {}) => {
+}: { select?: (arg: Array<NewsSummary>) => Array<NewsSummary> } = {}) => {
   return useSuspenseQuery({
     queryKey: ['news_summary_list'],
     queryFn: fetchNewsSummaryList,
-    select: (newsList): NewsSummary[] => {
+    select: (newsList): Array<NewsSummary> => {
       const result = newsList
         .map((news) => ({
           ...news,

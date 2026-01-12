@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import { Link } from '@tanstack/react-router'
-import { HamburgerButton } from '../hamburger-nav/HamburgerButton'
-import { useScrollDirection } from '@/hooks/use-scroll-direction'
 import { useSetAtom } from 'jotai'
+import { HamburgerButton } from '../hamburger-nav/HamburgerButton'
 import { isNavOverlayVisibleAtom } from '../hamburger-nav/is-nav-overlay-visible-atom'
+import { useScrollDirection } from '@/hooks/use-scroll-direction'
 
 type PageHeaderProps = {
   bg: 'dark-gradient' | 'none'

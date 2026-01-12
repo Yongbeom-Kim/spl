@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { Person } from '../../../strapi/hooks/use-people-query'
+import type { Person } from '../../../strapi/hooks/use-people-query'
 
 interface ProfileCardProps {
   person: Person

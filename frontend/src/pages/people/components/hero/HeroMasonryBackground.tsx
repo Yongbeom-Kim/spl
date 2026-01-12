@@ -1,22 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
+import { usePeopleQuery } from '../../../../strapi/hooks/use-people-query'
+import type { Person } from '../../../../strapi/hooks/use-people-query'
 import type Masonry from 'masonry-layout'
+import type { StrapiImageType } from '@/strapi/utils/strapi-types'
 import { debounce, shuffle } from '@/util'
-import {
-  Person,
-  usePeopleQuery,
-} from '../../../../strapi/hooks/use-people-query'
-import { StrapiImageType } from '@/strapi/utils/strapi-types'
 
 export const PeoplePageHeroBackground = () => {
   const { data: peopleData } = usePeopleQuery()
-  const [headshots, setHeadshots] = useState<StrapiImageType[]>()
+  const [headshots, setHeadshots] = useState<Array<StrapiImageType>>()
   const [visible, setVisible] = useState(false)
   const gridRef = useRef<HTMLDivElement | null>(null)
   const masonryRef = useRef<Masonry | null>(null)
 
   useEffect(() => {
-    setHeadshots(shuffle((peopleData ?? []).map((person) => person.headshot)))
+    setHeadshots(shuffle(peopleData.map((person) => person.headshot)))
   }, [peopleData])
 
   useEffect(() => {
@@ -40,7 +38,7 @@ export const PeoplePageHeroBackground = () => {
   const handleImageLoad = () => {
     masonryRef.current?.layout?.()
   }
-  if (!headshots) return <div className='h-full bg-neutral-300'></div>
+  if (!headshots) return <div className="h-full bg-neutral-300"></div>
 
   return (
     <div className="relative h-full bg-neutral-300">

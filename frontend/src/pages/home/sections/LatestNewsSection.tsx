@@ -1,8 +1,9 @@
 import { Link } from '@tanstack/react-router'
+import { ExternalLinkIcon } from 'lucide-react'
+import type { NewsSummary } from '@/strapi/hooks/use-news-query'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
-import { type NewsSummary, useNewsSummaryListQuery } from '@/strapi/hooks/use-news-query';
-import { dateToHumanReadable } from '@/strapi/utils/date';
-import { ExternalLinkIcon } from 'lucide-react';
+import { useNewsSummaryListQuery } from '@/strapi/hooks/use-news-query'
+import { dateToHumanReadable } from '@/strapi/utils/date'
 
 const NewsHighlightCard = ({ newsSummary }: { newsSummary: NewsSummary }) => {
   return (
@@ -30,13 +31,12 @@ const NewsHighlightCard = ({ newsSummary }: { newsSummary: NewsSummary }) => {
   )
 }
 
-
-function limitToThree<T>(array: T[]): T[] {
+function limitToThree<T>(array: Array<T>): Array<T> {
   return array.slice(0, 3)
 }
 
 export const LatestNewsSection = () => {
-  const {data: latestNews} = useNewsSummaryListQuery({select: limitToThree})
+  const { data: latestNews } = useNewsSummaryListQuery({ select: limitToThree })
 
   return (
     <FullScreenHeaderOnlySection

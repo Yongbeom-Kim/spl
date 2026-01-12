@@ -1,21 +1,23 @@
 import { skipToken, useQuery, useSuspenseQuery } from '@tanstack/react-query'
 import { strapiAxiosInstance } from '../utils/axiosInstance'
-import { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
+import type { StrapiBaseObject, StrapiImageType } from '../utils/strapi-types'
 
 export type Person = StrapiBaseObject & {
   name: string
   is_alumni: boolean
   is_lead: boolean
   short_description: string
-	headshot: StrapiImageType
+  headshot: StrapiImageType
 }
 
 const fetchPeople = async () => {
-  const resp = await strapiAxiosInstance.get('/api/team-members?populate=headshot')
+  const resp = await strapiAxiosInstance.get(
+    '/api/team-members?populate=headshot',
+  )
   if (resp.status !== 200) {
     throw new Error('Non-200 return code')
   }
-  return resp.data.data as Person[]
+  return resp.data.data as Array<Person>
 }
 
 const fetchPersonById = async (documentId: string) => {
@@ -27,7 +29,7 @@ const fetchPersonById = async (documentId: string) => {
 }
 
 export const usePeopleQuery = () => {
-  return useSuspenseQuery<Person[], Error>({
+  return useSuspenseQuery<Array<Person>, Error>({
     queryKey: ['people'],
     queryFn: fetchPeople,
     select: (people) => {
@@ -35,17 +37,17 @@ export const usePeopleQuery = () => {
       // 2. is_alumni === false (second)
       // 3. is_alumni === true (last)
       return [...people].sort((a, b) => {
-        // First: sort by is_lead 
+        // First: sort by is_lead
         if (a.is_lead !== b.is_lead) {
-          return a.is_lead ? -1 : 1; // true first
+          return a.is_lead ? -1 : 1 // true first
         }
         // Second: sort by is_alumni (false before true)
         if (a.is_alumni !== b.is_alumni) {
-          return a.is_alumni ? 1 : -1; // false before true
+          return a.is_alumni ? 1 : -1 // false before true
         }
-        return 0;
-      });
-    }
+        return 0
+      })
+    },
   })
 }
 
