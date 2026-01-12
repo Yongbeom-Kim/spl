@@ -2,7 +2,8 @@
 
 This is a monorepo containing all the code for the SenpaiLearn website.
 
-Prod: [senpailearn.com](https://senpailearn.com)
+
+Prod: [senpailearn.com](https://senpailearn.com) <br>
 Staging: [staging.senpailearn.com](https://staging.senpailearn.com)
 
 ## Architecture
