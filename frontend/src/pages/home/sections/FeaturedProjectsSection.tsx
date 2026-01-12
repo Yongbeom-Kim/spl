@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { FullScreenHeaderOnlySection } from '@/components/page-section/containers/layout/FullScreenHeaderOnlySection'
 import { Project, useProjectListQuery } from '@/strapi/hooks/use-project-query'
+import { ExternalLinkIcon } from 'lucide-react'
 
 const FeaturedProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -70,22 +71,10 @@ export const FeaturedProjectsSection = () => {
       <div className="mt-12 text-center">
         <Link
           to="/projects"
-          className="inline-flex items-center text-lg font-medium text-neutral-200 hover:text-white transition-colors duration-200"
+          className="inline-flex items-center gap-1 text-lg font-medium text-neutral-200 hover:text-white transition-colors duration-200"
         >
           View all projects
-          <svg
-            className="w-5 h-5 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
+          <ExternalLinkIcon className='h-4' />
         </Link>
       </div>
     </FullScreenHeaderOnlySection>
