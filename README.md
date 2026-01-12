@@ -2,6 +2,9 @@
 
 This is a monorepo containing all the code for the SenpaiLearn website.
 
+Prod: [senpailearn.com](https://senpailearn.com)
+Staging: [staging.senpailearn.com](https://staging.senpailearn.com)
+
 ## Architecture
 
 |                | Frontend (./frontend)                            | CMS (./strapi)                |     |
