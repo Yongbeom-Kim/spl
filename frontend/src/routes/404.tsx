@@ -4,6 +4,7 @@ import { NotFoundComponent } from '@/components/not-found'
 
 export const Route = createFileRoute('/404')({
   component: NotFoundComponent,
+  notFoundComponent: NotFoundComponent,
   head: () => {
     return generateSeoMeta({
       title: 'Page Not Found | SenpaiLearn',

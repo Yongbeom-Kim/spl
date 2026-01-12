@@ -11,6 +11,8 @@ echo -e "\033[1;33mDeploying for $ENV\033[0m"
 
 . ./source.sh
 
+pnpm run build
+
 tofu base apply -auto-approve
 
 tofu "${ENV}" apply -auto-approve
