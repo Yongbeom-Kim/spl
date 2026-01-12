@@ -1,8 +1,7 @@
 import { copyFileSync, existsSync, mkdirSync } from 'node:fs'
 import { dirname } from 'node:path'
 
-// const src = '.output/public/404/index.html'
-const src = '.output/public/index.html'
+const src = '.output/public/404/index.html'
 const dest = '.output/public/404.html'
 
 if (!existsSync(src)) {
