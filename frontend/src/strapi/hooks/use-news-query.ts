@@ -70,14 +70,14 @@ export const useNewsSummaryListQuery = ({
   })
 }
 
-const fetchNewsItemDetail = async (slug: string) => {
+export const fetchNewsItemDetail = async (slug: string) => {
   const query = qs.stringify({
     filters: {
       slug: {
         $eq: slug,
       },
     },
-		populate: ['NewsPageThumbnail']
+    populate: ['NewsPageThumbnail'],
   })
   const resp = await strapiAxiosInstance.get(`/api/news-items?${query}`)
   if (resp.status !== 200) {
