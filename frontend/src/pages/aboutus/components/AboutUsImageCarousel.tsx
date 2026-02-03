@@ -1,9 +1,14 @@
 import { Carousel } from '@/components/carousel'
+import labGroupPhoto from '../assets/2026-02_lab-group-photo/DSC01110.webp'
 
 export const AboutUsImageCarousel = () => {
   return (
     <Carousel
       images={[
+        {
+          src: labGroupPhoto,
+          alt: 'Lab Group Photo',
+        },
         {
           src: 'https://static.wixstatic.com/media/658066_e116353ee8014ca7905f67a3e3306f64~mv2.jpg/v1/fill/w_928,h_696,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/658066_e116353ee8014ca7905f67a3e3306f64~mv2.jpg',
           alt: 'Senpai Learn activity 1',
@@ -35,6 +40,10 @@ export const AboutUsImageCarousel = () => {
         {
           src: 'https://static.wixstatic.com/media/658066_9ed7d182776445069a02bc937b6cbd75~mv2.jpg/v1/fill/w_928,h_619,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/658066_9ed7d182776445069a02bc937b6cbd75~mv2.jpg',
           alt: 'Senpai Learn activity 8',
+        },
+        {
+          src: 'https://static.wixstatic.com/media/658066_9ed7d182776445069a02bc937b6cbd75~mv2.jpg/v1/fill/w_928,h_619,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/658066_9ed7d182776445069a02bc937b6cbd75~mv2.jpg',
+          alt: 'Senpai Learn activity 9',
         },
       ]}
       autoPlayInterval={4000}
