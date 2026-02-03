@@ -1,4 +1,4 @@
-import heroImage from '../assets/hero.jpg'
+import heroImage from '../assets/hero-compressed.webp'
 import { FullScreenHeroSection } from '@/components/full-screen-hero/FullScreenHeroSection'
 
 export const PartnersHeroSection = () => {
